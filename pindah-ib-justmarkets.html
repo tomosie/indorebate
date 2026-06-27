@@ -9,6 +9,34 @@ h1{font-size:58px;margin:20px 0}.gold,h2{color:#f4c54d}.art{text-align:center;fo
 .card{margin:30px 0;background:rgba(255,255,255,.06);padding:30px;border-radius:18px;border:1px solid rgba(255,255,255,.08)}
 .step{display:flex;gap:18px;margin:20px 0}.n{width:48px;height:48px;border-radius:50%;background:#f4c54d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center}
 .box{background:#0b1b42;border:1px solid #29457b;padding:15px;border-radius:10px;word-break:break-all}
+  .copy-box{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.ib-code{
+    min-width:180px;
+}
+
+.copy-btn{
+    background:#f4c54d;
+    color:#111;
+    border:none;
+    padding:14px 26px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:15px;
+    font-weight:700;
+    transition:.3s;
+    white-space:nowrap;
+}
+
+.copy-btn:hover{
+    background:#ffd463;
+    transform:translateY(-2px);
+    box-shadow:0 10px 22px rgba(244,197,77,.35);
+}
   .link-box{
     display:inline-block;
     color:#fff;
@@ -45,14 +73,12 @@ h1{font-size:58px;margin:20px 0}.gold,h2{color:#f4c54d}.art{text-align:center;fo
 
 <div class="step"><div class="n">2</div><div><b>Masukkan IB Code</b><div class="copy-box">
 
-    <div class="box">
+    <div class="box ib-code">
         p29kw0m7xi
     </div>
 
-    <button
-        class="copy-btn"
-        onclick="copyIB()">
-        Copy
+    <button class="copy-btn" onclick="copyIB()">
+        📋 Copy
     </button>
 
 </div></div></div>
