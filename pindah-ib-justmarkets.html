@@ -9,6 +9,18 @@ h1{font-size:58px;margin:20px 0}.gold,h2{color:#f4c54d}.art{text-align:center;fo
 .card{margin:30px 0;background:rgba(255,255,255,.06);padding:30px;border-radius:18px;border:1px solid rgba(255,255,255,.08)}
 .step{display:flex;gap:18px;margin:20px 0}.n{width:48px;height:48px;border-radius:50%;background:#f4c54d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center}
 .box{background:#0b1b42;border:1px solid #29457b;padding:15px;border-radius:10px;word-break:break-all}
+  .link-box{
+    display:inline-block;
+    color:#fff;
+    text-decoration:none;
+    transition:.3s;
+}
+
+.link-box:hover{
+    border-color:#f4c54d;
+    color:#f4c54d;
+    box-shadow:0 0 20px rgba(244,197,77,.25);
+}
 .note{background:#3d2f0b;border-left:4px solid #f4c54d;padding:15px;border-radius:8px;margin-top:20px}
 .btn{display:inline-block;margin-top:25px;padding:15px 34px;background:#f4c54d;color:#111;text-decoration:none;font-weight:700;border-radius:10px}
 .f{text-align:center;padding:25px}p{line-height:1.8;color:#dde3f1}
@@ -23,9 +35,27 @@ h1{font-size:58px;margin:20px 0}.gold,h2{color:#f4c54d}.art{text-align:center;fo
 <div class="card">
 <h2>Langkah Pengajuan Pindah IB</h2>
 
-<div class="step"><div class="n">1</div><div><b>Buka Halaman Pengajuan</b><p>Silakan buka link berikut:</p><div class="box">https://justmarkets.pro/spa/system/partner-change</div></div></div>
+<div class="step"><div class="n">1</div><div><b>Buka Halaman Pengajuan</b><p>Silakan buka link berikut:</p><a
+    href="https://justmarkets.pro/spa/system/partner-change"
+    target="_blank"
+    rel="noopener noreferrer"
+    class="box link-box">
+    https://justmarkets.pro/spa/system/partner-change
+</a></div></div>
 
-<div class="step"><div class="n">2</div><div><b>Masukkan IB Code</b><div class="box">p29kw0m7xi</div></div></div>
+<div class="step"><div class="n">2</div><div><b>Masukkan IB Code</b><div class="copy-box">
+
+    <div class="box">
+        p29kw0m7xi
+    </div>
+
+    <button
+        class="copy-btn"
+        onclick="copyIB()">
+        Copy
+    </button>
+
+</div></div></div>
 
 <div class="step"><div class="n">3</div><div><b>Alasan Pengajuan</b><div class="box">Rebate</div></div></div>
 
@@ -42,4 +72,14 @@ h1{font-size:58px;margin:20px 0}.gold,h2{color:#f4c54d}.art{text-align:center;fo
 <a href="index.html" class="btn">← Kembali ke Beranda</a>
 </div>
 
-</div></body></html>
+</div> 
+<script>
+
+function copyIB(){
+    navigator.clipboard.writeText("p29kw0m7xi");
+    alert("IB Code berhasil disalin");
+}
+
+</script>
+
+</body></html>
