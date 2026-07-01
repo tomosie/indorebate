@@ -128,7 +128,21 @@
     transition: transform .2s, box-shadow .2s;
   }
   .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,151,58,.6); }
- .btn-telegram{
+ .validation-buttons{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.validation-buttons a{
+    min-width:260px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.btn-telegram{
     background:#229ED9;
     color:#fff;
     font-family:'Plus Jakarta Sans',sans-serif;
@@ -138,12 +152,13 @@
     border-radius:10px;
     text-decoration:none;
     box-shadow:0 4px 20px rgba(34,158,217,.35);
-    transition:transform .2s, box-shadow .2s;
+    transition:all .2s;
 }
 
 .btn-telegram:hover{
     transform:translateY(-2px);
     box-shadow:0 8px 28px rgba(34,158,217,.5);
+}
 }
   .btn-outline {
     background: transparent; border: 2px solid rgba(255,255,255,.3);
