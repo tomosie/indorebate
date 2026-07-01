@@ -73,6 +73,28 @@
     box-shadow: 0 2px 8px rgba(201,151,58,.35);
   }
   .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,151,58,.5); }
+ .nav-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.nav-telegram{
+    background:#229ED9;
+    color:#fff;
+    font-weight:700;
+    font-size:.88rem;
+    padding:10px 20px;
+    border-radius:8px;
+    text-decoration:none;
+    transition:all .2s;
+    box-shadow:0 2px 8px rgba(34,158,217,.35);
+}
+
+.nav-telegram:hover{
+    transform:translateY(-1px);
+    box-shadow:0 4px 16px rgba(34,158,217,.5);
+}
 
   /* ── HERO ── */
   .hero {
@@ -400,6 +422,15 @@
     .hero h1 { font-size: 2.2rem; }
     .hero-stats { grid-template-columns: 1fr 1fr; }
     .footer-bottom { flex-direction: column; }
+   .nav-actions{
+    gap:8px;
+}
+
+.nav-telegram,
+.nav-cta{
+    padding:10px 14px;
+    font-size:.82rem;
+}
   }
   @media (max-width: 600px) {
     .broker-features { grid-template-columns: 1fr; }
@@ -421,7 +452,21 @@
       <li><a href="rebate.html" target="_blank" rel="noopener noreferrer">Apa itu Rebate</a></li>
       <li><a href="validasi.html" rel="noopener noreferrer" target="_blank">Validasi Akun</a></li>
     </ul>
-    <a href="validasi.html" rel="noopener noreferrer" target="_blank" class="nav-cta">Validasi Akun →</a>
+    <div class="nav-actions">
+    <a href="validasi.html"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="nav-cta">
+        Validasi Akun
+    </a>
+
+    <a href="https://t.me/indovalidator_bot?start=validasi"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="nav-telegram">
+        Telegram
+    </a>
+</div>
   </div>
 </nav>
 
