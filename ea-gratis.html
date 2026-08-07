@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>EA Trading Gratis untuk Member — Indorebate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #0B1B3A;
+    --navy-mid:#122249;
+    --navy-lt: #1A3068;
+    --gold:    #C9973A;
+    --gold-lt: #E8B84B;
+    --gold-pale:#FDF3E0;
+    --white:   #FFFFFF;
+    --gray-50: #F8FAFC;
+    --gray-100:#F1F5F9;
+    --gray-200:#E2E8F0;
+    --gray-500:#64748B;
+    --gray-700:#334155;
+    --text:    #1E293B;
+    --red:     #B3261E;
+    --red-pale:#FDEDEC;
+    --radius:  12px;
+    --shadow:  0 4px 24px rgba(11,27,58,.10);
+    --shadow-lg:0 12px 40px rgba(11,27,58,.15);
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+  /* ── NAV (identical to index.html) ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+    box-shadow: 0 2px 16px rgba(11,27,58,.07);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 68px;
+  }
+  .logo {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px;
+    color: var(--navy); text-decoration: none;
+  }
+  .logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 8px; list-style: none; }
+  .nav-links a {
+    font-family: 'Inter', sans-serif; font-weight: 500; font-size: .92rem;
+    color: var(--gray-700); text-decoration: none;
+    padding: 8px 16px; border-radius: 8px; transition: all .2s;
+  }
+  .nav-links a:hover { background: var(--gold-pale); color: var(--navy); }
+  .nav-links a.active { background: var(--navy); color: var(--white); }
+  .nav-actions{ display:flex; align-items:center; gap:10px; }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+    color: var(--navy); font-weight: 700; font-size: .88rem;
+    padding: 10px 20px; border-radius: 8px; text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 2px 8px rgba(201,151,58,.35);
+    white-space: nowrap;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,151,58,.5); }
+  .nav-telegram{
+    background:#229ED9; color:#fff; font-weight:700; font-size:.88rem;
+    padding:10px 20px; border-radius:8px; text-decoration:none;
+    transition:all .2s; box-shadow:0 2px 8px rgba(34,158,217,.35);
+    white-space: nowrap;
+  }
+  .nav-telegram:hover{ transform:translateY(-1px); box-shadow:0 4px 16px rgba(34,158,217,.5); }
+  .nav-telegram .icon-only { display: none; }
+
+  /* ── PAGE HERO ── */
+  .page-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #1E3A7A 100%);
+    padding: 72px 24px 64px;
+    position: relative; overflow: hidden;
+    text-align: center;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute; top: -120px; right: -120px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,151,58,.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero-inner { max-width: 780px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,151,58,.15); border: 1px solid rgba(201,151,58,.4);
+    color: var(--gold-lt); font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 100px; margin-bottom: 20px;
+  }
+  .hero-badge::before { content: '🎁'; }
+  .page-hero h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 2.6rem; font-weight: 800; line-height: 1.2;
+    color: var(--white); margin-bottom: 18px; letter-spacing: -1px;
+  }
+  .page-hero h1 em { font-style: normal; color: var(--gold-lt); }
+  .page-hero p {
+    color: rgba(255,255,255,.75); font-size: 1.05rem;
+    max-width: 560px; margin: 0 auto 32px; line-height: 1.7;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+    color: var(--navy); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; font-size: .95rem;
+    padding: 14px 28px; border-radius: 10px; text-decoration: none;
+    box-shadow: 0 4px 20px rgba(201,151,58,.45);
+    transition: transform .2s, box-shadow .2s; display:inline-block;
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,151,58,.6); }
+  .btn-telegram{
+    background:#229ED9; color:#fff; font-family:'Plus Jakarta Sans',sans-serif;
+    font-weight:700; font-size:.95rem; padding:14px 28px; border-radius:10px;
+    text-decoration:none; box-shadow:0 4px 20px rgba(34,158,217,.35);
+    transition:all .2s; display:inline-block;
+  }
+  .btn-telegram:hover{ transform:translateY(-2px); box-shadow:0 8px 28px rgba(34,158,217,.5); }
+
+  /* ── SECTIONS ── */
+  .section { padding: 64px 24px; }
+  .section-inner { max-width: 900px; margin: 0 auto; }
+  .section-label {
+    color: var(--gold); font-weight: 700; font-size: .8rem;
+    letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.9rem; font-weight: 800; color: var(--navy);
+    margin-bottom: 20px; letter-spacing: -.5px;
+  }
+  .section p { color: var(--gray-700); margin-bottom: 14px; }
+
+  /* Disclaimer box */
+  .warning-box {
+    background: var(--red-pale);
+    border: 1px solid rgba(179,38,30,.25);
+    border-left: 4px solid var(--red);
+    border-radius: var(--radius);
+    padding: 28px 28px;
+    margin: 24px 0;
+  }
+  .warning-box h3 {
+    color: var(--red); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.1rem; margin-bottom: 14px; display:flex; align-items:center; gap:8px;
+  }
+  .warning-box ul { margin: 0; padding-left: 20px; color: var(--gray-700); }
+  .warning-box li { margin-bottom: 10px; }
+  .warning-box .fine-print {
+    margin-top: 16px; padding-top: 16px; border-top: 1px dashed rgba(179,38,30,.25);
+    font-size: .85rem; color: var(--gray-500); font-style: italic;
+  }
+
+  /* Feature table */
+  .feature-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+  .feature-table th, .feature-table td {
+    text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--gray-200);
+    font-size: .92rem;
+  }
+  .feature-table th {
+    background: var(--gray-50); color: var(--navy);
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700;
+  }
+  .feature-table td:first-child { font-weight: 600; color: var(--navy); white-space: nowrap; }
+  .feature-table td { color: var(--gray-700); }
+
+  /* Steps */
+  .steps-list { counter-reset: step; list-style: none; margin: 24px 0; }
+  .steps-list li {
+    counter-increment: step;
+    position: relative;
+    padding: 4px 0 28px 52px;
+    color: var(--gray-700);
+  }
+  .steps-list li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: 0;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+    color: var(--navy); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+    display: flex; align-items: center; justify-content: center; font-size: .95rem;
+  }
+  .steps-list li strong { color: var(--navy); display:block; margin-bottom: 4px; font-family:'Plus Jakarta Sans', sans-serif; }
+
+  /* CTA card */
+  .claim-card {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    text-align: center;
+    margin: 40px 0;
+  }
+  .claim-card h3 {
+    color: var(--white); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.4rem; margin-bottom: 10px;
+  }
+  .claim-card p { color: rgba(255,255,255,.7); margin-bottom: 24px; }
+
+  .divider { height: 1px; background: var(--gray-200); margin: 8px 0 40px; }
+
+  /* Screenshot showcase */
+  .showcase {
+    padding: 0 24px 64px;
+    margin-top: -32px;
+    position: relative; z-index: 2;
+  }
+  .showcase-inner { max-width: 1000px; margin: 0 auto; }
+  .showcase-frame {
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 10px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .showcase-frame img {
+    width: 100%; display: block; border-radius: 8px;
+  }
+  .showcase-caption {
+    text-align: center; color: var(--gray-500); font-size: .88rem;
+    margin-top: 14px;
+  }
+
+  @media (max-width: 900px) {
+    nav .nav-links { display: none; }
+    .page-hero h1 { font-size: 2rem; }
+    .feature-table { font-size: .85rem; }
+    .feature-table th, .feature-table td { padding: 10px 10px; }
+    .showcase { margin-top: -20px; }
+  }
+  @media (max-width: 400px) {
+    .nav-inner { padding: 0 14px; }
+    .logo { font-size: 1.2rem; }
+    .nav-actions { gap: 6px; }
+    .nav-cta, .nav-telegram { padding: 9px 11px; font-size: .74rem; }
+    .nav-telegram .full-text { display: none; }
+    .nav-telegram .icon-only { display: inline; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">INDO<span>REBATE</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="index.html#broker">Broker</a></li>
+      <li><a href="index.html#cara-kerja">Cara Kerja</a></li>
+      <li><a href="rebate.html" target="_blank" rel="noopener noreferrer">Apa itu Rebate</a></li>
+      <li><a href="ea-gratis.html" class="active">🎁 EA Gratis</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="validasi.html" target="_blank" rel="noopener noreferrer" class="nav-cta">Validasi</a>
+      <a href="https://t.me/indovalidator_bot?start=validasi" target="_blank" rel="noopener noreferrer" class="nav-telegram"><span class="full-text">via Telegram</span><span class="icon-only">✈️</span></a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <div class="hero-badge">Bonus Eksklusif Member</div>
+    <h1>EA Trading Tools <em>Gratis</em> untuk Member Indorebate</h1>
+    <p>Tools semi-otomatis untuk membantu eksekusi dan manajemen posisi trading Anda — bisa dipakai di semua pair, gratis untuk member aktif Indorebate.</p>
+    <div class="hero-btns">
+      <a href="#klaim" class="btn-gold">Klaim EA Gratis</a>
+      <a href="#panduan" class="btn-telegram" style="background:transparent;border:2px solid rgba(255,255,255,.3);box-shadow:none;">Lihat Panduan</a>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOT SHOWCASE -->
+<section class="showcase">
+  <div class="showcase-inner">
+    <div class="showcase-frame">
+      <img src="ea-panel-screenshot.png" alt="Tampilan panel Martingale Tools EA di chart XAUUSD MT5">
+    </div>
+    <p class="showcase-caption">Tampilan panel EA langsung di chart MT5 — kontrol BUY/SELL manual, monitoring basket, dan pengaturan proteksi real-time.</p>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Baca Dulu</div>
+    <h2 class="section-title">Penting: EA Ini Tools, Bukan Jaminan Profit</h2>
+    <p>Sebelum menggunakan, pastikan Anda memahami betul cara kerja dan risikonya. EA ini dibuat untuk membantu proses trading, bukan menggantikan strategi dan keputusan Anda sebagai trader.</p>
+
+    <div class="warning-box">
+      <h3>⚠️ Hal yang Wajib Anda Pahami</h3>
+      <ul>
+        <li><strong>EA tidak menganalisa pasar dan tidak menentukan kapan entry.</strong> Keputusan BUY/SELL sepenuhnya manual, berdasarkan analisa Anda sendiri.</li>
+        <li>EA menggunakan metode <strong>averaging/martingale</strong> — menambah posisi bertahap saat harga bergerak melawan posisi awal untuk mengejar titik impas.</li>
+        <li>Metode ini <strong>berisiko tinggi</strong>. Jika tren melawan terus berlanjut tanpa pembalikan dan tidak dikelola dengan disiplin (lot, jarak averaging, jumlah grid sesuai modal), <strong>akun bisa terkena Margin Call (MC).</strong></li>
+        <li><strong>EA ini tidak berjalan otomatis 24 jam.</strong> Anda tetap perlu memantau posisi, kondisi market, dan berita ekonomi.</li>
+        <li>Hasil trading sepenuhnya bergantung pada <strong>strategi, manajemen risiko, dan disiplin masing-masing pengguna</strong> — bukan pada EA itu sendiri.</li>
+      </ul>
+      <div class="fine-print">
+        Tools ini ditujukan untuk trader yang sudah memahami konsep martingale/averaging dan risikonya. Indorebate tidak bertanggung jawab atas kerugian trading yang timbul dari penggunaan tools ini. Forex trading mengandung risiko kehilangan modal.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" style="background:var(--gray-50);">
+  <div class="section-inner">
+    <div class="section-label">Fitur</div>
+    <h2 class="section-title">Apa yang Dilakukan EA Ini</h2>
+    <p>EA membantu otomatisasi hal-hal teknis <strong>setelah</strong> Anda memutuskan entry — bukan mengambil keputusan trading untuk Anda.</p>
+    <table class="feature-table">
+      <tr><th>Fitur</th><th>Penjelasan</th></tr>
+      <tr><td>Entry Manual via Panel</td><td>Tombol BUY NOW / SELL NOW langsung di chart — Anda yang menentukan arah dan waktu entry.</td></tr>
+      <tr><td>Auto Averaging</td><td>Menambah posisi otomatis sesuai jarak (points) yang Anda atur, dengan lot mengikuti multiplier martingale.</td></tr>
+      <tr><td>Auto Break-Even TP</td><td>Menghitung titik impas seluruh basket posisi dan memasang Take Profit otomatis di atasnya.</td></tr>
+      <tr><td>Auto Re-Entry Setelah TP</td><td>Setelah basket kena TP, EA bisa membuka posisi baru di arah yang sama dengan lot awal (opsional, dapat dimatikan).</td></tr>
+      <tr><td>Proteksi Max Drawdown</td><td>Menutup seluruh posisi otomatis jika drawdown akun mencapai persentase tertentu dari balance.</td></tr>
+      <tr><td>Target Profit &amp; Max Loss</td><td>Menutup seluruh posisi otomatis saat mencapai target profit atau batas rugi mengambang (USD) yang Anda tentukan.</td></tr>
+      <tr><td>Panel Monitoring</td><td>Status basket BUY/SELL, jumlah grid, profit/loss, BEP, TP, dan drawdown tampil real-time di chart.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- PANDUAN -->
+<section class="section" id="panduan">
+  <div class="section-inner">
+    <div class="section-label">Petunjuk Penggunaan</div>
+    <h2 class="section-title">Cara Menggunakan EA</h2>
+    <ol class="steps-list">
+      <li><strong>Persiapan</strong>Pasang EA di chart pair yang ingin ditradingkan (semua pair didukung — Forex, Gold, dll). Pastikan akun trading dalam mode <em>hedging</em>, bukan netting.</li>
+      <li><strong>Atur Parameter Sesuai Modal &amp; Risiko</strong>Sesuaikan Initial Lot, Averaging Distance, Martingale Multiplier, dan terutama Max Grid Order — jangan sampai lebih besar dari kemampuan modal Anda.</li>
+      <li><strong>Aktifkan Proteksi</strong>Set Max Drawdown %, Target Profit, dan Max Loss sesuai toleransi risiko Anda sebagai pengaman otomatis.</li>
+      <li><strong>Entry Manual</strong>Analisa market sesuai strategi Anda, lalu tekan tombol BUY NOW / SELL NOW sesuai arah yang diyakini. EA akan mengelola averaging, BEP, dan TP secara otomatis dari titik itu.</li>
+      <li><strong>Pantau Secara Berkala</strong>Cek panel EA secara rutin, terutama saat market volatile (rilis berita, overlap sesi trading). EA bukan pengganti pengawasan Anda.</li>
+      <li><strong>Reset Kapan Saja</strong>Gunakan tombol Close All / Reset untuk menutup seluruh posisi dan mereset status EA jika diperlukan.</li>
+    </ol>
+  </div>
+</section>
+
+<!-- CLAIM -->
+<section class="section" style="background:var(--gray-50);" id="klaim">
+  <div class="section-inner">
+    <div class="claim-card">
+      <h3>Cara Klaim EA Gratis</h3>
+      <p>Daftar akun trading via link referral Indorebate → Aktifkan status member rebate → Hubungi kami untuk klaim EA beserta panduan instalasi.</p>
+      <div class="hero-btns">
+        <a href="index.html#broker" class="btn-gold">Daftar Akun Broker</a>
+        <a href="https://t.me/omahrebate" target="_blank" rel="noopener noreferrer" class="btn-telegram">Klaim via Telegram</a>
+      </div>
+    </div>
+    <p style="text-align:center;color:var(--gray-500);font-size:.9rem;">Dengan menggunakan EA ini, Anda memahami dan menyetujui bahwa keputusan trading, hasil, dan risiko sepenuhnya menjadi tanggung jawab Anda pribadi sebagai pengguna.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--navy);padding:48px 24px 24px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;padding-bottom:24px;">
+      <a href="index.html" class="logo" style="color:var(--white)">INDO<span style="color:var(--gold)">REBATE</span></a>
+      <div style="display:flex;gap:20px;">
+        <a href="https://wa.me/6285777717118" style="color:rgba(255,255,255,.7);text-decoration:none;">💬 WhatsApp</a>
+        <a href="https://t.me/omahrebate" style="color:rgba(255,255,255,.7);text-decoration:none;">✈️ Telegram</a>
+        <a href="mailto:omahrebate@gmail.com" style="color:rgba(255,255,255,.7);text-decoration:none;">✉️ Email</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.1);padding-top:20px;">
+      <p style="color:rgba(255,255,255,.45);font-size:.8rem;line-height:1.6;">
+        <strong style="color:rgba(255,255,255,.6)">Disclaimer:</strong>
+        Indorebate bukan merupakan bagian dari Broker Forex manapun, hanya sebagai Introducing Broker yang bertugas untuk memberi kemudahan dan fasilitas tambahan trading kepada klien. EA yang dibagikan adalah tools bantuan trading, bukan sistem yang menjamin profit. Forex trading mempunyai risiko kehilangan dana. Gunakan dana secara bijak.
+      </p>
+      <div style="color:rgba(255,255,255,.35);font-size:.8rem;margin-top:12px;">© 2026 Indorebate</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
