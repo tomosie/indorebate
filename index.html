@@ -114,7 +114,6 @@
     transform:translateY(-1px);
     box-shadow:0 4px 16px rgba(34,158,217,.5);
 }
-.nav-telegram .icon-only { display: none; } 
 
   /* ── HERO ── */
   .hero {
@@ -480,12 +479,15 @@
 }
   }
   @media (max-width: 400px) {
-    .nav-inner { padding: 0 14px; }
+    .nav-inner {
+      flex-wrap: wrap;
+      row-gap: 10px;
+      height: auto;
+      padding: 12px 14px;
+    }
     .logo { font-size: 1.2rem; }
-    .nav-actions { gap: 6px; }
-    .nav-cta, .nav-telegram { padding: 9px 11px; font-size: .74rem; }
-    .nav-telegram .full-text { display: none; }
-    .nav-telegram .icon-only { display: inline; }
+    .nav-actions { width: 100%; justify-content: center; gap: 10px; }
+    .nav-cta, .nav-telegram { padding: 9px 16px; font-size: .78rem; }
   }
   @media (max-width: 600px) {
     .broker-features { grid-template-columns: 1fr; }
@@ -524,8 +526,7 @@
        target="_blank"
        rel="noopener noreferrer"
        class="nav-telegram">
-        Via Telegram
-        <span class="icon-only">✈️</span>
+        <span class="full-text">Via Telegram</span>
     </a>
 </div>
   </div>
