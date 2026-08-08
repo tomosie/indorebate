@@ -129,7 +129,7 @@
   }
   .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,151,58,.6); }
   .btn-telegram{
-    background:#25D366; color:#fff; font-family:'Plus Jakarta Sans',sans-serif;
+    background:#229ED9; color:#fff; font-family:'Plus Jakarta Sans',sans-serif;
     font-weight:700; font-size:.95rem; padding:14px 28px; border-radius:10px;
     text-decoration:none; box-shadow:0 4px 20px rgba(34,158,217,.35);
     transition:all .2s; display:inline-block;
@@ -169,6 +169,24 @@
     margin-top: 16px; padding-top: 16px; border-top: 1px dashed rgba(179,38,30,.25);
     font-size: .85rem; color: var(--gray-500); font-style: italic;
   }
+
+  /* Requirement box (gold) */
+  .require-box {
+    background: var(--gold-pale);
+    border: 1px solid rgba(201,151,58,.35);
+    border-left: 4px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin: 24px 0;
+    display: flex; align-items: flex-start; gap: 16px;
+  }
+  .require-box .icon { font-size: 1.6rem; line-height: 1; flex-shrink: 0; }
+  .require-box h3 {
+    color: var(--navy); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem; margin-bottom: 6px;
+  }
+  .require-box p { color: var(--gray-700); font-size: .92rem; margin: 0; }
+  .require-box a { color: var(--navy); font-weight: 700; text-decoration: underline; }
 
   /* Feature table */
   .feature-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
@@ -279,9 +297,9 @@
 <!-- PAGE HERO -->
 <section class="page-hero">
   <div class="page-hero-inner">
-    <div class="hero-badge">Bonus Eksklusif Member</div>
+    <div class="hero-badge">Bonus Eksklusif Member Terdaftar</div>
     <h1>EA Trading Tools <em>Gratis</em> untuk Member Indorebate</h1>
-    <p>Tools semi-otomatis untuk membantu eksekusi dan manajemen posisi trading Anda — bisa dipakai di semua pair, gratis untuk member aktif Indorebate.</p>
+    <p>Tools semi-otomatis untuk membantu eksekusi dan manajemen posisi trading Anda — bisa dipakai di semua pair, <strong>khusus untuk akun trading yang terdaftar aktif di Indorebate.</strong></p>
     <div class="hero-btns">
       <a href="#klaim" class="btn-gold">Klaim EA Gratis</a>
       <a href="#panduan" class="btn-telegram" style="background:transparent;border:2px solid rgba(255,255,255,.3);box-shadow:none;">Lihat Panduan</a>
@@ -302,6 +320,15 @@
 <!-- DISCLAIMER -->
 <section class="section">
   <div class="section-inner">
+
+    <div class="require-box">
+      <div class="icon">🔒</div>
+      <div>
+        <h3>Syarat Penggunaan: Akun Terdaftar di Indorebate</h3>
+        <p>EA ini <strong>hanya dapat digunakan dengan akun trading yang terdaftar dan aktif di jaringan Indorebate.</strong> Jika Anda menggunakan broker mitra Indorebate namun akun belum tervalidasi di sistem kami, EA tidak akan bisa diaktifkan. Belum punya akun terdaftar? <a href="index.html#broker">Daftar di sini</a> atau <a href="validasi.html" target="_blank" rel="noopener noreferrer">validasi akun Anda</a> terlebih dahulu.</p>
+      </div>
+    </div>
+
     <div class="section-label">Baca Dulu</div>
     <h2 class="section-title">Penting: EA Ini Tools, Bukan Jaminan Profit</h2>
     <p>Sebelum menggunakan, pastikan Anda memahami betul cara kerja dan risikonya. EA ini dibuat untuk membantu proses trading, bukan menggantikan strategi dan keputusan Anda sebagai trader.</p>
@@ -362,11 +389,12 @@
   <div class="section-inner">
     <div class="claim-card">
       <h3>Cara Klaim EA Gratis</h3>
-      <p>Daftar akun trading via link referral Indorebate → Aktifkan status member rebate → Hubungi kami untuk klaim EA beserta panduan instalasi.</p>
+      <p>Daftar akun trading via link referral Indorebate → Aktifkan &amp; validasi status member rebate → Hubungi kami untuk klaim EA beserta panduan instalasi.</p>
       <div class="hero-btns">
         <a href="index.html#broker" class="btn-gold">Daftar Akun Broker</a>
-        <a href="https://wa.link/x12e7r" target="_blank" rel="noopener noreferrer" class="btn-telegram">Klaim via WhatsApp</a>
+        <a href="https://t.me/omahrebate" target="_blank" rel="noopener noreferrer" class="btn-telegram">Klaim via Telegram</a>
       </div>
+      <p style="color:rgba(255,255,255,.55);font-size:.82rem;margin-top:20px;margin-bottom:0;">⚠️ EA hanya diberikan untuk akun yang sudah terverifikasi terdaftar di Indorebate.</p>
     </div>
     <p style="text-align:center;color:var(--gray-500);font-size:.9rem;">Dengan menggunakan EA ini, Anda memahami dan menyetujui bahwa keputusan trading, hasil, dan risiko sepenuhnya menjadi tanggung jawab Anda pribadi sebagai pengguna.</p>
   </div>
