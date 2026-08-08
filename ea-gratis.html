@@ -84,7 +84,6 @@
     white-space: nowrap;
   }
   .nav-telegram:hover{ transform:translateY(-1px); box-shadow:0 4px 16px rgba(34,158,217,.5); }
-  .nav-telegram .icon-only { display: none; }
 
   /* ── PAGE HERO ── */
   .page-hero {
@@ -265,12 +264,15 @@
     .showcase { margin-top: -20px; }
   }
   @media (max-width: 400px) {
-    .nav-inner { padding: 0 14px; }
+    .nav-inner {
+      flex-wrap: wrap;
+      row-gap: 10px;
+      height: auto;
+      padding: 12px 14px;
+    }
     .logo { font-size: 1.2rem; }
-    .nav-actions { gap: 6px; }
-    .nav-cta, .nav-telegram { padding: 9px 11px; font-size: .74rem; }
-    .nav-telegram .full-text { display: none; }
-    .nav-telegram .icon-only { display: inline; }
+    .nav-actions { width: 100%; justify-content: center; gap: 10px; }
+    .nav-cta, .nav-telegram { padding: 9px 16px; font-size: .78rem; }
   }
 </style>
 </head>
@@ -289,7 +291,7 @@
     </ul>
     <div class="nav-actions">
       <a href="validasi.html" target="_blank" rel="noopener noreferrer" class="nav-cta">Validasi</a>
-      <a href="https://t.me/indovalidator_bot?start=validasi" target="_blank" rel="noopener noreferrer" class="nav-telegram"><span class="full-text">via Telegram</span><span class="icon-only">✈️</span></a>
+      <a href="https://t.me/indovalidator_bot?start=validasi" target="_blank" rel="noopener noreferrer" class="nav-telegram"><span class="full-text">Via Telegram</span></a>
     </div>
   </div>
 </nav>
