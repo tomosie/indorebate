@@ -52,6 +52,7 @@
     max-width: 1200px; margin: 0 auto;
     display: flex; align-items: center; justify-content: space-between;
     padding: 0 24px; height: 68px;
+    flex-wrap: nowrap;
   }
   .logo {
     font-family: 'Plus Jakarta Sans', sans-serif;
@@ -263,16 +264,17 @@
     .feature-table th, .feature-table td { padding: 10px 10px; }
     .showcase { margin-top: -20px; }
   }
-  @media (max-width: 400px) {
-    .nav-inner {
-      flex-wrap: wrap;
-      row-gap: 10px;
-      height: auto;
-      padding: 12px 14px;
-    }
-    .logo { font-size: 1.2rem; }
-    .nav-actions { width: 100%; justify-content: center; gap: 10px; }
-    .nav-cta, .nav-telegram { padding: 9px 16px; font-size: .78rem; }
+  @media (max-width: 480px) {
+    .nav-inner { padding: 0 12px; }
+    .logo { font-size: 1.15rem; }
+    .nav-actions { gap: 8px; }
+    .nav-cta, .nav-telegram { padding: 8px 13px; font-size: .76rem; }
+  }
+  @media (max-width: 380px) {
+    .nav-inner { padding: 0 10px; }
+    .logo { font-size: 1.02rem; }
+    .nav-actions { gap: 6px; }
+    .nav-cta, .nav-telegram { padding: 7px 10px; font-size: .68rem; }
   }
 </style>
 </head>
