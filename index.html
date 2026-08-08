@@ -38,31 +38,44 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
 
-  /* ── PROMO BAR ── */
+  /* ── PROMO BAR (scrolling marquee) ── */
   .promo-bar {
     display: block;
     background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+    text-decoration: none;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 11px 0;
+  }
+  .promo-bar-track {
+    display: inline-flex;
+    align-items: center;
+    animation: promo-scroll 16s linear infinite;
+  }
+  .promo-bar-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
     color: var(--navy);
-    text-align: center;
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700;
     font-size: .85rem;
-    padding: 11px 16px;
-    text-decoration: none;
     letter-spacing: .01em;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    padding: 0 32px;
   }
-  .promo-bar:hover { filter: brightness(1.04); }
-  .promo-bar .arrow { display: inline-block; transition: transform .2s; }
-  .promo-bar:hover .arrow { transform: translateX(3px); }
+  @keyframes promo-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .promo-bar:hover .promo-bar-track { animation-play-state: paused; }
   @media (max-width: 480px) {
-    .promo-bar { font-size: .72rem; padding: 9px 12px; }
+    .promo-bar-item { font-size: .76rem; padding: 0 22px; }
+    .promo-bar-track { animation-duration: 12s; }
   }
   @media (max-width: 360px) {
-    .promo-bar { font-size: .64rem; padding: 8px 8px; }
+    .promo-bar-item { font-size: .7rem; padding: 0 18px; }
   }
+
 
   /* ── NAV ── */
   nav {
@@ -490,13 +503,13 @@
   }
   @media (max-width: 480px) {
     .nav-inner { padding: 0 12px; }
-    .logo { font-size: 1.35rem; }
+    .logo { font-size: 1.15rem; }
     .nav-actions { gap: 8px; }
     .nav-cta, .nav-telegram { padding: 8px 13px; font-size: .76rem; }
   }
   @media (max-width: 380px) {
     .nav-inner { padding: 0 10px; }
-    .logo { font-size: 1.2rem; }
+    .logo { font-size: 1.02rem; }
     .nav-actions { gap: 6px; }
     .nav-cta, .nav-telegram { padding: 7px 10px; font-size: .68rem; }
   }
@@ -511,7 +524,10 @@
 
 <!-- PROMO BAR -->
 <a href="ea-gratis.html" class="promo-bar">
-  🎁 EA Trading Tools GRATIS untuk Member — Klaim Sekarang <span class="arrow">→</span>
+  <div class="promo-bar-track">
+    <span class="promo-bar-item">🎁 EA Trading Tools GRATIS untuk Member — Klaim Sekarang →</span>
+    <span class="promo-bar-item">🎁 EA Trading Tools GRATIS untuk Member — Klaim Sekarang →</span>
+  </div>
 </a>
 
 <!-- NAV -->
