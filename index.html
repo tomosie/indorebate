@@ -318,11 +318,33 @@
     padding-bottom: 20px; border-bottom: 1px solid var(--gray-100);
   }
   .broker-logo {
-    width: 64px; height: 64px; border-radius: 12px;
+    width: 96px; height: 96px; border-radius: 12px;
     object-fit: contain; background: var(--white);
-    border: 1px solid var(--gray-200); padding: 6px;
+    border: 1px solid var(--gray-200); padding: 8px;
     flex-shrink: 0;
   }
+  .ib-code-box {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 10px; background: var(--gray-50); border: 1px dashed var(--gray-200);
+    border-radius: 10px; padding: 10px 14px; margin-bottom: 18px;
+  }
+  .ib-code-box .ib-code-label {
+    font-size: .72rem; font-weight: 700; letter-spacing: .04em;
+    text-transform: uppercase; color: var(--gray-500); display: block; margin-bottom: 2px;
+  }
+  .ib-code-box .ib-code-val {
+    font-family: 'Courier New', monospace; font-weight: 700;
+    font-size: 1rem; color: var(--navy); word-break: break-all;
+  }
+  .ib-copy-btn {
+    flex-shrink: 0; border: 1px solid var(--gray-200); background: var(--white);
+    color: var(--navy); font-size: .78rem; font-weight: 700;
+    padding: 7px 12px; border-radius: 8px; cursor: pointer;
+    transition: background .2s, color .2s, border-color .2s;
+    white-space: nowrap;
+  }
+  .ib-copy-btn:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .ib-copy-btn.copied { background: var(--gold); color: var(--white); border-color: var(--gold); }
   .broker-name {
     font-family: 'Plus Jakarta Sans', sans-serif;
     font-weight: 700; font-size: 1.1rem; color: var(--navy);
@@ -658,6 +680,13 @@
             <span class="broker-badge">Auto Rebate</span>
           </div>
         </div>
+        <div class="ib-code-box">
+          <div>
+            <span class="ib-code-label">Kode IB Indorebate</span>
+            <span class="ib-code-val" id="ibcode-headway">20438</span>
+          </div>
+          <button type="button" class="ib-copy-btn" onclick="copyIBCode('ibcode-headway', this)">Copy</button>
+        </div>
         <div class="broker-features">
           <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$5</div></div>
           <div class="feat"><div class="feat-label">Rebate</div><div class="feat-val highlight">80%</div></div>
@@ -693,6 +722,13 @@
             <div class="broker-name">Exness</div>
             <span class="broker-badge">Auto Rebate</span>
           </div>
+        </div>
+        <div class="ib-code-box">
+          <div>
+            <span class="ib-code-label">Kode IB Indorebate</span>
+            <span class="ib-code-val" id="ibcode-exness">pbjftbb9eb</span>
+          </div>
+          <button type="button" class="ib-copy-btn" onclick="copyIBCode('ibcode-exness', this)">Copy</button>
         </div>
         <div class="broker-features">
           <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$1</div></div>
@@ -732,6 +768,13 @@
             <span class="broker-badge">Auto Rebate</span>
           </div>
         </div>
+        <div class="ib-code-box">
+          <div>
+            <span class="ib-code-label">Kode IB Indorebate</span>
+            <span class="ib-code-val" id="ibcode-hfm">194327</span>
+          </div>
+          <button type="button" class="ib-copy-btn" onclick="copyIBCode('ibcode-hfm', this)">Copy</button>
+        </div>
         <div class="broker-features">
           <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$5</div></div>
           <div class="feat"><div class="feat-label">Rebate</div><div class="feat-val highlight">80%</div></div>
@@ -770,6 +813,13 @@
             <span class="broker-badge">Auto Rebate</span>
           </div>
         </div>
+        <div class="ib-code-box">
+          <div>
+            <span class="ib-code-label">Kode IB Indorebate</span>
+            <span class="ib-code-val" id="ibcode-tickmill">IB64086506</span>
+          </div>
+          <button type="button" class="ib-copy-btn" onclick="copyIBCode('ibcode-tickmill', this)">Copy</button>
+        </div>
         <div class="broker-features">
           <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$100</div></div>
           <div class="feat"><div class="feat-label">Rebate</div><div class="feat-val highlight">80%</div></div>
@@ -805,6 +855,13 @@
             <div class="broker-name">JustMarkets</div>
             <span class="broker-badge">Auto Rebate</span>
           </div>
+        </div>
+        <div class="ib-code-box">
+          <div>
+            <span class="ib-code-label">Kode IB Indorebate</span>
+            <span class="ib-code-val" id="ibcode-justmarkets">p29kw0m7xi</span>
+          </div>
+          <button type="button" class="ib-copy-btn" onclick="copyIBCode('ibcode-justmarkets', this)">Copy</button>
         </div>
         <div class="broker-features">
           <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$0</div></div>
@@ -844,6 +901,13 @@
             <span class="broker-badge">Auto Rebate</span>
           </div>
         </div>
+        <div class="ib-code-box">
+          <div>
+            <span class="ib-code-label">Kode IB Indorebate</span>
+            <span class="ib-code-val" id="ibcode-roboforex">ljhu</span>
+          </div>
+          <button type="button" class="ib-copy-btn" onclick="copyIBCode('ibcode-roboforex', this)">Copy</button>
+        </div>
         <div class="broker-features">
           <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$10</div></div>
           <div class="feat"><div class="feat-label">Rebate</div><div class="feat-val highlight">80%</div></div>
@@ -881,6 +945,13 @@
             <div class="broker-name">XM Global</div>
             <span class="broker-badge">Auto Rebate</span>
           </div>
+        </div>
+        <div class="ib-code-box">
+          <div>
+            <span class="ib-code-label">Kode IB Indorebate</span>
+            <span class="ib-code-val" id="ibcode-xm">H2G2P</span>
+          </div>
+          <button type="button" class="ib-copy-btn" onclick="copyIBCode('ibcode-xm', this)">Copy</button>
         </div>
         <div class="broker-features">
           <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$5</div></div>
@@ -1013,5 +1084,36 @@
   </div>
 </footer>
  
+<script>
+function copyIBCode(elId, btn) {
+  var text = document.getElementById(elId).textContent.trim();
+  var done = function () {
+    var original = btn.textContent;
+    btn.textContent = 'Tersalin!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(done).catch(function () { fallbackCopy(text, done); });
+  } else {
+    fallbackCopy(text, done);
+  }
+}
+function fallbackCopy(text, done) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+  done();
+}
+</script>
 </body>
 </html>
