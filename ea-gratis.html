@@ -10,7 +10,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>EA Trading Gratis untuk Member — Indorebate</title>
+<title>Merah Putih Tools V3 — EA Trading Gratis untuk Member Indorebate</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -302,7 +302,7 @@
 <section class="page-hero">
   <div class="page-hero-inner">
     <div class="hero-badge">Bonus Eksklusif Member Terdaftar</div>
-    <h1>EA Trading Tools <em>Gratis</em> untuk Member Indorebate</h1>
+    <h1>Merah Putih Tools V3 <em>Gratis</em> untuk Member Indorebate</h1>
     <p>Tools semi-otomatis untuk membantu eksekusi dan manajemen posisi trading Anda — bisa dipakai di semua pair, <strong>khusus untuk akun trading yang terdaftar aktif di Indorebate.</strong></p>
     <div class="hero-btns">
       <a href="#klaim" class="btn-gold">Klaim EA Gratis</a>
@@ -315,9 +315,9 @@
 <section class="showcase">
   <div class="showcase-inner">
     <div class="showcase-frame">
-      <img src="ea-panel-screenshot.png" alt="Tampilan panel Pyramid + Averaging EA di chart XAUUSD MT5">
+      <img src="ea-panel-screenshot.png" alt="Tampilan panel Merah Putih Tools V3 di chart XAUUSD MT5">
     </div>
-    <p class="showcase-caption">Tiga panel EA langsung di chart MT5 — EA Setup, Trading Info, dan Order Panel — untuk kontrol BUY/SELL manual, monitoring basket pyramid/averaging, dan pengaturan proteksi real-time.</p>
+    <p class="showcase-caption">Tiga panel Merah Putih Tools V3 langsung di chart MT5 — EA Setup, Trading Info, dan Order Panel — untuk kontrol BUY/SELL manual, monitoring basket pyramid/averaging, dan pengaturan proteksi real-time.</p>
   </div>
 </section>
 
@@ -341,7 +341,7 @@
       <h3>⚠️ Hal yang Wajib Anda Pahami</h3>
       <ul>
         <li><strong>EA tidak menganalisa pasar dan tidak menentukan kapan entry.</strong> Keputusan BUY/SELL awal sepenuhnya manual lewat tombol di panel, berdasarkan analisa Anda sendiri.</li>
-        <li>Setelah entry pertama, EA berjalan dengan <strong>dua mode otomatis</strong>: <strong>Pyramid</strong> — menambah posisi baru dengan lot tetap saat harga bergerak searah profit, lalu mengunci keuntungan basket dengan trailing stop; dan <strong>Averaging/Martingale</strong> — menambah posisi dengan lot berlipat (multiplier) saat harga bergerak melawan posisi awal, untuk mengejar titik impas (BEP).</li>
+        <li>Setelah entry pertama, EA berjalan dengan <strong>dua mode otomatis</strong>: <strong>Pyramid</strong> — menambah posisi baru saat harga bergerak searah profit sejauh Pyramid Distance, lalu mengunci keuntungan basket dengan trailing stop sejauh Pyramid SL; dan <strong>Averaging/Martingale</strong> — menambah posisi dengan lot berlipat (multiplier) saat harga bergerak melawan posisi awal sejauh Grid Distance, untuk mengejar titik impas (BEP).</li>
         <li>Mode averaging <strong>berisiko tinggi</strong>. Jika tren melawan terus berlanjut tanpa pembalikan dan tidak dikelola dengan disiplin (lot, jarak grid, jumlah order sesuai modal), <strong>akun bisa terkena Margin Call (MC).</strong></li>
         <li><strong>EA ini tidak berjalan otomatis 24 jam.</strong> Anda tetap perlu memantau posisi, kondisi market, dan berita ekonomi — termasuk saat fitur re-entry otomatis aktif.</li>
         <li>Hasil trading sepenuhnya bergantung pada <strong>strategi, manajemen risiko, dan disiplin masing-masing pengguna</strong> — bukan pada EA itu sendiri.</li>
@@ -362,14 +362,14 @@
     <table class="feature-table">
       <tr><th>Fitur</th><th>Penjelasan</th></tr>
       <tr><td>Entry Manual via Order Panel</td><td>Tombol BUY NOW / SELL NOW langsung di chart — Anda yang menentukan arah dan waktu entry pertama.</td></tr>
-      <tr><td>Auto Pyramid</td><td>Saat harga bergerak searah profit sejauh Pyramid Distance, EA menambah posisi baru dengan lot tetap (sesuai Base Lot) mengikuti tren.</td></tr>
+      <tr><td>Auto Pyramid</td><td>Saat harga bergerak searah profit sejauh Pyramid Distance, EA menambah posisi baru mengikuti tren, lalu langsung memasang stop loss basket sejauh Pyramid SL di belakang harga — dan menariknya (trailing) setiap kali order pyramid baru terbentuk.</td></tr>
       <tr><td>Auto Averaging / Martingale</td><td>Saat harga bergerak melawan posisi sejauh Grid Distance, EA menambah posisi dengan lot berlipat sesuai Multiplier untuk mengejar titik impas (BEP).</td></tr>
       <tr><td>Auto Basket TP</td><td>Begitu mode averaging aktif, EA menghitung BEP seluruh basket dan otomatis memasang Take Profit di jarak Basket TP dari BEP tersebut.</td></tr>
-      <tr><td>Trailing Stop Basket</td><td>Selama posisi masih dalam mode pyramid (belum averaging), trailing stop otomatis mengunci profit seluruh basket begitu harga bergerak sejauh Trailing Start dari entry pertama.</td></tr>
-      <tr><td>Auto Re-Entry (Terpisah)</td><td>Dua saklar independen — Pyramid Reentry &amp; Averaging Reentry — untuk membuka ulang posisi otomatis di arah yang sama setelah basket pyramid kena trailing stop atau basket averaging kena Basket TP.</td></tr>
-      <tr><td>Target Profit &amp; Max Loss (USD)</td><td>Menutup seluruh posisi otomatis begitu total profit sesi (closed + floating) mencapai target, atau saat floating loss mencapai batas Max Loss yang Anda tentukan.</td></tr>
-      <tr><td>Filter Sesi &amp; Spread</td><td>EA hanya membuka order baru di dalam jam trading yang diatur dan saat spread masih di bawah batas Max Spread.</td></tr>
-      <tr><td>Panel Monitoring 3-Panel</td><td>EA Setup, Trading Info, dan Order Panel menampilkan status, arah, mode (Pyramiding/Averaging), jumlah order, BEP, Basket TP, Floating/Closed/Total P/L secara real-time.</td></tr>
+      <tr><td>Trailing Stop Pyramid</td><td>Selama posisi masih dalam mode pyramid (belum averaging), status "Trailing" pada panel aktif dan Trailing SL otomatis mengunci profit basket sejauh Pyramid SL dari harga berjalan.</td></tr>
+      <tr><td>Auto Re-Entry</td><td>Satu tombol RE-ENTRY di Order Panel — saat ON, EA otomatis membuka ulang posisi di arah yang sama setelah basket ditutup, baik lewat trailing stop pyramid maupun Basket TP averaging.</td></tr>
+      <tr><td>Target Profit &amp; Max Loss (USD)</td><td>Menutup seluruh posisi otomatis begitu total profit sesi (closed + floating) mencapai Target Profit, atau saat floating loss mencapai batas Max Loss yang Anda tentukan (default OFF/nonaktif).</td></tr>
+      <tr><td>Filter Spread &amp; Status AutoTrading</td><td>EA hanya membuka order baru saat spread masih di bawah batas Max Spread dan tombol AutoTrading/Algo Trading di MT5 dalam kondisi aktif — status ini ditampilkan real-time di baris "Session" pada panel.</td></tr>
+      <tr><td>Panel Monitoring 3-Panel</td><td>EA Setup, Trading Info, dan Order Panel menampilkan status, arah, mode (GRID+PYRAMID/GRID ONLY), jumlah order, BEP, Basket TP, Floating/Closed/Total P/L, dan status Trailing secara real-time.</td></tr>
     </table>
   </div>
 </section>
@@ -382,10 +382,10 @@
     <ol class="steps-list">
       <li><strong>Persiapan</strong>Pasang EA di chart pair yang ingin ditradingkan (semua pair didukung — Forex, Gold, dll). Pastikan akun trading dalam mode <em>hedging</em>, bukan netting.</li>
       <li><strong>Atur Parameter Sesuai Modal &amp; Risiko</strong>Sesuaikan Base Lot, Multiplier, Grid Distance (jarak averaging), Pyramid Distance (jarak pyramid), dan terutama Max Order — jangan sampai lebih besar dari kemampuan modal Anda.</li>
-      <li><strong>Atur Trailing &amp; Basket TP</strong>Tentukan Trailing Start/Trailing Stop untuk mode pyramid, serta Basket TP untuk mode averaging, sesuai target dan gaya trading Anda.</li>
-      <li><strong>Aktifkan Proteksi</strong>Set Target Profit (USD) dan Max Loss (USD) sebagai pengaman otomatis, serta Max Spread dan Trading Session agar EA hanya bekerja di kondisi market yang Anda inginkan.</li>
+      <li><strong>Atur Trailing &amp; Basket TP</strong>Tentukan Pyramid SL (jarak trailing stop) untuk mode pyramid, serta Basket TP untuk mode averaging, sesuai target dan gaya trading Anda.</li>
+      <li><strong>Aktifkan Proteksi</strong>Set Target Profit (USD) dan Max Loss (USD) sebagai pengaman otomatis, serta Max Spread agar EA hanya membuka order baru saat kondisi market sesuai. Pastikan tombol AutoTrading/Algo Trading di MT5 tetap aktif — statusnya bisa dipantau di baris "Session" pada panel.</li>
       <li><strong>Entry Manual</strong>Analisa market sesuai strategi Anda, lalu tekan tombol BUY NOW / SELL NOW di Order Panel sesuai arah yang diyakini. Dari titik itu EA otomatis menentukan pyramid atau averaging mengikuti pergerakan harga.</li>
-      <li><strong>Atur Reentry Sesuai Kebutuhan</strong>Nyalakan/matikan Pyramid Reentry dan Averaging Reentry lewat tombol di Order Panel — biarkan ON jika ingin EA membuka ulang posisi otomatis setelah basket tertutup.</li>
+      <li><strong>Atur Reentry Sesuai Kebutuhan</strong>Nyalakan/matikan tombol RE-ENTRY di Order Panel — biarkan ON jika ingin EA membuka ulang posisi otomatis di arah yang sama setelah basket tertutup (baik lewat trailing stop pyramid maupun Basket TP averaging).</li>
       <li><strong>Pantau Secara Berkala</strong>Cek panel EA secara rutin, terutama saat market volatile (rilis berita, overlap sesi trading). EA bukan pengganti pengawasan Anda.</li>
       <li><strong>Reset Kapan Saja</strong>Gunakan tombol Close All / Reset untuk menutup seluruh posisi dan mereset status EA jika diperlukan.</li>
     </ol>
