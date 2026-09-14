@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Account Validation</title>
+
+<style>
+    
+body{
+    font-family: Arial, sans-serif;
+    max-width:600px;
+    margin:50px auto;
+    padding:20px;
+}
+
+.btn-gold{
+    background: linear-gradient(135deg,#d4af37,#f7d774);
+    color:#000;
+    border:none;
+    padding:14px 25px;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:16px;
+    cursor:pointer;
+}
+.btn-whatsapp{
+    display:block;
+    text-align:center;
+    background:#25D366;
+    color:#fff;
+    text-decoration:none;
+    padding:14px 25px;
+    border-radius:8px;
+    font-weight:bold;
+    font-size:16px;
+}
+    
+h1{
+    text-align:center;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input, select{
+    padding:12px;
+    font-size:16px;
+    font-family: Arial, sans-serif;
+    border:1px solid #ccc;
+    border-radius:6px;
+    background:#fff;
+    color:#000;
+}
+
+select{
+    appearance:auto;
+}
+
+select:invalid{
+    color:#777;
+}
+
+button{
+    padding:14px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+.form-message{
+    padding:12px 14px;
+    border-radius:6px;
+    font-size:14px;
+    display:none;
+}
+.form-message.success{
+    display:block;
+    background:#e6f7ec;
+    color:#0a7a3c;
+    border:1px solid #b7e6c9;
+}
+.form-message.error{
+    display:block;
+    background:#fdeaea;
+    color:#a3271f;
+    border:1px solid #f3bcb8;
+}
+
+</style>
+
+</head>
+<body>
+
+<h1>Indorebate Account Validation</h1>
+
+<form id="validationForm">
+
+    <input
+        type="text"
+        name="full_name"
+        placeholder="NAMA LENGKAP"
+        required>
+
+    <input
+        type="text"
+        name="account_number"
+        placeholder="NOMOR AKUN TRADING"
+        inputmode="numeric"
+        pattern="[0-9]+"
+        required>
+
+    <select name="broker_name" required>
+        <option value="" disabled selected hidden>PILIH NAMA BROKER</option>
+        <option value="Headway">Headway</option>
+        <option value="Exness">Exness</option>
+        <option value="HFM">HFM</option>
+        <option value="Tickmill">Tickmill</option>
+        <option value="JustMarkets">JustMarkets</option>
+        <option value="RoboForex">RoboForex</option>
+        <option value="XM Global">XM Global</option>
+    </select>
+
+    <input
+        type="email"
+        name="email"
+        placeholder="EMAIL ADDRESS"
+        required>
+
+    <button type="submit" class="btn-gold" id="submitBtn" disabled>
+        VALIDATE ACCOUNT
+    </button>
+
+    <div id="formMessage" class="form-message" role="status"></div>
+
+<a href="https://wa.link/9093p9"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="btn-whatsapp">
+        KONFIRMASI REBATE
+    </a>
+
+<p style="text-align:center; font-size:14px; color:#555; margin-top:10px;">
+    Harap tekan tombol <strong>KONFIRMASI REBATE</strong> jika sudah melakukan <strong>VALIDATE ACCOUNT</strong> untuk mempercepat proses validasi.
+</p>
+    
+</form>
+
+<script>
+(function () {
+    // Ganti dengan URL endpoint Vercel kamu setelah deploy, contoh:
+    // "https://indorebate-bot.vercel.app/api/validasi"
+    var ENDPOINT_URL = "https://GANTI-DENGAN-URL-VERCEL-KAMU.vercel.app/api/validasi";
+
+    var form = document.getElementById('validationForm');
+    var accountNumber = form.querySelector('input[name="account_number"]');
+    var submitBtn = document.getElementById('submitBtn');
+    var messageBox = document.getElementById('formMessage');
+
+    accountNumber.addEventListener('input', function () {
+        this.value = this.value.replace(/[^0-9]/g, '');
+        updateSubmitState();
+    });
+
+    form.addEventListener('input', updateSubmitState);
+    form.addEventListener('change', updateSubmitState);
+
+    function updateSubmitState() {
+        submitBtn.disabled = !form.checkValidity();
+    }
+
+    function showMessage(text, type) {
+        messageBox.textContent = text;
+        messageBox.className = 'form-message ' + type;
+    }
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'MENGIRIM...';
+        showMessage('', ''); // clear
+        messageBox.className = 'form-message';
+
+        var payload = {
+            full_name: form.full_name.value.trim(),
+            account_number: form.account_number.value.trim(),
+            broker_name: form.broker_name.value,
+            email: form.email.value.trim(),
+        };
+
+        try {
+            var res = await fetch(ENDPOINT_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+            });
+            var data = await res.json();
+
+            if (res.ok && data.success) {
+                showMessage('Terima kasih! Permintaan validasi Anda sudah kami terima. Cek email Anda untuk konfirmasi.', 'success');
+                form.reset();
+            } else {
+                showMessage(data.error || 'Gagal mengirim data. Silakan coba lagi.', 'error');
+            }
+        } catch (err) {
+            showMessage('Tidak bisa terhubung ke server. Periksa koneksi internet Anda dan coba lagi.', 'error');
+        } finally {
+            submitBtn.textContent = 'VALIDATE ACCOUNT';
+            updateSubmitState();
+        }
+    });
+
+    updateSubmitState();
+})();
+</script>
+
+</body>
+</html>
