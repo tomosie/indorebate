@@ -19,13 +19,19 @@ p{color:#d8dbe8;line-height:1.8}
 .card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(12px);border-radius:20px;padding:30px;margin:30px 0}
 h2{color:#f3c14d;margin-bottom:20px}
 .info{display:grid;grid-template-columns:1fr 2fr;gap:20px}
-.label{background:#0c1b42;padding:15px;border-radius:12px;margin-bottom:15px}
-.code{background:#07152f;border:1px solid #2d4479;border-radius:12px;padding:20px;white-space:pre-wrap;font-family:Consolas,monospace;line-height:1.7}
+.label{background:#0c1b42;padding:15px;border-radius:12px;margin-bottom:15px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.label > div{word-break:break-all}
+.code{background:#07152f;border:1px solid #2d4479;border-radius:12px;padding:20px;white-space:pre-wrap;font-family:Consolas,monospace;line-height:1.7;position:relative}
+.copy-btn{flex-shrink:0;background:#f3c14d;color:#111;border:none;border-radius:8px;padding:7px 14px;font-weight:700;font-family:inherit;font-size:13px;cursor:pointer;transition:background .2s}
+.copy-btn:hover{background:#dfab3b}
+.copy-btn.copied{background:#3ddc84}
+.code-copy-wrap{display:flex;justify-content:flex-end;margin-bottom:10px}
 .note{margin-top:20px;background:#3d2f0b;padding:15px;border-left:4px solid #f3c14d;border-radius:8px}
 .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
-.step{background:#0d1d46;padding:20px;border-radius:16px;text-align:center}
+.step{background:#0d1d46;padding:20px;border-radius:16px;text-align:center;display:flex;flex-direction:column;align-items:center}
 .num{width:50px;height:50px;min-width:50px;min-height:50px;border-radius:50%;background:#f3c14d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 15px;flex-shrink:0}
 .btn{display:inline-block;margin-top:25px;padding:16px 36px;background:#f3c14d;color:#111;text-decoration:none;font-weight:700;border-radius:12px;white-space:nowrap}
+.btn-sm{display:inline-block;margin-top:12px;padding:10px 18px;background:#f3c14d;color:#111;text-decoration:none;font-weight:700;border-radius:10px;font-size:13px;white-space:nowrap}
 .footer{text-align:center;padding:40px 0}
 @media(max-width:900px){.hero,.info,.steps{grid-template-columns:1fr}h1{font-size:46px}.art img{width:120px;height:120px}}
 </style>
@@ -46,24 +52,27 @@ h2{color:#f3c14d;margin-bottom:20px}
 <h2>Langkah 1 - Kirim Email ke Headway</h2>
 <div class="info">
 <div>
-<div class="label"><b>To</b><br>care@hw.site</div>
-<div class="label"><b>CC</b><br>omahrebate@gmail.com</div>
-<div class="label"><b>Subject</b><br>Please put my account under ID 20438</div>
+<div class="label"><div><b>To</b><br><span id="toEmail">care@hw.site</span></div><button class="copy-btn" onclick="copyText('toEmail',this)">Copy</button></div>
+<div class="label"><div><b>CC</b><br><span id="ccEmail">omahrebate@gmail.com</span></div><button class="copy-btn" onclick="copyText('ccEmail',this)">Copy</button></div>
+<div class="label"><div><b>Subject</b><br><span id="subjectText">Please put my account under ID 20438</span></div><button class="copy-btn" onclick="copyText('subjectText',this)">Copy</button></div>
 </div>
-<div class="code">Dear,
+<div>
+<div class="code-copy-wrap"><button class="copy-btn" onclick="copyText('emailBody',this)">Copy Isi Email</button></div>
+<div class="code" id="emailBody">Dear,
 I am very interested to join Indorebate.com rebate project, please put my account 554354 account under Partner ID 20438
 and let me know after it is done. Thanks very much for attention and help.
 Best Regards,
 xxxxxxxxxxx</div>
+</div>
 </div>
 <div class="note"><b>Catatan:</b> Ganti nomor akun <b>554354</b> dengan nomor akun trading Headway Anda dan ganti <b>xxxxxxxxxxx</b> dengan nama Anda sebelum mengirim email.</div>
 </div>
 <div class="card">
 <h2>Langkah 2 - Setelah Disetujui</h2>
 <div class="steps">
-<div class="step"><div class="num">1</div><b>Tunggu Persetujuan</b><p>Headway menyetujui perpindahan IB.</p></div>
+<div class="step"><div class="num">1</div><b>Tunggu Persetujuan</b><p>Headway menyetujui perpindahan IB. Cek email Anda secara berkala — Headway akan mengirimkan email konfirmasi persetujuan ke email yang terdaftar/digunakan untuk mengirim permintaan.</p></div>
 <div class="step"><div class="num">2</div><b>Buat Akun Baru</b><p>Buat akun trading baru.</p></div>
-<div class="step"><div class="num">3</div><b>Validasi</b><p>Lakukan validasi akun trading di Indorebate.</p></div>
+<div class="step"><div class="num">3</div><b>Validasi</b><p>Lakukan validasi akun trading di Indorebate.</p><a class="btn-sm" href="validasi.html">Validasi Sekarang →</a></div>
 <div class="step"><div class="num">4</div><b>Rebate Aktif</b><p>Nikmati cashback rebate otomatis.</p></div>
 </div>
 </div>
@@ -73,5 +82,19 @@ xxxxxxxxxxx</div>
 <a class="btn" href="./">← Kembali ke Beranda</a>
 </div>
 </div>
+<script>
+function copyText(id, btn){
+  var text = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(text).then(function(){
+    var original = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(function(){
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+</script>
 </body>
 </html>
