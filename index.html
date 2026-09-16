@@ -1122,5 +1122,98 @@ function fallbackCopy(text, done) {
   done();
 }
 </script>
+
+<!-- EA GRATIS POPUP MODAL -->
+<style>
+  .ea-popup-overlay {
+    position: fixed; inset: 0; z-index: 999;
+    background: rgba(11,27,58,.65);
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px;
+    opacity: 0; pointer-events: none;
+    transition: opacity .25s ease;
+  }
+  .ea-popup-overlay.show { opacity: 1; pointer-events: auto; }
+  .ea-popup-card {
+    background: var(--white);
+    border-radius: 20px;
+    max-width: 420px; width: 100%;
+    padding: 36px 32px 32px;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    transform: scale(.92) translateY(10px);
+    transition: transform .25s ease;
+    text-align: center;
+  }
+  .ea-popup-overlay.show .ea-popup-card { transform: scale(1) translateY(0); }
+  .ea-popup-close {
+    position: absolute; top: 14px; right: 14px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--gray-100); border: none;
+    color: var(--gray-700); font-size: 1.1rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s;
+  }
+  .ea-popup-close:hover { background: var(--gray-200); }
+  .ea-popup-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+    color: var(--navy); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 100px; margin-bottom: 16px;
+  }
+  .ea-popup-card h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.4rem; font-weight: 800; color: var(--navy);
+    margin-bottom: 10px; line-height: 1.3;
+  }
+  .ea-popup-card p {
+    color: var(--gray-500); font-size: .92rem; line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .ea-popup-card .btn-gold { display: inline-block; width: 100%; }
+  @media (max-width: 480px) {
+    .ea-popup-card { padding: 30px 24px 26px; }
+    .ea-popup-card h3 { font-size: 1.2rem; }
+  }
+</style>
+
+<div class="ea-popup-overlay" id="eaPopupOverlay">
+  <div class="ea-popup-card">
+    <button type="button" class="ea-popup-close" id="eaPopupClose" aria-label="Tutup">✕</button>
+    <div class="ea-popup-badge">🎁 100% Gratis</div>
+    <h3>EA Trading Tools Gratis untuk Member!</h3>
+    <p>Klaim sekarang dan dapatkan tools trading otomatis tanpa biaya apapun — khusus untuk member terdaftar Indorebate.</p>
+    <a href="ea-gratis.html" class="btn-gold">Klaim EA Gratis Sekarang →</a>
+  </div>
+</div>
+
+<script>
+(function () {
+  var STORAGE_KEY = 'ea_popup_last_dismissed';
+  var ONE_DAY_MS = 24 * 60 * 60 * 1000;
+
+  var lastDismissed = localStorage.getItem(STORAGE_KEY);
+  var shouldShow = !lastDismissed || (Date.now() - parseInt(lastDismissed, 10)) > ONE_DAY_MS;
+
+  if (!shouldShow) return;
+
+  var overlay = document.getElementById('eaPopupOverlay');
+  var closeBtn = document.getElementById('eaPopupClose');
+
+  // Munculkan langsung saat halaman dibuka
+  overlay.classList.add('show');
+
+  function dismiss() {
+    overlay.classList.remove('show');
+    localStorage.setItem(STORAGE_KEY, Date.now().toString());
+  }
+
+  closeBtn.addEventListener('click', dismiss);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) dismiss(); // klik area gelap di luar card juga menutup
+  });
+})();
+</script>
 </body>
 </html>
