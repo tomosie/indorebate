@@ -402,6 +402,21 @@
     padding: 4px 10px; border-radius: 100px;
   }
   .broker-btns { display: flex; gap: 10px; margin-top: auto; }
+
+  /* ── ACCOUNT LINKS (broker dengan link daftar per jenis akun, mis. TMGM) ── */
+  .account-links { margin-bottom: 20px; }
+  .account-links-title { font-size: .78rem; font-weight: 600; color: var(--gray-500); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .06em; }
+  .account-links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .account-link-btn {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px;
+    padding: 8px 6px; text-decoration: none; color: var(--navy);
+    font-weight: 700; font-size: .8rem; text-align: center;
+    transition: border-color .2s, background .2s;
+  }
+  .account-link-btn span { display: block; font-weight: 600; font-size: .7rem; color: var(--gray-500); margin-top: 2px; }
+  .account-link-btn:hover { border-color: var(--gold); background: var(--gold-pale); }
+
   .btn-primary {
     flex: 1; background: linear-gradient(135deg, var(--navy), var(--navy-lt));
     color: var(--white); font-weight: 700; font-size: .88rem;
@@ -988,6 +1003,44 @@
         </div>
       </div>
 
+      <!-- TMGM -->
+      <div class="broker-card">
+        <div class="broker-head">
+          <img src="https://tmgm-cdn.oss-cn-hongkong.aliyuncs.com/marketing/front/public/images/footer-logo-new.webp" alt="TMGM" class="broker-logo" style="background:#0B1B42;">
+          <div>
+            <div class="broker-name">TMGM</div>
+            <span class="broker-badge">Auto Rebate</span>
+          </div>
+        </div>
+        <div class="broker-features">
+          <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$15</div></div>
+          <div class="feat"><div class="feat-label">Rebate</div><div class="feat-val highlight">80%</div></div>
+          <div class="feat"><div class="feat-label">Spread</div><div class="feat-val">Mulai 0 pip</div></div>
+          <div class="feat"><div class="feat-label">Fasilitas</div><div class="feat-val">Copytrade</div></div>
+        </div>
+        <div class="broker-types">
+          <div class="broker-types-title">Jenis Akun</div>
+          <div class="type-tags">
+            <span class="type-tag">Standard</span>
+            <span class="type-tag">Cent</span>
+          </div>
+        </div>
+        <div class="account-links">
+          <div class="account-links-title">Pilih Jenis Akun untuk Daftar</div>
+          <div class="account-links-grid">
+            <a href="https://portal.tmgm-tmc.com/register?node=MzYxNTEz&language=id" rel="noopener noreferrer" target="_blank" class="account-link-btn">EDGE<span>Cent</span></a>
+            <a href="https://portal.tmgm-tmc.com/register?node=MzYxNTE3&language=id" rel="noopener noreferrer" target="_blank" class="account-link-btn">EDGE<span>USD</span></a>
+            <a href="https://portal.tmgm-tmc.com/register?node=MzYxNTE0&language=id" rel="noopener noreferrer" target="_blank" class="account-link-btn">Classic<span>Cent</span></a>
+            <a href="https://portal.tmgm-tmc.com/register?node=MzYxNTE2&language=id" rel="noopener noreferrer" target="_blank" class="account-link-btn">Classic<span>USD</span></a>
+            <a href="https://portal.tmgm-tmc.com/register?node=MzYxNTE1&language=id" rel="noopener noreferrer" target="_blank" class="account-link-btn">STD<span>Cent</span></a>
+            <a href="https://portal.tmgm-tmc.com/register?node=MzYxNTE4&language=id" rel="noopener noreferrer" target="_blank" class="account-link-btn">STD<span>USD</span></a>
+          </div>
+        </div>
+        <div class="broker-btns">
+          <a href="pindah-ib-tmgm.html" class="btn-secondary">Info Lengkap &amp; Validasi</a>
+        </div>
+      </div>
+
     </div>
 
     <!-- Validasi CTA -->
@@ -1078,6 +1131,7 @@
           <li><a href="https://one.justmarkets.link/a/p29kw0m7xi">JustMarkets</a></li>
           <li><a href="https://my.roboforex.pro/en/?a=ljhu">RoboForex</a></li>
           <li><a href="https://affs.click/oiMAL">XM Global</a></li>
+          <li><a href="pindah-ib-tmgm.html">TMGM</a></li>
         </ul>
       </div>
     </div>
