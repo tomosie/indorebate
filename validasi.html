@@ -97,10 +97,6 @@ button:disabled{
 
 </style>
 
-
-<!-- Ganti YOUR_RECAPTCHA_SITE_KEY dengan Site Key dari google.com/recaptcha/admin -->
-<script src="https://www.google.com/recaptcha/api.js?render=6LdkpsYtAAAAAGInEPppSvV3bm8S6d471MxPG8MG"></script>
-
 </head>
 <body>
 
@@ -164,9 +160,6 @@ button:disabled{
     // "https://indorebate-bot.vercel.app/api/validasi"
     var ENDPOINT_URL = "https://indorebate-bot.vercel.app/api/validasi";
 
-    // Sama seperti di atas, ganti dengan Site Key kamu.
-    var RECAPTCHA_SITE_KEY = "YOUR_RECAPTCHA_SITE_KEY";
-
     var form = document.getElementById('validationForm');
     var accountNumber = form.querySelector('input[name="account_number"]');
     var submitBtn = document.getElementById('submitBtn');
@@ -204,18 +197,6 @@ button:disabled{
         };
 
         try {
-            // Minta token reCAPTCHA sesaat sebelum kirim (token cuma valid ~2 menit).
-            payload.recaptcha_token = await new Promise(function (resolve, reject) {
-                if (typeof grecaptcha === 'undefined') {
-                    reject(new Error('reCAPTCHA belum termuat.'));
-                    return;
-                }
-                grecaptcha.ready(function () {
-                    grecaptcha.execute(RECAPTCHA_SITE_KEY, { action: 'validasi_akun' })
-                        .then(resolve, reject);
-                });
-            });
-
             var res = await fetch(ENDPOINT_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
