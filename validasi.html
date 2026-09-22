@@ -224,7 +224,7 @@ button:disabled{
     var ENDPOINT_URL = "https://indorebate-bot.vercel.app/api/validasi";
 
     // Site key Cloudflare Turnstile (public, aman ditaruh di client)
-    var TURNSTILE_SITE_KEY = "0x4AAAAAAE_fmKXmqXhbBNbM";
+    var TURNSTILE_SITE_KEY = "YOUR_TURNSTILE_SITE_KEY";
 
     // Berapa lama (ms) kita tunggu script Turnstile sebelum menganggapnya
     // gagal dimuat dan menampilkan fallback + tombol retry, supaya form
@@ -232,10 +232,19 @@ button:disabled{
     var TURNSTILE_LOAD_TIMEOUT_MS = 10000;
 
     // Timeout untuk request ke server kita sendiri. Kalau server/endpoint
-    // hang (mis. salah satu integrasi di backend lambat), fetch di sini
-    // tetap akan berhenti sendiri dan kasih pesan jelas ke user, alih-alih
-    // tombol "MENGIRIM..." menggantung tanpa batas waktu.
-    var SUBMIT_TIMEOUT_MS = 20000;
+    // benar-benar hang, fetch di sini tetap akan berhenti sendiri dan
+    // kasih pesan jelas ke user, alih-alih tombol "MENGIRIM..." menggantung
+    // tanpa batas waktu.
+    //
+    // Nilainya sengaja dibuat longgar (30 detik): backend memverifikasi
+    // captcha lalu mengirim ke Telegram + 2 email + Google Sheet, dan kalau
+    // ditambah cold start function di Vercel + latensi jaringan ke luar
+    // negeri, total waktunya bisa mendekati 15-20 detik dalam kondisi
+    // normal. Timeout terlalu ketat (mis. 20 detik) bisa membuat client
+    // "menyerah" duluan padahal request sebenarnya tetap berhasil diproses
+    // di server — itu yang bikin muncul pesan error walau datanya sebenarnya
+    // sudah masuk semua.
+    var SUBMIT_TIMEOUT_MS = 30000;
 
     var form = document.getElementById('validationForm');
     var accountNumber = form.querySelector('input[name="account_number"]');
