@@ -320,6 +320,46 @@
     font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
     padding: 3px 8px; border-radius: 6px;
   }
+  /* Chevron indicator: hidden on desktop, shown on mobile where cards collapse */
+  .broker-toggle-icon {
+    display: none;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    color: var(--gray-500);
+    transition: transform .25s;
+  }
+  @media (max-width: 640px) {
+    /* Mobile: hanya broker-head (logo + nama + badge) yang tampil di awal.
+       Detail lengkap (kode IB, fitur, catatan, jenis akun, tombol) disembunyikan
+       sampai kartu ditekan. Di layar lebar (desktop) semuanya tetap tampil
+       normal seperti biasa. */
+    .broker-head {
+      cursor: pointer;
+      justify-content: space-between;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .broker-card:has(.broker-head[aria-expanded="true"]) .broker-head {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .broker-toggle-icon { display: block; }
+    .broker-card.open .broker-toggle-icon,
+    .broker-head[aria-expanded="true"] .broker-toggle-icon {
+      transform: rotate(180deg);
+    }
+    .broker-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+    }
+    .broker-card.open .broker-body {
+      max-height: 2000px;
+    }
+  }
   .broker-features {
     display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
     margin-bottom: 20px;
@@ -652,13 +692,15 @@
 
       <!-- HEADWAY -->
       <div class="broker-card">
-        <div class="broker-head">
+        <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
           <img src="images/headway-logo.png" alt="Headway" class="broker-logo">
           <div>
             <div class="broker-name">Headway</div>
             <span class="broker-badge">Auto Rebate</span>
           </div>
+          <span class="broker-toggle-icon" aria-hidden="true">&#9662;</span>
         </div>
+        <div class="broker-body">
         <div class="ib-code-box">
           <div>
             <span class="ib-code-label">Kode IB Indorebate</span>
@@ -691,17 +733,20 @@
           <a href="https://headway.partners/user/signup?hwp=fee8fe" rel="noopener noreferrer" target="_blank" class="btn-primary">Buka Akun</a>
           <a href="pindah-ib-headway.html" class="btn-secondary">Saya Punya Akun</a>
         </div>
+        </div><!-- /broker-body -->
       </div>
 
       <!-- EXNESS -->
       <div class="broker-card">
-        <div class="broker-head">
+        <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
           <img src="https://i0.wp.com/indorebate.com/wp-content/uploads/2024/02/exness-logo.jpeg?resize=150%2C150&ssl=1" alt="Exness" class="broker-logo">
           <div>
             <div class="broker-name">Exness</div>
             <span class="broker-badge">Auto Rebate</span>
           </div>
+          <span class="broker-toggle-icon" aria-hidden="true">&#9662;</span>
         </div>
+        <div class="broker-body">
         <div class="ib-code-box">
           <div>
             <span class="ib-code-label">Kode IB Indorebate</span>
@@ -736,17 +781,20 @@
           <a href="https://one.exness-track.com/a/pbjftbb9eb" rel="noopener noreferrer" target="_blank" class="btn-primary">Buka Akun</a>
           <a href="pindah-ib-exness.html" class="btn-secondary">Saya Punya Akun</a>
         </div>
+        </div><!-- /broker-body -->
       </div>
 
       <!-- HFM -->
       <div class="broker-card">
-        <div class="broker-head">
+        <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
           <img src="https://i0.wp.com/indorebate.com/wp-content/uploads/2024/02/hfm-logo.jpg?resize=150%2C150&ssl=1" alt="HFM" class="broker-logo">
           <div>
             <div class="broker-name">HFM</div>
             <span class="broker-badge">Auto Rebate</span>
           </div>
+          <span class="broker-toggle-icon" aria-hidden="true">&#9662;</span>
         </div>
+        <div class="broker-body">
         <div class="ib-code-box">
           <div>
             <span class="ib-code-label">Kode IB Indorebate</span>
@@ -781,17 +829,20 @@
           <a href="https://register.hfmtrade-ind.com/sv/id/new-live-account/?refid=194327" rel="noopener noreferrer" target="_blank" class="btn-primary">Buka Akun</a>
           <a href="pindah-ib-hfm.html" class="btn-secondary">Saya Punya Akun</a>
         </div>
+        </div><!-- /broker-body -->
       </div>
 
       <!-- TICKMILL -->
       <div class="broker-card">
-        <div class="broker-head">
+        <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
           <img src="https://i0.wp.com/indorebate.com/wp-content/uploads/2025/05/tickmill-logo.png?resize=150%2C150&ssl=1" alt="Tickmill" class="broker-logo">
           <div>
             <div class="broker-name">Tickmill</div>
             <span class="broker-badge">Auto Rebate</span>
           </div>
+          <span class="broker-toggle-icon" aria-hidden="true">&#9662;</span>
         </div>
+        <div class="broker-body">
         <div class="ib-code-box">
           <div>
             <span class="ib-code-label">Kode IB Indorebate</span>
@@ -824,17 +875,20 @@
           <a href="https://my.tickmill.com?utm_campaign=ib_link&utm_content=IB64086506&utm_medium=Open+Account&utm_source=link" rel="noopener noreferrer" target="_blank" class="btn-primary">Buka Akun</a>
           <a href="pindah-ib-tickmill.html" class="btn-secondary">Saya Punya Akun</a>
         </div>
+        </div><!-- /broker-body -->
       </div>
 
       <!-- JUSTMARKETS -->
       <div class="broker-card">
-        <div class="broker-head">
+        <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
           <img src="https://i0.wp.com/indorebate.com/wp-content/uploads/2024/05/JM_300x300_blue.png?resize=150%2C150&ssl=1" alt="JustMarkets" class="broker-logo">
           <div>
             <div class="broker-name">JustMarkets</div>
             <span class="broker-badge">Auto Rebate</span>
           </div>
+          <span class="broker-toggle-icon" aria-hidden="true">&#9662;</span>
         </div>
+        <div class="broker-body">
         <div class="ib-code-box">
           <div>
             <span class="ib-code-label">Kode IB Indorebate</span>
@@ -869,17 +923,20 @@
           <a href="https://one.justmarkets.link/a/p29kw0m7xi/id/registration/trader" rel="noopener noreferrer" target="_blank" class="btn-primary">Buka Akun</a>
           <a href="pindah-ib-justmarkets.html" class="btn-secondary">Saya Punya Akun</a>
         </div>
+        </div><!-- /broker-body -->
       </div>
 
       <!-- ROBOFOREX -->
       <div class="broker-card">
-        <div class="broker-head">
+        <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
           <img src="https://i0.wp.com/indorebate.com/wp-content/uploads/2024/05/Roboforex-1-1-2.png?resize=150%2C150&ssl=1" alt="RoboForex" class="broker-logo">
           <div>
             <div class="broker-name">RoboForex</div>
             <span class="broker-badge">Auto Rebate</span>
           </div>
+          <span class="broker-toggle-icon" aria-hidden="true">&#9662;</span>
         </div>
+        <div class="broker-body">
         <div class="ib-code-box">
           <div>
             <span class="ib-code-label">Kode IB Indorebate</span>
@@ -914,17 +971,20 @@
           <a href="https://my.roboforex.pro/en/?a=ljhu" rel="noopener noreferrer" target="_blank" class="btn-primary">Buka Akun</a>
           <a href="pindah-ib-roboforex.html" class="btn-secondary">Saya Punya Akun</a>
         </div>
+        </div><!-- /broker-body -->
       </div>
 
       <!-- XM -->
       <div class="broker-card">
-        <div class="broker-head">
+        <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
           <img src="https://i0.wp.com/indorebate.com/wp-content/uploads/2020/04/xm-1-1.png?resize=150%2C150&ssl=1" alt="XM" class="broker-logo">
           <div>
             <div class="broker-name">XM Global</div>
             <span class="broker-badge">Auto Rebate</span>
           </div>
+          <span class="broker-toggle-icon" aria-hidden="true">&#9662;</span>
         </div>
+        <div class="broker-body">
         <div class="ib-code-box">
           <div>
             <span class="ib-code-label">Kode IB Indorebate</span>
@@ -958,17 +1018,20 @@
           <a href="https://affs.click/oiMAL" rel="noopener noreferrer" target="_blank" class="btn-primary">Buka Akun</a>
           <a href="pindah-ib-xm.html" class="btn-secondary">Saya Punya Akun</a>
         </div>
+        </div><!-- /broker-body -->
       </div>
 
       <!-- TMGM -->
       <div class="broker-card">
-        <div class="broker-head">
+        <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
           <img src="images/tmgm-logo.png" alt="TMGM" class="broker-logo" style="background:#0B1B42;">
           <div>
             <div class="broker-name">TMGM</div>
             <span class="broker-badge">Auto Rebate</span>
           </div>
+          <span class="broker-toggle-icon" aria-hidden="true">&#9662;</span>
         </div>
+        <div class="broker-body">
         <div class="broker-features">
           <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$15</div></div>
           <div class="feat"><div class="feat-label">Rebate</div><div class="feat-val highlight">80%</div></div>
@@ -1002,6 +1065,7 @@
         <div class="broker-btns">
           <a href="pindah-ib-tmgm.html" class="btn-secondary">Saya Punya Akun</a>
         </div>
+        </div><!-- /broker-body -->
       </div>
 
     </div>
@@ -1130,6 +1194,15 @@ function fallbackCopy(text, done) {
   try { document.execCommand('copy'); } catch (e) {}
   document.body.removeChild(ta);
   done();
+}
+
+// Broker card collapse/expand (efektif hanya di layar mobile lewat CSS;
+// di desktop kartu tetap selalu terbuka apa pun state class-nya).
+function toggleBrokerCard(headEl) {
+  var card = headEl.closest('.broker-card');
+  if (!card) return;
+  var isOpen = card.classList.toggle('open');
+  headEl.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
 }
 </script>
 
