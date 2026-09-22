@@ -94,6 +94,43 @@ button:disabled{
     color:#a3271f;
     border:1px solid #f3bcb8;
 }
+.form-message.info{
+    display:block;
+    background:#eef4fd;
+    color:#1a4c8b;
+    border:1px solid #bcd6f3;
+}
+
+/* Honeypot field - hidden from real users, only bots that auto-fill every
+   input will touch it. Kept in normal document flow (not display:none /
+   visibility:hidden) because some bots skip fields hidden that way. */
+.hp-field{
+    position:absolute;
+    left:-5000px;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+#turnstileWrap{
+    display:flex;
+    justify-content:center;
+}
+
+#turnstileFallback{
+    display:none;
+    text-align:center;
+    font-size:14px;
+    color:#a3271f;
+}
+#turnstileFallback button{
+    margin-top:8px;
+    background:#fff;
+    border:1px solid #a3271f;
+    border-radius:6px;
+    color:#a3271f;
+    padding:8px 14px;
+}
 
 </style>
 
@@ -136,6 +173,21 @@ button:disabled{
         placeholder="EMAIL ADDRESS"
         required>
 
+    <!-- Honeypot: real users never see or fill this. Left blank must stay
+         blank; if it has a value, the submission is treated as a bot. -->
+    <div class="hp-field" aria-hidden="true">
+        <label for="website">Website</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div id="turnstileWrap">
+        <div id="turnstileContainer"></div>
+    </div>
+    <div id="turnstileFallback">
+        Verifikasi keamanan gagal dimuat (koneksi lambat atau diblokir).<br>
+        <button type="button" id="turnstileRetryBtn">Coba Muat Ulang</button>
+    </div>
+
     <button type="submit" class="btn-gold" id="submitBtn" disabled>
         VALIDATE ACCOUNT
     </button>
@@ -155,16 +207,47 @@ button:disabled{
     
 </form>
 
+<!--
+  Cloudflare Turnstile. Ganti TURNSTILE_SITE_KEY di bawah dengan site key
+  kamu sendiri dari https://dash.cloudflare.com/?to=/:account/turnstile
+  (site key aman untuk ditaruh di HTML, ini bukan rahasia - secret key-nya
+  yang harus disimpan di server sebagai env var, lihat api/validasi.js).
+  Dimuat async lewat window.onloadTurnstileCallback supaya kita bisa
+  render widget secara eksplisit dan kontrol penuh atas error/timeout.
+-->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async defer></script>
+
 <script>
 (function () {
     // Ganti dengan URL endpoint Vercel kamu setelah deploy, contoh:
     // "https://indorebate-bot.vercel.app/api/validasi"
     var ENDPOINT_URL = "https://indorebate-bot.vercel.app/api/validasi";
 
+    // Site key Cloudflare Turnstile (public, aman ditaruh di client)
+    var TURNSTILE_SITE_KEY = "0x4AAAAAAE_fmKXmqXhbBNbM";
+
+    // Berapa lama (ms) kita tunggu script Turnstile sebelum menganggapnya
+    // gagal dimuat dan menampilkan fallback + tombol retry, supaya form
+    // TIDAK diam-diam macet dengan tombol submit disabled selamanya.
+    var TURNSTILE_LOAD_TIMEOUT_MS = 10000;
+
+    // Timeout untuk request ke server kita sendiri. Kalau server/endpoint
+    // hang (mis. salah satu integrasi di backend lambat), fetch di sini
+    // tetap akan berhenti sendiri dan kasih pesan jelas ke user, alih-alih
+    // tombol "MENGIRIM..." menggantung tanpa batas waktu.
+    var SUBMIT_TIMEOUT_MS = 20000;
+
     var form = document.getElementById('validationForm');
     var accountNumber = form.querySelector('input[name="account_number"]');
     var submitBtn = document.getElementById('submitBtn');
     var messageBox = document.getElementById('formMessage');
+    var turnstileContainer = document.getElementById('turnstileContainer');
+    var turnstileFallback = document.getElementById('turnstileFallback');
+    var turnstileRetryBtn = document.getElementById('turnstileRetryBtn');
+
+    var turnstileWidgetId = null;
+    var captchaToken = null;
+    var turnstileLoadTimer = null;
 
     accountNumber.addEventListener('input', function () {
         this.value = this.value.replace(/[^0-9]/g, '');
@@ -175,34 +258,128 @@ button:disabled{
     form.addEventListener('change', updateSubmitState);
 
     function updateSubmitState() {
-        submitBtn.disabled = !form.checkValidity();
+        submitBtn.disabled = !(form.checkValidity() && !!captchaToken);
     }
 
     function showMessage(text, type) {
         messageBox.textContent = text;
-        messageBox.className = 'form-message ' + type;
+        messageBox.className = text ? 'form-message ' + type : 'form-message';
     }
+
+    // ---------- Turnstile lifecycle ----------
+
+    // Dipanggil otomatis oleh script Turnstile setelah selesai load.
+    window.onloadTurnstileCallback = function () {
+        clearTimeout(turnstileLoadTimer);
+        turnstileFallback.style.display = 'none';
+        turnstileContainer.style.display = '';
+        renderTurnstile();
+    };
+
+    function renderTurnstile() {
+        if (typeof turnstile === 'undefined') return;
+        // Kalau sebelumnya sudah pernah render (mis. user klik "coba lagi"),
+        // bersihkan dulu supaya tidak dobel.
+        if (turnstileWidgetId !== null) {
+            try { turnstile.remove(turnstileWidgetId); } catch (e) {}
+        }
+        turnstileWidgetId = turnstile.render('#turnstileContainer', {
+            sitekey: TURNSTILE_SITE_KEY,
+            callback: function (token) {
+                captchaToken = token;
+                updateSubmitState();
+            },
+            'expired-callback': function () {
+                // Token kedaluwarsa (±5 menit) sebelum user submit.
+                captchaToken = null;
+                updateSubmitState();
+            },
+            'error-callback': function () {
+                captchaToken = null;
+                updateSubmitState();
+                showMessage('Verifikasi keamanan gagal, silakan coba lagi.', 'error');
+                return true; // beri tahu Turnstile supaya boleh retry otomatis
+            },
+            'timeout-callback': function () {
+                captchaToken = null;
+                updateSubmitState();
+            }
+        });
+    }
+
+    // Kalau script Turnstile gagal dimuat sama sekali (diblokir jaringan,
+    // ad-blocker, dsb), window.onloadTurnstileCallback tidak akan pernah
+    // terpanggil. Timeout ini memastikan user tetap dikasih tahu dan bisa
+    // coba lagi, alih-alih tombol submit disabled diam-diam selamanya.
+    turnstileLoadTimer = setTimeout(function () {
+        if (typeof turnstile === 'undefined') {
+            turnstileContainer.style.display = 'none';
+            turnstileFallback.style.display = 'block';
+        }
+    }, TURNSTILE_LOAD_TIMEOUT_MS);
+
+    turnstileRetryBtn.addEventListener('click', function () {
+        turnstileFallback.style.display = 'none';
+        // Coba reload script Turnstile dari awal.
+        var existing = document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]');
+        if (existing) existing.remove();
+        var s = document.createElement('script');
+        s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback';
+        s.async = true;
+        s.defer = true;
+        document.body.appendChild(s);
+        turnstileContainer.style.display = '';
+        turnstileLoadTimer = setTimeout(function () {
+            if (typeof turnstile === 'undefined') {
+                turnstileContainer.style.display = 'none';
+                turnstileFallback.style.display = 'block';
+            }
+        }, TURNSTILE_LOAD_TIMEOUT_MS);
+    });
+
+    // ---------- Submit ----------
 
     form.addEventListener('submit', async function (e) {
         e.preventDefault();
+
+        // Honeypot: kalau field ini terisi, ini bot. Pura-pura sukses supaya
+        // bot tidak tahu ia terdeteksi, tapi jangan kirim apa-apa ke server.
+        var honeypot = form.website.value;
+        if (honeypot) {
+            showMessage('Terima kasih! Permintaan validasi Anda sudah kami terima. Cek email Anda untuk konfirmasi.', 'success');
+            form.reset();
+            resetCaptcha();
+            return;
+        }
+
+        if (!captchaToken) {
+            showMessage('Mohon selesaikan verifikasi keamanan terlebih dahulu.', 'error');
+            return;
+        }
+
         submitBtn.disabled = true;
         submitBtn.textContent = 'MENGIRIM...';
-        showMessage('', ''); // clear
-        messageBox.className = 'form-message';
+        showMessage('', '');
 
         var payload = {
             full_name: form.full_name.value.trim(),
             account_number: form.account_number.value.trim(),
             broker_name: form.broker_name.value,
             email: form.email.value.trim(),
+            cf_turnstile_response: captchaToken,
         };
+
+        var controller = new AbortController();
+        var timeoutId = setTimeout(function () { controller.abort(); }, SUBMIT_TIMEOUT_MS);
 
         try {
             var res = await fetch(ENDPOINT_URL, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(payload),
+                signal: controller.signal,
             });
+            clearTimeout(timeoutId);
             var data = await res.json();
 
             if (res.ok && data.success) {
@@ -212,12 +389,29 @@ button:disabled{
                 showMessage(data.error || 'Gagal mengirim data. Silakan coba lagi.', 'error');
             }
         } catch (err) {
-            showMessage('Tidak bisa terhubung ke server. Periksa koneksi internet Anda dan coba lagi.', 'error');
+            clearTimeout(timeoutId);
+            if (err.name === 'AbortError') {
+                showMessage('Server tidak merespons. Silakan coba lagi dalam beberapa saat.', 'error');
+            } else {
+                showMessage('Tidak bisa terhubung ke server. Periksa koneksi internet Anda dan coba lagi.', 'error');
+            }
         } finally {
+            // Token Turnstile sekali pakai — baik submit berhasil maupun
+            // gagal, token yang sudah dipakai tidak valid lagi untuk
+            // percobaan berikutnya. Reset widget di sini supaya user bisa
+            // langsung coba lagi tanpa form terasa "macet".
+            resetCaptcha();
             submitBtn.textContent = 'VALIDATE ACCOUNT';
             updateSubmitState();
         }
     });
+
+    function resetCaptcha() {
+        captchaToken = null;
+        if (turnstileWidgetId !== null && typeof turnstile !== 'undefined') {
+            try { turnstile.reset(turnstileWidgetId); } catch (e) {}
+        }
+    }
 
     updateSubmitState();
 })();
