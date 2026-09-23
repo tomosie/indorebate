@@ -271,11 +271,24 @@
     gap: 24px;
   }
   .broker-card {
+    position: relative;
     background: var(--white); border-radius: 16px;
     border: 1px solid var(--gray-200);
     padding: 28px; box-shadow: var(--shadow);
     transition: transform .25s, box-shadow .25s;
     display: flex; flex-direction: column;
+  }
+  .broker-info-link {
+    position: absolute; top: 16px; right: 16px; z-index: 3;
+    font-size: .68rem; font-weight: 700; letter-spacing: .01em;
+    color: var(--navy); background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    padding: 5px 10px; border-radius: 20px;
+    text-decoration: none; white-space: nowrap;
+    transition: border-color .2s, background .2s, color .2s;
+  }
+  .broker-info-link:hover {
+    border-color: var(--gold); background: var(--gold-pale); color: var(--navy);
   }
   .broker-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
   .broker-head {
@@ -1023,6 +1036,7 @@
 
       <!-- TMGM -->
       <div class="broker-card">
+        <a href="rebate-tmgm.html" class="broker-info-link" onclick="event.stopPropagation()">Info Lengkap</a>
         <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
           <img src="images/tmgm-logo.png" alt="TMGM" class="broker-logo" style="background:#0B1B42;">
           <div>
