@@ -1,29 +1,100 @@
 <!DOCTYPE html><html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Rebate XM — Indorebate</title><link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-<style>*{margin:0;padding:0;box-sizing:border-box}body{font-family:Poppins,sans-serif;background:linear-gradient(135deg,#08152f,#183d84);color:#fff}.c{max-width:1100px;margin:auto;padding:40px 20px}.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:30px;align-items:center}.badge{display:inline-block;padding:8px 18px;border:1px solid #e2b74d;border-radius:30px;color:#f4c54d}h1{font-size:46px;margin:20px 0}.gold,h2{color:#f4c54d}.art{text-align:center}.card{margin:30px 0;background:rgba(255,255,255,.06);padding:28px;border-radius:18px;border:1px solid rgba(255,255,255,.08)}.step{display:flex;gap:18px;margin:20px 0}.n{width:48px;height:48px;min-width:48px;min-height:48px;border-radius:50%;background:#f4c54d;color:#111;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;align-self:flex-start}
-.btn{display:inline-block;margin-top:15px;padding:14px 30px;background:#f4c54d;color:#111;text-decoration:none;border-radius:10px;font-weight:700;white-space:nowrap;}
-.btn.outline{background:transparent;border:1px solid #f4c54d;color:#f4c54d;}
-.footer{text-align:center;padding:30px}p{line-height:1.8;color:#dde3f1}
-.note{background:rgba(244,197,77,.08);border-left:3px solid #f4c54d;padding:14px 16px;border-radius:8px;font-size:14px;color:#f0e6c8;margin-top:10px;}
-.quote{background:rgba(244,197,77,.06);border-left:3px solid #f4c54d;padding:16px 20px;border-radius:8px;font-style:italic;color:#f0e6c8;margin:16px 0;}
-.info-table{width:100%;border-collapse:collapse;margin-top:10px;}
-.info-table tr{border-bottom:1px solid rgba(255,255,255,.08);}
-.info-table td{padding:10px 6px;font-size:14.5px;color:#dde3f1;vertical-align:top;}
-.info-table td:first-child{color:#a9b6d6;width:38%;}
-.acc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:20px 0;}
-.acc-card{background:#0b1b42;border:1px solid #29457b;border-radius:12px;padding:18px;}
-.acc-card h3{color:#f4c54d;font-size:17px;margin-bottom:8px;}
-.acc-card ul{list-style:none;font-size:13.5px;color:#c7d0e8;}
-.acc-card ul li{margin-bottom:6px;}
-.tag-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px;}
-.tag{background:rgba(244,197,77,.1);border:1px solid #f4c54d;color:#f4c54d;font-size:12.5px;font-weight:700;padding:5px 12px;border-radius:20px;}
-.reg-table{width:100%;border-collapse:collapse;margin-top:14px;}
-.reg-table th{text-align:left;color:#f4c54d;font-size:13px;padding:10px 8px;border-bottom:1px solid #29457b;}
-.reg-table td{padding:10px 8px;font-size:13.5px;color:#dde3f1;border-bottom:1px solid rgba(255,255,255,.06);}
-.cta-row{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px;}
-@media(max-width:900px){.hero{grid-template-columns:1fr}h1{font-size:32px}.acc-grid{grid-template-columns:1fr}.info-table td:first-child{width:45%;}}
+<title>Rebate XM — Indorebate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy:    #0B1B3A;
+  --navy-mid:#122249;
+  --gold:    #C9973A;
+  --gold-lt: #E8B84B;
+  --gold-pale:#FDF3E0;
+  --white:   #FFFFFF;
+  --gray-50: #F8FAFC;
+  --gray-100:#F1F5F9;
+  --gray-200:#E2E8F0;
+  --gray-500:#64748B;
+  --gray-700:#334155;
+  --text:    #1E293B;
+  --radius:  12px;
+  --shadow:  0 4px 24px rgba(11,27,58,.10);
+  --shadow-lg:0 12px 40px rgba(11,27,58,.15);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy); }
+a { color: inherit; }
+.top-bar {
+  background: var(--navy); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between;
+}
+.top-bar a { color: var(--white); text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .92rem; }
+.top-bar .logo { font-size: 1.15rem; }
+.top-bar .logo span { color: var(--gold-lt); }
+.c { max-width: 1100px; margin: auto; padding: 40px 20px; }
+.hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 30px; align-items: center; padding: 20px 0 10px; }
+.badge {
+  display: inline-block; padding: 7px 16px; border: 1px solid var(--gold); border-radius: 30px;
+  color: var(--gold); font-size: .82rem; font-weight: 700; letter-spacing: .04em; background: var(--gold-pale);
+}
+h1 { font-size: 42px; margin: 16px 0; font-weight: 800; }
+.gold { color: var(--gold); }
+.art { text-align: center; }
+p { line-height: 1.8; color: var(--gray-700); }
+.card {
+  margin: 24px 0; background: var(--white); padding: 28px; border-radius: 16px;
+  border: 1px solid var(--gray-200); box-shadow: var(--shadow);
+}
+.step { display: flex; gap: 18px; margin: 20px 0; }
+.n {
+  width: 44px; height: 44px; min-width: 44px; min-height: 44px; border-radius: 50%;
+  background: var(--gold-pale); color: var(--gold); border: 1.5px solid var(--gold);
+  display: flex; align-items: center; justify-content: center; font-weight: 800;
+  flex-shrink: 0; align-self: flex-start;
+}
+.btn {
+  display: inline-block; margin-top: 15px; padding: 13px 28px; background: linear-gradient(135deg,var(--gold),var(--gold-lt));
+  color: var(--navy); text-decoration: none; border-radius: 10px; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;
+  white-space: nowrap; box-shadow: 0 4px 16px rgba(201,151,58,.3);
+}
+.btn.outline { background: transparent; border: 1.5px solid var(--navy); color: var(--navy); box-shadow: none; }
+.footer { text-align: center; padding: 30px; }
+.note {
+  background: var(--gray-50); border-left: 3px solid var(--gold); padding: 14px 16px; border-radius: 8px;
+  font-size: 14px; color: var(--gray-700); margin-top: 10px;
+}
+.quote {
+  background: var(--gold-pale); border-left: 3px solid var(--gold); padding: 16px 20px; border-radius: 8px;
+  font-style: italic; color: var(--navy); margin: 16px 0;
+}
+.info-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.info-table tr { border-bottom: 1px solid var(--gray-100); }
+.info-table td { padding: 10px 6px; font-size: 14.5px; color: var(--gray-700); vertical-align: top; }
+.info-table td:first-child { color: var(--gray-500); width: 38%; font-weight: 600; }
+.acc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin: 20px 0; }
+.acc-card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 12px; padding: 18px; }
+.acc-card h3 { color: var(--navy); font-size: 17px; margin-bottom: 8px; }
+.acc-card ul { list-style: none; font-size: 13.5px; color: var(--gray-700); }
+.acc-card ul li { margin-bottom: 6px; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.tag {
+  background: var(--gold-pale); border: 1px solid var(--gold); color: var(--gold);
+  font-size: 12.5px; font-weight: 700; padding: 5px 12px; border-radius: 20px;
+}
+.reg-table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+.reg-table th { text-align: left; color: var(--navy); font-size: 13px; padding: 10px 8px; border-bottom: 2px solid var(--gray-200); }
+.reg-table td { padding: 10px 8px; font-size: 13.5px; color: var(--gray-700); border-bottom: 1px solid var(--gray-100); }
+.cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 16px; }
+@media(max-width:900px){ .hero{grid-template-columns:1fr} h1{font-size:30px} .acc-grid{grid-template-columns:1fr} .info-table td:first-child{width:45%;} }
 </style>
-</head><body><div class="c">
+</head><body>
+
+<div class="top-bar">
+  <a href="./" class="logo">Indo<span>rebate</span></a>
+  <a href="./">← Kembali ke Beranda</a>
+</div>
+
+<div class="c">
 
 <div class="hero">
   <div>
@@ -36,7 +107,7 @@
     </div>
   </div>
   <div class="art">
-    <img src="https://i0.wp.com/indorebate.com/wp-content/uploads/2020/04/xm-1-1.png?resize=150%2C150&ssl=1" alt="XM Logo" style="width:200px;max-width:100%;object-fit:contain;border-radius:20px;background:#0B1B42;padding:16px;border:1px solid rgba(255,255,255,.15);">
+    <img src="https://i0.wp.com/indorebate.com/wp-content/uploads/2020/04/xm-1-1.png?resize=150%2C150&ssl=1" alt="XM Logo" style="width:200px;max-width:100%;object-fit:contain;border-radius:20px;background:var(--gray-50);padding:16px;border:1px solid var(--gray-200);">
   </div>
 </div>
 
@@ -90,7 +161,7 @@
     <span class="tag">MT4 &amp; MT5</span>
     <span class="tag">Tanpa Markup Spread/Komisi</span>
   </div>
-  <p style="margin-top:14px;font-size:13.5px;color:#a9b6d6;">Rincian rebate per lot bisa berbeda antar jenis akun dan instrumen — untuk angka pastinya, silakan hubungi admin Indorebate via WhatsApp.</p>
+  <p style="margin-top:14px;font-size:13.5px;color:var(--gray-500);">Rincian rebate per lot bisa berbeda antar jenis akun dan instrumen — untuk angka pastinya, silakan hubungi admin Indorebate via WhatsApp.</p>
 </div>
 
 <div class="card">
@@ -130,7 +201,7 @@
 
 <div class="card">
   <h2>Syarat &amp; Ketentuan Rebate XM</h2>
-  <ul style="padding-left:20px;color:#dde3f1;line-height:2;">
+  <ul style="padding-left:20px;color:var(--gray-700);line-height:2;">
     <li>Penutupan order kurang dari 3 menit untuk akun Standard dan Micro tidak mendapatkan rebate, sedangkan untuk akun Ultra Low tidak ada minimal waktu penutupan order.</li>
     <li>Trading dengan akun bonus (NDB) atau margin bonus tidak mendapatkan rebate.</li>
     <li>Untuk akun mikro, akumulasi rebate harian di bawah $0.01 dibulatkan ke bawah menjadi $0.00.</li>
@@ -155,7 +226,7 @@
 </div>
 
 <div class="footer">
-  <h2>Siap Mulai Dapat Rebate XM?</h2>
+  <h2 style="margin-bottom:14px;">Siap Mulai Dapat Rebate XM?</h2>
   <div class="cta-row" style="justify-content:center;">
     <a href="https://affs.click/oiMAL" target="_blank" rel="noopener noreferrer" class="btn">Buka Akun XM</a>
     <a href="./" class="btn outline">← Kembali ke Beranda</a>
