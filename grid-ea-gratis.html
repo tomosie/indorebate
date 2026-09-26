@@ -79,6 +79,28 @@
   }
   .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,151,58,.5); }
 
+  /* Screenshot showcase */
+  .showcase {
+    padding: 0 24px 64px;
+    margin-top: -32px;
+    position: relative; z-index: 2;
+  }
+  .showcase-inner { max-width: 1000px; margin: 0 auto; }
+  .showcase-frame {
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 10px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .showcase-frame img {
+    width: 100%; display: block; border-radius: 8px;
+  }
+  .showcase-caption {
+    text-align: center; color: var(--gray-500); font-size: .88rem;
+    margin-top: 14px;
+  }
+
   /* ── PAGE HERO ── */
   .page-hero {
     background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #1E3A7A 100%);
@@ -239,6 +261,7 @@
     .page-hero h1 { font-size: 2rem; }
     .feature-table { font-size: .85rem; }
     .feature-table th, .feature-table td { padding: 10px 10px; }
+    .showcase { margin-top: -20px; }
   }
   @media (max-width: 480px) {
     .nav-inner { padding: 0 12px; }
@@ -284,6 +307,16 @@
       <a href="#klaim" class="btn-gold">Klaim EA Gratis</a>
       <a href="#panduan" class="btn-outline-hero">Lihat Panduan</a>
     </div>
+  </div>
+</section>
+
+<!-- SCREENSHOT SHOWCASE -->
+<section class="showcase">
+  <div class="showcase-inner">
+    <div class="showcase-frame">
+      <img src="grid-pending-ea-screenshot.png" alt="Tampilan panel Grid Pending EA v1.70 di chart XAUUSD MT5">
+    </div>
+    <p class="showcase-caption">Dua panel Grid Pending EA v1.70 langsung di chart MT5 — Parameter (pengaturan grid, SL/TP, Basket TP, trailing, continuous entry, target profit/loss) dan Status & Monitor (posisi, profit floating/closed/total secara real-time).</p>
   </div>
 </section>
 
@@ -370,7 +403,7 @@
       <p>Daftar akun trading via link referral Indorebate → Aktifkan &amp; validasi status member rebate → Hubungi admin untuk mendapatkan file EA &amp; Password Aktivasi.</p>
       <div class="hero-btns">
         <a href="index.html#broker" class="btn-gold">Daftar Akun Broker</a>
-        <a href="https://drive.google.com/drive/folders/1TiennStFbzi6Pixzh7HseyBdLcIJ7u3W?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-outline-hero">Download EA di sini</a>
+        <a href="https://wa.me/6285777717118" target="_blank" rel="noopener noreferrer" class="btn-outline-hero">Hubungi Admin untuk Download</a>
       </div>
       <p style="color:rgba(255,255,255,.55);font-size:.82rem;margin-top:20px;margin-bottom:0;">⚠️ EA hanya diberikan untuk akun yang sudah terverifikasi terdaftar di Indorebate.</p>
     </div>
