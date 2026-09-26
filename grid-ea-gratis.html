@@ -10,7 +10,7 @@
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Merah Putih Tools V3 — EA Trading Gratis untuk Member Indorebate</title>
+<title>Grid Pending EA — EA Trading Gratis untuk Member Indorebate</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -115,7 +115,7 @@
   .page-hero h1 em { font-style: normal; color: var(--gold-lt); }
   .page-hero p {
     color: rgba(255,255,255,.75); font-size: 1.05rem;
-    max-width: 560px; margin: 0 auto 32px; line-height: 1.7;
+    max-width: 600px; margin: 0 auto 32px; line-height: 1.7;
   }
   .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
   .btn-gold {
@@ -127,13 +127,13 @@
     transition: transform .2s, box-shadow .2s; display:inline-block;
   }
   .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,151,58,.6); }
-  .btn-telegram{
-    background:#229ED9; color:#fff; font-family:'Plus Jakarta Sans',sans-serif;
-    font-weight:700; font-size:.95rem; padding:14px 28px; border-radius:10px;
-    text-decoration:none; box-shadow:0 4px 20px rgba(34,158,217,.35);
-    transition:all .2s; display:inline-block;
+  .btn-outline-hero {
+    background: transparent; border: 2px solid rgba(255,255,255,.3); color: var(--white);
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .95rem;
+    padding: 14px 28px; border-radius: 10px; text-decoration: none; display: inline-block;
+    transition: all .2s;
   }
-  .btn-telegram:hover{ transform:translateY(-2px); box-shadow:0 8px 28px rgba(34,158,217,.5); }
+  .btn-outline-hero:hover { border-color: var(--gold-lt); color: var(--gold-lt); }
 
   /* ── SECTIONS ── */
   .section { padding: 64px 24px; }
@@ -234,34 +234,11 @@
 
   .divider { height: 1px; background: var(--gray-200); margin: 8px 0 40px; }
 
-  /* Screenshot showcase */
-  .showcase {
-    padding: 0 24px 64px;
-    margin-top: -32px;
-    position: relative; z-index: 2;
-  }
-  .showcase-inner { max-width: 1000px; margin: 0 auto; }
-  .showcase-frame {
-    background: var(--navy);
-    border-radius: var(--radius);
-    padding: 10px;
-    box-shadow: var(--shadow-lg);
-    border: 1px solid rgba(255,255,255,.08);
-  }
-  .showcase-frame img {
-    width: 100%; display: block; border-radius: 8px;
-  }
-  .showcase-caption {
-    text-align: center; color: var(--gray-500); font-size: .88rem;
-    margin-top: 14px;
-  }
-
   @media (max-width: 900px) {
     nav .nav-links { display: none; }
     .page-hero h1 { font-size: 2rem; }
     .feature-table { font-size: .85rem; }
     .feature-table th, .feature-table td { padding: 10px 10px; }
-    .showcase { margin-top: -20px; }
   }
   @media (max-width: 480px) {
     .nav-inner { padding: 0 12px; }
@@ -301,22 +278,12 @@
   <div class="page-hero-inner">
     <a href="tools-gratis.html" class="breadcrumb-back">← Semua Tools Gratis</a>
     <div class="hero-badge">Bonus Eksklusif Member Terdaftar</div>
-    <h1>Merah Putih Tools V3 <em>Gratis</em> untuk Member Indorebate</h1>
-    <p>Tools semi-otomatis untuk membantu eksekusi dan manajemen posisi trading Anda — bisa dipakai di semua pair, <strong>khusus untuk akun trading yang terdaftar aktif di Indorebate.</strong></p>
+    <h1>Grid Pending EA <em>Gratis</em> untuk Member Indorebate</h1>
+    <p>EA grid pending order dua arah (Buy &amp; Sell) dengan dashboard panel kontrol penuh langsung di chart — Basket TP, trailing, continuous entry, hingga target profit/loss otomatis. <strong>Khusus untuk akun trading yang terdaftar aktif di Indorebate.</strong></p>
     <div class="hero-btns">
       <a href="#klaim" class="btn-gold">Klaim EA Gratis</a>
-      <a href="#panduan" class="btn-telegram" style="background:transparent;border:2px solid rgba(255,255,255,.3);box-shadow:none;">Lihat Panduan</a>
+      <a href="#panduan" class="btn-outline-hero">Lihat Panduan</a>
     </div>
-  </div>
-</section>
-
-<!-- SCREENSHOT SHOWCASE -->
-<section class="showcase">
-  <div class="showcase-inner">
-    <div class="showcase-frame">
-      <img src="ea-panel-screenshot.png" alt="Tampilan panel Merah Putih Tools V3 di chart XAUUSD MT5">
-    </div>
-    <p class="showcase-caption">Tiga panel Merah Putih Tools V3 langsung di chart MT5 — EA Setup, Trading Info, dan Order Panel — untuk kontrol BUY/SELL manual, monitoring basket pyramid/averaging, dan pengaturan proteksi real-time.</p>
   </div>
 </section>
 
@@ -328,25 +295,27 @@
       <div class="icon">🔒</div>
       <div>
         <h3>Syarat Penggunaan: Akun Terdaftar di Indorebate</h3>
-        <p>EA ini <strong>hanya dapat digunakan dengan akun trading yang terdaftar dan aktif di jaringan Indorebate.</strong> Jika Anda menggunakan broker mitra Indorebate namun akun belum tervalidasi di sistem kami, EA tidak akan bisa diaktifkan. Belum punya akun terdaftar? <a href="index.html#broker">Daftar di sini</a> atau <a href="validasi.html" target="_blank" rel="noopener noreferrer">validasi akun Anda</a> terlebih dahulu.</p>
+        <p>EA ini <strong>hanya dapat digunakan dengan akun trading yang terdaftar dan aktif di jaringan Indorebate.</strong> Belum punya akun terdaftar? <a href="index.html#broker">Daftar di sini</a> atau <a href="validasi.html" target="_blank" rel="noopener noreferrer">validasi akun Anda</a> terlebih dahulu.</p>
       </div>
     </div>
 
     <div class="section-label">Baca Dulu</div>
-    <h2 class="section-title">Penting: EA Ini Tools, Bukan Jaminan Profit</h2>
-    <p>Sebelum menggunakan, pastikan Anda memahami betul cara kerja dan risikonya. EA ini dibuat untuk membantu proses trading, bukan menggantikan strategi dan keputusan Anda sebagai trader.</p>
+    <h2 class="section-title">Penting: EA Grid/Hedging Berisiko Tinggi</h2>
+    <p>EA ini membuka banyak pending order sekaligus di dua arah (grid), lalu mengelola posisi yang terbuka secara otomatis. Strategi grid seperti ini bisa efektif di market ranging, tapi berisiko besar kalau harga bergerak searah dan kuat tanpa pembalikan — pastikan Anda memahami cara kerjanya sebelum menggunakan modal riil.</p>
 
     <div class="warning-box">
       <h3>⚠️ Hal yang Wajib Anda Pahami</h3>
       <ul>
-        <li><strong>EA tidak menganalisa pasar dan tidak menentukan kapan entry.</strong> Keputusan BUY/SELL awal sepenuhnya manual lewat tombol di panel, berdasarkan analisa Anda sendiri.</li>
-        <li>Setelah entry pertama, EA berjalan dengan <strong>dua mode otomatis</strong>: <strong>Pyramid</strong> — menambah posisi baru saat harga bergerak searah profit sejauh Pyramid Distance, lalu mengunci keuntungan basket dengan trailing stop sejauh Pyramid SL; dan <strong>Averaging/Martingale</strong> — menambah posisi dengan lot berlipat (multiplier) saat harga bergerak melawan posisi awal sejauh Grid Distance, untuk mengejar titik impas (BEP).</li>
-        <li>Mode averaging <strong>berisiko tinggi</strong>. Jika tren melawan terus berlanjut tanpa pembalikan dan tidak dikelola dengan disiplin (lot, jarak grid, jumlah order sesuai modal), <strong>akun bisa terkena Margin Call (MC).</strong></li>
-        <li><strong>EA ini tidak berjalan otomatis 24 jam.</strong> Anda tetap perlu memantau posisi, kondisi market, dan berita ekonomi — termasuk saat fitur re-entry otomatis aktif.</li>
-        <li>Hasil trading sepenuhnya bergantung pada <strong>strategi, manajemen risiko, dan disiplin masing-masing pengguna</strong> — bukan pada EA itu sendiri.</li>
+        <li><strong>Saat tombol EXECUTE ditekan, EA langsung membuka grid pending order Buy &amp; Sell sekaligus</strong> dari harga market saat itu — jumlah layer, jarak antar layer, dan lot per layer mengikuti pengaturan Anda di panel.</li>
+        <li><strong>Basket TP</strong> menutup semua posisi begitu harga mencapai titik breakeven gabungan (BEP) + jarak tertentu. Selama basket belum tertutup, <strong>penutupan satu posisi mana pun (kena TP/SL/trailing/manual) akan memicu penutupan seluruh sisa posisi dan pending order</strong> (close all).</li>
+        <li>Kalau <strong>Continuous Entry</strong> diaktifkan, EA otomatis membuka grid baru dari harga pasar terkini setiap kali satu siklus basket selesai tertutup — EA akan terus membuka posisi baru tanpa henti selama fitur ini ON.</li>
+        <li>Semakin banyak jumlah layer dan semakin kecil jarak antar layer, semakin banyak pula pending order yang berpotensi tersentuh sekaligus saat market bergerak cepat — <strong>gunakan lot dan jumlah layer yang sesuai dengan modal Anda</strong> untuk menghindari Margin Call (MC).</li>
+        <li><strong>EA ini tidak menganalisa arah market.</strong> Grid dibuka dua arah dari harga saat itu juga — bukan berdasarkan prediksi tren naik atau turun.</li>
+        <li><strong>EA tidak berjalan otomatis 24 jam tanpa pengawasan.</strong> Anda tetap perlu memantau posisi, kondisi market, dan berita ekonomi — terutama saat Continuous Entry aktif.</li>
+        <li>Hasil trading sepenuhnya bergantung pada <strong>pengaturan parameter, manajemen risiko, dan disiplin masing-masing pengguna</strong> — bukan pada EA itu sendiri.</li>
       </ul>
       <div class="fine-print">
-        Tools ini ditujukan untuk trader yang sudah memahami konsep pyramiding, martingale/averaging, dan risikonya. Indorebate tidak bertanggung jawab atas kerugian trading yang timbul dari penggunaan tools ini. Forex trading mengandung risiko kehilangan modal.
+        Tools ini ditujukan untuk trader yang sudah memahami konsep grid trading, hedging, dan risikonya. Indorebate tidak bertanggung jawab atas kerugian trading yang timbul dari penggunaan tools ini. Forex trading mengandung risiko kehilangan modal.
       </div>
     </div>
   </div>
@@ -357,18 +326,19 @@
   <div class="section-inner">
     <div class="section-label">Fitur</div>
     <h2 class="section-title">Apa yang Dilakukan EA Ini</h2>
-    <p>EA membantu otomatisasi hal-hal teknis <strong>setelah</strong> Anda memutuskan entry — bukan mengambil keputusan trading untuk Anda.</p>
+    <p>Semua fitur dikontrol langsung dari dashboard panel di chart — tanpa perlu mengubah kode atau pengaturan lewat jendela input EA.</p>
     <table class="feature-table">
       <tr><th>Fitur</th><th>Penjelasan</th></tr>
-      <tr><td>Entry Manual via Order Panel</td><td>Tombol BUY NOW / SELL NOW langsung di chart — Anda yang menentukan arah dan waktu entry pertama.</td></tr>
-      <tr><td>Auto Pyramid</td><td>Saat harga bergerak searah profit sejauh Pyramid Distance, EA menambah posisi baru mengikuti tren, lalu langsung memasang stop loss basket sejauh Pyramid SL di belakang harga — dan menariknya (trailing) setiap kali order pyramid baru terbentuk.</td></tr>
-      <tr><td>Auto Averaging / Martingale</td><td>Saat harga bergerak melawan posisi sejauh Grid Distance, EA menambah posisi dengan lot berlipat sesuai Multiplier untuk mengejar titik impas (BEP).</td></tr>
-      <tr><td>Auto Basket TP</td><td>Begitu mode averaging aktif, EA menghitung BEP seluruh basket dan otomatis memasang Take Profit di jarak Basket TP dari BEP tersebut.</td></tr>
-      <tr><td>Trailing Stop Pyramid</td><td>Selama posisi masih dalam mode pyramid (belum averaging), status "Trailing" pada panel aktif dan Trailing SL otomatis mengunci profit basket sejauh Pyramid SL dari harga berjalan.</td></tr>
-      <tr><td>Auto Re-Entry</td><td>Satu tombol RE-ENTRY di Order Panel — saat ON, EA otomatis membuka ulang posisi di arah yang sama setelah basket ditutup, baik lewat trailing stop pyramid maupun Basket TP averaging.</td></tr>
-      <tr><td>Target Profit &amp; Max Loss (USD)</td><td>Menutup seluruh posisi otomatis begitu total profit sesi (closed + floating) mencapai Target Profit, atau saat floating loss mencapai batas Max Loss yang Anda tentukan (default OFF/nonaktif).</td></tr>
-      <tr><td>Filter Spread &amp; Status AutoTrading</td><td>EA hanya membuka order baru saat spread masih di bawah batas Max Spread dan tombol AutoTrading/Algo Trading di MT5 dalam kondisi aktif — status ini ditampilkan real-time di baris "Session" pada panel.</td></tr>
-      <tr><td>Panel Monitoring 3-Panel</td><td>EA Setup, Trading Info, dan Order Panel menampilkan status, arah, mode (GRID+PYRAMID/GRID ONLY), jumlah order, BEP, Basket TP, Floating/Closed/Total P/L, dan status Trailing secara real-time.</td></tr>
+      <tr><td>Grid Pending 2 Arah</td><td>Membuka pending order Buy &amp; Sell sekaligus dari harga market saat tombol EXECUTE ditekan. Tipe pending bisa Stop (mengikuti breakout) atau Limit (mean-reversion).</td></tr>
+      <tr><td>SL/TP Per Posisi atau Global</td><td>Pilih mode "Per Posisi" (SL/TP tetap untuk tiap layer) atau "Global" (dihitung dari layer terluar, berlaku sama ke semua posisi di sisi yang sama).</td></tr>
+      <tr><td>Basket TP (Gabungan)</td><td>Menutup semua posisi otomatis saat harga mencapai breakeven gabungan (BEP) + jarak yang ditentukan. Di mode Stop, aktif kalau kedua sisi sama-sama punya posisi; di mode Limit, bisa aktif walau baru satu sisi terbuka.</td></tr>
+      <tr><td>Hard TP/SL (ON/OFF)</td><td>ON (default): TP/SL asli tetap dipasang di broker sebagai pengaman ganda. OFF: TP/SL broker dilepas semua, penutupan basket murni dikendalikan EA lewat pengecekan harga setiap tick.</td></tr>
+      <tr><td>Trailing Stop Otomatis</td><td>Berjalan otomatis hanya saat posisi terbuka cuma satu sisi (full Buy saja atau full Sell saja), mengunci profit seiring harga bergerak searah.</td></tr>
+      <tr><td>Continuous Entry</td><td>Setelah satu siklus grid selesai tertutup penuh, EA otomatis membuka grid baru dari harga market terkini — tanpa perlu menekan Execute ulang secara manual.</td></tr>
+      <tr><td>Target Profit &amp; Target Loss (USD)</td><td>Begitu target tercapai, EA menutup seluruh posisi dan mematikan dirinya sendiri (perlu ditekan CONNECT lagi untuk mengaktifkan ulang).</td></tr>
+      <tr><td>Panel Dashboard Lengkap</td><td>Menampilkan nama pair, jumlah posisi Buy/Sell terbuka, status Trailing, level Basket TP aktif, serta profit floating/closed/total secara real-time.</td></tr>
+      <tr><td>Panel Bisa Digeser &amp; Diminimize</td><td>Panel parameter dan panel info bisa diseret ke posisi mana pun di chart (posisi tersimpan otomatis) dan diminimize lewat tombol "_" di pojok kanan atas.</td></tr>
+      <tr><td>Blank Chart Mode</td><td>Menyembunyikan candle, grid, dan volume bawaan chart (latar polos) agar fokus ke panel EA — bisa dikembalikan kapan saja lewat tombol yang sama.</td></tr>
     </table>
   </div>
 </section>
@@ -380,14 +350,14 @@
     <h2 class="section-title">Cara Menggunakan EA</h2>
     <ol class="steps-list">
       <li><strong>Aktivasi dengan Password</strong>Masukkan Nomor Akun Trading dan Password Aktivasi Anda (diberikan admin lewat email/WhatsApp setelah akun disetujui sebagai member rebate) ke parameter input EA. EA hanya akan berjalan jika kombinasi keduanya cocok dengan data akun Anda yang terdaftar di jaringan Indorebate.</li>
-      <li><strong>Persiapan</strong>Pasang EA di chart pair yang ingin ditradingkan (semua pair didukung — Forex, Gold, dll). Pastikan akun trading dalam mode <em>hedging</em>, bukan netting.</li>
-      <li><strong>Atur Parameter Sesuai Modal &amp; Risiko</strong>Sesuaikan Base Lot, Multiplier, Grid Distance (jarak averaging), Pyramid Distance (jarak pyramid), dan terutama Max Order — jangan sampai lebih besar dari kemampuan modal Anda.</li>
-      <li><strong>Atur Trailing &amp; Basket TP</strong>Tentukan Pyramid SL (jarak trailing stop) untuk mode pyramid, serta Basket TP untuk mode averaging, sesuai target dan gaya trading Anda.</li>
-      <li><strong>Aktifkan Proteksi</strong>Set Target Profit (USD) dan Max Loss (USD) sebagai pengaman otomatis, serta Max Spread agar EA hanya membuka order baru saat kondisi market sesuai. Pastikan tombol AutoTrading/Algo Trading di MT5 tetap aktif — statusnya bisa dipantau di baris "Session" pada panel.</li>
-      <li><strong>Entry Manual</strong>Analisa market sesuai strategi Anda, lalu tekan tombol BUY NOW / SELL NOW di Order Panel sesuai arah yang diyakini. Dari titik itu EA otomatis menentukan pyramid atau averaging mengikuti pergerakan harga.</li>
-      <li><strong>Atur Reentry Sesuai Kebutuhan</strong>Nyalakan/matikan tombol RE-ENTRY di Order Panel — biarkan ON jika ingin EA membuka ulang posisi otomatis di arah yang sama setelah basket tertutup (baik lewat trailing stop pyramid maupun Basket TP averaging).</li>
-      <li><strong>Pantau Secara Berkala</strong>Cek panel EA secara rutin, terutama saat market volatile (rilis berita, overlap sesi trading). EA bukan pengganti pengawasan Anda.</li>
-      <li><strong>Reset Kapan Saja</strong>Gunakan tombol Close All / Reset untuk menutup seluruh posisi dan mereset status EA jika diperlukan.</li>
+      <li><strong>Persiapan</strong>Pasang EA di chart pair yang ingin ditradingkan. Pastikan akun trading dalam mode <em>hedging</em>, bukan netting, karena EA membuka posisi Buy &amp; Sell sekaligus di pair yang sama.</li>
+      <li><strong>Atur Grid Sesuai Modal</strong>Tentukan jumlah Layer, Jarak antar layer (poin), dan Lot per layer di panel — semakin besar jumlah layer dan semakin kecil jaraknya, semakin besar pula potensi total lot yang terbuka.</li>
+      <li><strong>Pilih Mode Pending &amp; SL/TP</strong>Pilih tipe pending STOP (breakout) atau LIMIT (mean-reversion), lalu tentukan mode SL/TP: Per Posisi atau Global.</li>
+      <li><strong>Atur Basket TP &amp; Trailing</strong>Aktifkan Basket TP dan tentukan jaraknya dari BEP sesuai target Anda. Nyalakan Trailing bila diinginkan (khusus mode STOP) — statusnya otomatis berjalan begitu posisi hanya tersisa di satu sisi.</li>
+      <li><strong>Atur Proteksi Tambahan</strong>Set Target Profit dan Target Loss (USD) sebagai pengaman otomatis untuk seluruh siklus, serta tentukan apakah Continuous Entry ingin diaktifkan atau tidak.</li>
+      <li><strong>Tekan CONNECT lalu EXECUTE</strong>Tekan tombol CONNECT EA untuk mengaktifkan EA, lalu tekan EXECUTE untuk membuka grid pending order sesuai parameter yang sudah diatur.</li>
+      <li><strong>Pantau Secara Berkala</strong>Cek panel info secara rutin, terutama saat market volatile (rilis berita, overlap sesi trading) — EA bukan pengganti pengawasan Anda.</li>
+      <li><strong>Close All / Reset Kapan Saja</strong>Gunakan tombol CLOSE ALL untuk menutup seluruh posisi & pending order tanpa mereset status EA, atau RESET untuk menutup semuanya sekaligus mengembalikan EA ke kondisi awal (perlu CONNECT ulang).</li>
     </ol>
   </div>
 </section>
@@ -397,10 +367,10 @@
   <div class="section-inner">
     <div class="claim-card">
       <h3>Cara Klaim EA Gratis</h3>
-      <p>Daftar akun trading via link referral Indorebate → Aktifkan &amp; validasi status member rebate → Cek email → Cek Password untuk aktivasi Merah Putih Tools.</p>
+      <p>Daftar akun trading via link referral Indorebate → Aktifkan &amp; validasi status member rebate → Hubungi admin untuk mendapatkan file EA &amp; Password Aktivasi.</p>
       <div class="hero-btns">
         <a href="index.html#broker" class="btn-gold">Daftar Akun Broker</a>
-        <a href="https://drive.google.com/drive/folders/1--yhcPLzNvZlYQXkJXki0z3HoD1Fnwtw?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-telegram">Download EA di sini</a>
+        <a href="https://wa.me/6285777717118" target="_blank" rel="noopener noreferrer" class="btn-outline-hero">Hubungi Admin untuk Download</a>
       </div>
       <p style="color:rgba(255,255,255,.55);font-size:.82rem;margin-top:20px;margin-bottom:0;">⚠️ EA hanya diberikan untuk akun yang sudah terverifikasi terdaftar di Indorebate.</p>
     </div>
