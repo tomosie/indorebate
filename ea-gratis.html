@@ -256,6 +256,28 @@
     margin-top: 14px;
   }
 
+  /* Video tutorial */
+  .video-card { max-width: 800px; margin: 28px auto 0; }
+  .video-thumb {
+    position: relative; aspect-ratio: 16/9; border-radius: var(--radius);
+    overflow: hidden; box-shadow: var(--shadow-lg); cursor: pointer; background: #000;
+  }
+  .video-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; opacity: .92; }
+  .video-thumb::after {
+    content: ''; position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(11,27,58,.05) 0%, rgba(11,27,58,.35) 100%);
+  }
+  .video-play-btn {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%);
+    width: 76px; height: 76px; background: rgba(211,29,29,.92); border-radius: 50%;
+    display: flex; align-items: center; justify-content: center; z-index: 2;
+    transition: background .2s, transform .2s; box-shadow: 0 4px 20px rgba(0,0,0,.35);
+  }
+  .video-thumb:hover .video-play-btn { background: #d31d1d; transform: translate(-50%,-50%) scale(1.08); }
+  .video-play-btn svg { width: 28px; height: 28px; fill: #fff; margin-left: 4px; }
+  .video-card iframe { width: 100%; aspect-ratio: 16/9; border: 0; border-radius: var(--radius); display: block; box-shadow: var(--shadow-lg); }
+  .video-caption { text-align: center; color: var(--gray-500); font-size: .88rem; margin-top: 14px; }
+
   @media (max-width: 900px) {
     nav .nav-links { display: none; }
     .page-hero h1 { font-size: 2rem; }
@@ -373,6 +395,24 @@
   </div>
 </section>
 
+<!-- VIDEO TUTORIAL -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-label">Tutorial</div>
+    <h2 class="section-title">Video Cara Penggunaan EA</h2>
+    <p>Banyak yang masih bingung cara setting dan pakai Merah Putih Tools V3 — jadi kami buatkan video tutorial lengkapnya di bawah ini.</p>
+    <div class="video-card">
+      <div class="video-thumb" id="videoThumb" data-video-id="BQX4QvoJZNM" onclick="loadYoutubeVideo(this)">
+        <img src="https://img.youtube.com/vi/BQX4QvoJZNM/maxresdefault.jpg" alt="Video tutorial cara penggunaan Merah Putih Tools V3" loading="lazy">
+        <div class="video-play-btn" aria-label="Putar video">
+          <svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+        </div>
+      </div>
+      <p class="video-caption">Tutorial lengkap cara install &amp; setting Merah Putih Tools V3 — TomzTechno</p>
+    </div>
+  </div>
+</section>
+
 <!-- PANDUAN -->
 <section class="section" id="panduan">
   <div class="section-inner">
@@ -429,5 +469,17 @@
   </div>
 </footer>
 
+<script>
+function loadYoutubeVideo(el) {
+  var videoId = el.getAttribute('data-video-id');
+  var iframe = document.createElement('iframe');
+  iframe.src = 'https://www.youtube.com/embed/' + videoId + '?autoplay=1&rel=0';
+  iframe.title = 'YouTube video player';
+  iframe.setAttribute('frameborder', '0');
+  iframe.setAttribute('allow', 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+  iframe.setAttribute('allowfullscreen', '');
+  el.replaceWith(iframe);
+}
+</script>
 </body>
 </html>
