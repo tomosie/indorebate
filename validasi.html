@@ -16,25 +16,58 @@ body{
 }
 
 .btn-gold{
-    background: linear-gradient(135deg,#d4af37,#f7d774);
-    color:#000;
+    background: linear-gradient(135deg,#d4af37,#f7d774,#d4af37);
+    background-size:200% auto;
+    color:#1a1200;
     border:none;
-    padding:14px 25px;
-    border-radius:8px;
-    font-weight:bold;
-    font-size:16px;
+    padding:18px 25px;
+    border-radius:10px;
+    font-weight:800;
+    font-size:18px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
     cursor:pointer;
+    box-shadow:0 6px 20px rgba(212,175,55,.5), inset 0 1px 0 rgba(255,255,255,.4);
+    transition:transform .15s ease, box-shadow .15s ease, background-position .4s ease;
+}
+.btn-gold:not(:disabled):hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 28px rgba(212,175,55,.65), inset 0 1px 0 rgba(255,255,255,.5);
+    background-position:right center;
+}
+.btn-gold:not(:disabled):active{
+    transform:translateY(0);
+}
+.btn-gold:not(:disabled){
+    animation:goldPulse 2.2s ease-in-out infinite;
+}
+@keyframes goldPulse{
+    0%, 100%{ box-shadow:0 6px 20px rgba(212,175,55,.5), inset 0 1px 0 rgba(255,255,255,.4); }
+    50%{ box-shadow:0 6px 28px rgba(212,175,55,.85), inset 0 1px 0 rgba(255,255,255,.5); }
 }
 .btn-whatsapp{
     display:block;
     text-align:center;
-    background:#25D366;
+    background:linear-gradient(135deg,#25D366,#1ebe57);
     color:#fff;
     text-decoration:none;
-    padding:14px 25px;
-    border-radius:8px;
-    font-weight:bold;
-    font-size:16px;
+    padding:16px 25px;
+    border-radius:10px;
+    font-weight:800;
+    font-size:17px;
+    letter-spacing:.03em;
+    text-transform:uppercase;
+    box-shadow:0 6px 18px rgba(37,211,102,.45);
+    transition:transform .15s ease, box-shadow .15s ease;
+    animation:fadeSlideIn .4s ease;
+}
+.btn-whatsapp:hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 24px rgba(37,211,102,.6);
+}
+@keyframes fadeSlideIn{
+    from{ opacity:0; transform:translateY(-8px); }
+    to{ opacity:1; transform:translateY(0); }
 }
     
 h1{
@@ -194,18 +227,21 @@ button:disabled{
 
     <div id="formMessage" class="form-message" role="status"></div>
 
-<a href="https://wa.link/9093p9"
+</form>
+
+<!-- Muncul otomatis hanya setelah validasi berhasil terkirim -->
+<div id="confirmRebateBlock" style="display:none; margin-top:15px;">
+    <a href="https://wa.link/9093p9"
        target="_blank"
        rel="noopener noreferrer"
        class="btn-whatsapp">
-        KONFIRMASI REBATE
+        KONFIRMASI ADMIN REBATE
     </a>
 
-<p style="text-align:center; font-size:14px; color:#555; margin-top:10px;">
-    Harap tekan tombol <strong>KONFIRMASI REBATE</strong> jika sudah melakukan <strong>VALIDASI AKUN SAYA</strong> untuk mempercepat proses validasi.
-</p>
-    
-</form>
+    <p style="text-align:center; font-size:14px; color:#555; margin-top:10px;">
+        Validasi berhasil terkirim! Tekan tombol <strong>KONFIRMASI ADMIN REBATE</strong> di atas untuk mempercepat proses validasi.
+    </p>
+</div>
 
 <!--
   Cloudflare Turnstile. Ganti TURNSTILE_SITE_KEY di bawah dengan site key
@@ -253,6 +289,7 @@ button:disabled{
     var turnstileContainer = document.getElementById('turnstileContainer');
     var turnstileFallback = document.getElementById('turnstileFallback');
     var turnstileRetryBtn = document.getElementById('turnstileRetryBtn');
+    var confirmRebateBlock = document.getElementById('confirmRebateBlock');
 
     var turnstileWidgetId = null;
     var captchaToken = null;
@@ -394,6 +431,7 @@ button:disabled{
             if (res.ok && data.success) {
                 showMessage('Terima kasih! Permintaan validasi Anda sudah kami terima. Cek email Anda untuk konfirmasi.', 'success');
                 form.reset();
+                confirmRebateBlock.style.display = '';
             } else {
                 showMessage(data.error || 'Gagal mengirim data. Silakan coba lagi.', 'error');
             }
