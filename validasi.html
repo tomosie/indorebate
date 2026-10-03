@@ -6,12 +6,71 @@
 
 <title>Account Validation</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-    
+/* ── NAV (sama dengan index.html dan halaman lainnya) ── */
+nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #E2E8F0;
+    box-shadow: 0 2px 16px rgba(11,27,58,.07);
+}
+.nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 68px;
+    flex-wrap: nowrap;
+}
+.logo {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px;
+    color: #0B1B3A; text-decoration: none;
+}
+.logo span { color: #C9973A; }
+.nav-links { display: flex; gap: 8px; list-style: none; margin:0; padding:0; }
+.nav-links a {
+    font-family: 'Inter', sans-serif; font-weight: 500; font-size: .92rem;
+    color: #334155; text-decoration: none;
+    padding: 8px 16px; border-radius: 8px; transition: all .2s;
+}
+.nav-links a:hover { background: #FDF3E0; color: #0B1B3A; }
+.nav-actions{ display:flex; align-items:center; gap:10px; }
+.nav-cta {
+    background: linear-gradient(135deg, #C9973A, #E8B84B);
+    color: #0B1B3A; font-weight: 700; font-size: .88rem;
+    padding: 10px 20px; border-radius: 8px; text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 2px 8px rgba(201,151,58,.35);
+    white-space: nowrap;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,151,58,.5); }
+@media (max-width: 768px) {
+    nav .nav-links { display: none; }
+}
+@media (max-width: 480px) {
+    .nav-inner { padding: 0 12px; }
+    .logo { font-size: 1.15rem; }
+    .nav-actions { gap: 8px; }
+    .nav-cta { padding: 11px 20px; font-size: .88rem; }
+}
+@media (max-width: 380px) {
+    .nav-inner { padding: 0 10px; }
+    .logo { font-size: 1.02rem; }
+    .nav-actions { gap: 6px; }
+    .nav-cta { padding: 10px 16px; font-size: .8rem; }
+}
+
 body{
     font-family: Arial, sans-serif;
+    margin:0;
+    padding:0;
+}
+
+.page-container{
     max-width:600px;
-    margin:50px auto;
+    margin:40px auto;
     padding:20px;
 }
 
@@ -170,6 +229,24 @@ button:disabled{
 </head>
 <body>
 
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="logo">INDO<span>REBATE</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Beranda</a></li>
+      <li><a href="index.html#broker">Broker</a></li>
+      <li><a href="index.html#cara-kerja">Cara Kerja</a></li>
+      <li><a href="rebate.html" target="_blank" rel="noopener noreferrer">Apa itu Rebate</a></li>
+      <li><a href="tools-gratis.html">🎁 Tools Gratis</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="validasi.html" class="nav-cta">Validasi</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-container">
+
 <h1>Indorebate Account Validation</h1>
 
 <form id="validationForm">
@@ -229,19 +306,11 @@ button:disabled{
 
 </form>
 
-<!-- Muncul otomatis hanya setelah validasi berhasil terkirim -->
-<div id="confirmRebateBlock" style="display:none; margin-top:15px;">
-    <a href="https://wa.link/9093p9"
-       target="_blank"
-       rel="noopener noreferrer"
-       class="btn-whatsapp">
-        KONFIRMASI ADMIN REBATE
-    </a>
-
-    <p style="text-align:center; font-size:14px; color:#555; margin-top:10px;">
-        Validasi berhasil terkirim! Tekan tombol <strong>KONFIRMASI ADMIN REBATE</strong> di atas untuk mempercepat proses validasi.
-    </p>
+<div id="emailReminder" class="form-message info" style="display:block; margin-top:15px;">
+    📩 Setelah mengirim validasi, mohon <strong>cek email Anda</strong> (termasuk folder <strong>Spam/Promosi</strong>) untuk memastikan Anda sudah menerima email konfirmasi pengajuan rebate dari kami.
 </div>
+
+</div><!-- /page-container -->
 
 <!--
   Cloudflare Turnstile. Ganti TURNSTILE_SITE_KEY di bawah dengan site key
@@ -289,7 +358,6 @@ button:disabled{
     var turnstileContainer = document.getElementById('turnstileContainer');
     var turnstileFallback = document.getElementById('turnstileFallback');
     var turnstileRetryBtn = document.getElementById('turnstileRetryBtn');
-    var confirmRebateBlock = document.getElementById('confirmRebateBlock');
 
     var turnstileWidgetId = null;
     var captchaToken = null;
@@ -431,7 +499,6 @@ button:disabled{
             if (res.ok && data.success) {
                 showMessage('Terima kasih! Permintaan validasi Anda sudah kami terima. Cek email Anda untuk konfirmasi.', 'success');
                 form.reset();
-                confirmRebateBlock.style.display = '';
             } else {
                 showMessage(data.error || 'Gagal mengirim data. Silakan coba lagi.', 'error');
             }
