@@ -306,7 +306,10 @@ button:disabled{
 
 </form>
 
-<div id="emailReminder" class="form-message info" style="display:block; margin-top:15px;">
+<!-- Pengingat cek email disembunyikan sementara (kuota Resend habis, jadi
+     email konfirmasi mungkin belum terkirim). Hapus style="display:none;"
+     di bawah ini begitu kuota Resend sudah normal/ditambah lagi. -->
+<div id="emailReminder" class="form-message info" style="display:none; margin-top:15px;">
     📩 Setelah mengirim validasi, mohon <strong>cek email Anda</strong> (termasuk folder <strong>Spam/Promosi</strong>) untuk memastikan Anda sudah menerima email konfirmasi pengajuan rebate dari kami.
 </div>
 
