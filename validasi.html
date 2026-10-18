@@ -172,6 +172,11 @@ button:disabled{
     color:#1a4c8b;
     border:1px solid #bcd6f3;
 }
+.form-message a{
+    color:inherit;
+    font-weight:bold;
+    text-decoration:underline;
+}
 
 /* Honeypot field - hidden from real users, only bots that auto-fill every
    input will touch it. Kept in normal document flow (not display:none /
@@ -265,6 +270,15 @@ button:disabled{
         <option value="TMGM">TMGM</option>
     </select>
 
+    <select name="account_status" required>
+        <option value="" disabled selected hidden>NOMOR AKUN DI ATAS ADALAH...</option>
+        <option value="baru_pindah">Akun BARU, dibuat setelah pindah IB Indorebate</option>
+        <option value="baru_link">Akun BARU, daftar lewat link Indorebate</option>
+        <option value="lama">Akun LAMA, belum pindah ke IB Indorebate</option>
+    </select>
+
+    <div id="oldAccountWarning" class="form-message" role="alert"></div>
+
     <input
         type="email"
         name="email"
@@ -346,6 +360,21 @@ button:disabled{
     var accountNumber = form.querySelector('input[name="account_number"]');
     var submitBtn = document.getElementById('submitBtn');
     var messageBox = document.getElementById('formMessage');
+    var brokerSelect = form.querySelector('select[name="broker_name"]');
+    var statusSelect = form.querySelector('select[name="account_status"]');
+    var oldAccountWarning = document.getElementById('oldAccountWarning');
+
+    // Halaman panduan pindah IB per broker (dipakai di peringatan akun lama).
+    var PINDAH_IB_PAGES = {
+        'Headway': 'pindah-ib-headway.html',
+        'Exness': 'pindah-ib-exness.html',
+        'HFM': 'pindah-ib-hfm.html',
+        'Tickmill': 'pindah-ib-tickmill.html',
+        'JustMarkets': 'pindah-ib-justmarkets.html',
+        'RoboForex': 'pindah-ib-roboforex.html',
+        'XM Global': 'pindah-ib-xm.html',
+        'TMGM': 'pindah-ib-tmgm.html'
+    };
     var turnstileContainer = document.getElementById('turnstileContainer');
     var turnstileFallback = document.getElementById('turnstileFallback');
     var turnstileRetryBtn = document.getElementById('turnstileRetryBtn');
@@ -361,9 +390,26 @@ button:disabled{
 
     form.addEventListener('input', updateSubmitState);
     form.addEventListener('change', updateSubmitState);
+    form.addEventListener('change', updateOldAccountWarning);
 
     function updateSubmitState() {
-        submitBtn.disabled = !(form.checkValidity() && !!captchaToken);
+        // Akun lama (belum pindah IB) tidak bisa divalidasi: tombol dikunci.
+        submitBtn.disabled = !(form.checkValidity() && !!captchaToken && statusSelect.value !== 'lama');
+    }
+
+    // Tampilkan peringatan + link panduan pindah IB kalau user memilih "akun lama".
+    function updateOldAccountWarning() {
+        if (statusSelect.value !== 'lama') {
+            oldAccountWarning.className = 'form-message';
+            oldAccountWarning.innerHTML = '';
+            return;
+        }
+        var page = PINDAH_IB_PAGES[brokerSelect.value];
+        var link = page
+            ? '<a href="' + page + '" target="_blank" rel="noopener noreferrer">Lihat panduan pindah IB ' + brokerSelect.value + '</a>'
+            : '<a href="index.html#broker" target="_blank" rel="noopener noreferrer">Lihat panduan pindah IB</a>';
+        oldAccountWarning.innerHTML = '<strong>Akun lama tidak mendapat rebate.</strong> Ikuti panduan pindah IB, buat akun baru, lalu validasi nomor akun baru itu. ' + link;
+        oldAccountWarning.className = 'form-message error';
     }
 
     function showMessage(text, type) {
@@ -457,6 +503,11 @@ button:disabled{
             return;
         }
 
+        if (statusSelect.value === 'lama') {
+            updateOldAccountWarning();
+            return;
+        }
+
         if (!captchaToken) {
             showMessage('Mohon selesaikan verifikasi keamanan terlebih dahulu.', 'error');
             return;
@@ -507,6 +558,7 @@ button:disabled{
             // langsung coba lagi tanpa form terasa "macet".
             resetCaptcha();
             submitBtn.textContent = 'VALIDASI AKUN SAYA';
+            updateOldAccountWarning();
             updateSubmitState();
         }
     });
@@ -518,6 +570,7 @@ button:disabled{
         }
     }
 
+    updateOldAccountWarning();
     updateSubmitState();
 })();
 </script>
