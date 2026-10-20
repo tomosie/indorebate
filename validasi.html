@@ -294,6 +294,15 @@ button:disabled{
         placeholder="ALAMAT EMAIL"
         required>
 
+    <input
+        type="email"
+        name="email_confirm"
+        placeholder="KETIK ULANG ALAMAT EMAIL"
+        autocomplete="off"
+        required>
+
+    <div id="emailMismatch" class="form-message" role="alert"></div>
+
     <div class="email-warning">
         ⚠️ <strong>Pastikan email Anda benar dan aktif.</strong> Hasil validasi dikirim ke email ini, jadi periksa lagi ejaannya dan pastikan kotak masuk tidak penuh. Jika email salah atau penuh, kami tidak dapat mengirimkan hasil validasi.
     </div>
@@ -376,6 +385,9 @@ button:disabled{
     var brokerSelect = form.querySelector('select[name="broker_name"]');
     var statusSelect = form.querySelector('select[name="account_status"]');
     var oldAccountWarning = document.getElementById('oldAccountWarning');
+    var emailInput = form.querySelector('input[name="email"]');
+    var emailConfirm = form.querySelector('input[name="email_confirm"]');
+    var emailMismatch = document.getElementById('emailMismatch');
 
     // Halaman panduan pindah IB per broker (dipakai di peringatan akun lama).
     var PINDAH_IB_PAGES = {
@@ -404,10 +416,26 @@ button:disabled{
     form.addEventListener('input', updateSubmitState);
     form.addEventListener('change', updateSubmitState);
     form.addEventListener('change', updateOldAccountWarning);
+    form.addEventListener('input', updateEmailMismatch);
+
+    // Email dan "ketik ulang email" harus sama (huruf besar/kecil diabaikan).
+    function emailsMatch() {
+        return emailInput.value.trim().toLowerCase() === emailConfirm.value.trim().toLowerCase();
+    }
+
+    function updateEmailMismatch() {
+        if (emailConfirm.value && !emailsMatch()) {
+            emailMismatch.textContent = 'Email tidak sama. Ketik ulang dengan teliti.';
+            emailMismatch.className = 'form-message error';
+        } else {
+            emailMismatch.textContent = '';
+            emailMismatch.className = 'form-message';
+        }
+    }
 
     function updateSubmitState() {
-        // Akun lama (belum pindah IB) tidak bisa divalidasi: tombol dikunci.
-        submitBtn.disabled = !(form.checkValidity() && !!captchaToken && statusSelect.value !== 'lama');
+        // Akun lama (belum pindah IB) tidak bisa divalidasi, dan email harus sama di kedua kolom.
+        submitBtn.disabled = !(form.checkValidity() && !!captchaToken && statusSelect.value !== 'lama' && emailsMatch());
     }
 
     // Tampilkan peringatan + link panduan pindah IB kalau user memilih "akun lama".
@@ -521,6 +549,11 @@ button:disabled{
             return;
         }
 
+        if (!emailsMatch()) {
+            updateEmailMismatch();
+            return;
+        }
+
         if (!captchaToken) {
             showMessage('Mohon selesaikan verifikasi keamanan terlebih dahulu.', 'error');
             return;
@@ -572,6 +605,7 @@ button:disabled{
             resetCaptcha();
             submitBtn.textContent = 'VALIDASI AKUN SAYA';
             updateOldAccountWarning();
+            updateEmailMismatch();
             updateSubmitState();
         }
     });
