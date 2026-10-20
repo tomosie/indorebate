@@ -177,6 +177,15 @@ button:disabled{
     font-weight:bold;
     text-decoration:underline;
 }
+.email-warning{
+    padding:12px 14px;
+    border-radius:6px;
+    font-size:14px;
+    line-height:1.5;
+    background:#fff8e1;
+    color:#7a5b00;
+    border:1px solid #f0d98a;
+}
 
 /* Honeypot field - hidden from real users, only bots that auto-fill every
    input will touch it. Kept in normal document flow (not display:none /
@@ -284,6 +293,10 @@ button:disabled{
         name="email"
         placeholder="ALAMAT EMAIL"
         required>
+
+    <div class="email-warning">
+        ⚠️ <strong>Pastikan email Anda benar dan aktif.</strong> Hasil validasi dikirim ke email ini, jadi periksa lagi ejaannya dan pastikan kotak masuk tidak penuh. Jika email salah atau penuh, kami tidak dapat mengirimkan hasil validasi.
+    </div>
 
     <!-- Honeypot: real users never see or fill this. Left blank must stay
          blank; if it has a value, the submission is treated as a bot. -->
