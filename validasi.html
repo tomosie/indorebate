@@ -281,9 +281,9 @@ button:disabled{
 
     <select name="account_status" required>
         <option value="" disabled selected hidden>NOMOR AKUN DI ATAS ADALAH...</option>
-        <option value="baru_pindah">Akun BARU, dibuat setelah pindah IB Indorebate</option>
+        <option value="baru_pindah">Akun BARU, dibuat setelah pindah mitra Indorebate</option>
         <option value="baru_link">Akun BARU, daftar lewat link Indorebate</option>
-        <option value="lama">Akun LAMA, belum pindah ke IB Indorebate</option>
+        <option value="lama">Akun LAMA, belum pindah ke mitra Indorebate</option>
     </select>
 
     <div id="oldAccountWarning" class="form-message" role="alert"></div>
@@ -447,9 +447,9 @@ button:disabled{
         }
         var page = PINDAH_IB_PAGES[brokerSelect.value];
         var link = page
-            ? '<a href="' + page + '" target="_blank" rel="noopener noreferrer">Lihat panduan pindah IB ' + brokerSelect.value + '</a>'
-            : '<a href="index.html#broker" target="_blank" rel="noopener noreferrer">Lihat panduan pindah IB</a>';
-        oldAccountWarning.innerHTML = '<strong>Akun lama tidak mendapat rebate.</strong> Ikuti panduan pindah IB, buat akun baru, lalu validasi nomor akun baru itu. ' + link;
+            ? '<a href="' + page + '" target="_blank" rel="noopener noreferrer">Lihat panduan pindah mitra ' + brokerSelect.value + '</a>'
+            : '<a href="index.html#broker" target="_blank" rel="noopener noreferrer">Lihat panduan pindah mitra</a>';
+        oldAccountWarning.innerHTML = '<strong>Akun lama tidak mendapat rebate.</strong> Ikuti panduan pindah mitra, buat akun baru, lalu validasi nomor akun baru itu. ' + link;
         oldAccountWarning.className = 'form-message error';
     }
 
