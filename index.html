@@ -538,12 +538,13 @@
   /* ── MOBILE ── */
   @media (max-width: 900px) {
     .hero-inner { grid-template-columns: 1fr; gap: 40px; }
-    .steps-grid { grid-template-columns: 1fr; gap: 0; }
+    .steps-grid { grid-template-columns: repeat(3, 1fr); gap: 2px; }
     .step-arrow { display: none; }
-    .step-card { padding: 24px 24px; }
-    .step-num { font-size: 2rem; margin-bottom: 8px; }
-    .step-icon { width: 40px; height: 40px; margin-bottom: 14px; }
-    .step-card h3 { margin-bottom: 6px; }
+    .step-card { padding: 16px 8px; text-align: center; }
+    .step-num { font-size: 1.4rem; margin-bottom: 6px; }
+    .step-icon { width: 36px; height: 36px; margin: 0 auto 10px; }
+    .step-card h3 { font-size: .8rem; line-height: 1.3; margin-bottom: 0; }
+    .step-card p { display: none; }
     .section-header { margin-bottom: 32px; }
     .section { padding: 40px 20px; }
     .why-grid { grid-template-columns: 1fr 1fr; }
@@ -667,7 +668,7 @@
         <div class="step-num">02</div>
         <div class="step-icon">🔗</div>
         <h3>Buka Akun via Indorebate</h3>
-        <p>Daftar akun trading baru menggunakan link khusus Indorebate agar akun kamu terdaftar sebagai sub-IB kami.</p>
+        <p>Daftar akun trading baru menggunakan link khusus Indorebate agar akun kamu terdaftar sebagai sub-mitra kami.</p>
         <div class="step-arrow">→</div>
       </div>
       <div class="step-card">
