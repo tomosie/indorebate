@@ -1,1 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+ 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Indorebate — Trusted Multi-Broker Forex Rebate Partner</title>
+<meta name="description" content="Get automatic forex rebate cashback with Indorebate. 80% rebate share across 8 partner brokers: Headway, Exness, HFM, Tickmill, JustMarkets, RoboForex, XM and TMGM.">
+<link rel="canonical" href="https://indorebate.com/en/" />
+<link rel="alternate" hreflang="id" href="https://indorebate.com/" />
+<link rel="alternate" hreflang="en" href="https://indorebate.com/en/" />
+<link rel="alternate" hreflang="x-default" href="https://indorebate.com/" />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #0B1B3A;
+    --navy-mid:#122249;
+    --navy-lt: #1A3068;
+    --gold:    #C9973A;
+    --gold-lt: #E8B84B;
+    --gold-pale:#FDF3E0;
+    --white:   #FFFFFF;
+    --gray-50: #F8FAFC;
+    --gray-100:#F1F5F9;
+    --gray-200:#E2E8F0;
+    --gray-500:#64748B;
+    --gray-700:#334155;
+    --text:    #1E293B;
+    --radius:  12px;
+    --shadow:  0 4px 24px rgba(11,27,58,.10);
+    --shadow-lg:0 12px 40px rgba(11,27,58,.15);
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+  /* ── PROMO BAR (scrolling marquee) ── */
+  .promo-bar {
+    display: block;
+    background: linear-gradient(90deg, var(--gold), var(--gold-lt));
+    text-decoration: none;
+    overflow: hidden;
+    white-space: nowrap;
+    padding: 11px 0;
+  }
+  .promo-bar-track {
+    display: inline-flex;
+    align-items: center;
+    animation: promo-scroll 16s linear infinite;
+  }
+  .promo-bar-item {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--navy);
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+    font-size: .85rem;
+    letter-spacing: .01em;
+    padding: 0 32px;
+  }
+  @keyframes promo-scroll {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  .promo-bar:hover .promo-bar-track { animation-play-state: paused; }
+  @media (max-width: 480px) {
+    .promo-bar-item { font-size: .76rem; padding: 0 22px; }
+    .promo-bar-track { animation-duration: 12s; }
+  }
+  @media (max-width: 360px) {
+    .promo-bar-item { font-size: .7rem; padding: 0 18px; }
+  }
+
+
+  /* ── NAV ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+    box-shadow: 0 2px 16px rgba(11,27,58,.07);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 68px;
+    flex-wrap: nowrap;
+  }
+  .logo {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px;
+    color: var(--navy); text-decoration: none;
+  }
+  .logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 8px; list-style: none; }
+  .nav-links a {
+    font-family: 'Inter', sans-serif; font-weight: 500; font-size: .92rem;
+    color: var(--gray-700); text-decoration: none;
+    padding: 8px 16px; border-radius: 8px; transition: all .2s;
+  }
+  .nav-links a:hover { background: var(--gold-pale); color: var(--navy); }
+  .nav-links a.active { background: var(--navy); color: var(--white); }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+    color: var(--navy); font-weight: 700; font-size: .88rem;
+    padding: 10px 20px; border-radius: 8px; text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 2px 8px rgba(201,151,58,.35);
+    white-space: nowrap;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,151,58,.5); }
+ .nav-actions{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+  /* ── HERO ── */
+  .hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #1E3A7A 100%);
+    padding: 96px 24px 80px;
+    position: relative; overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute; top: -120px; right: -120px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,151,58,.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero::after {
+    content: '';
+    position: absolute; bottom: -80px; left: -80px;
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(201,151,58,.10) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center;
+    position: relative; z-index: 1;
+  }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,151,58,.15); border: 1px solid rgba(201,151,58,.4);
+    color: var(--gold-lt); font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 100px; margin-bottom: 20px;
+  }
+  .hero-badge::before { content: '●'; font-size: .5rem; animation: pulse 2s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+  .hero h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 3.1rem; font-weight: 800; line-height: 1.15;
+    color: var(--white); margin-bottom: 20px;
+    letter-spacing: -1px;
+  }
+  .hero h1 em { font-style: normal; color: var(--gold-lt); }
+  .hero p {
+    color: rgba(255,255,255,.75); font-size: 1.05rem;
+    max-width: 460px; margin-bottom: 36px; line-height: 1.7;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+    color: var(--navy); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; font-size: .95rem;
+    padding: 14px 28px; border-radius: 10px; text-decoration: none;
+    box-shadow: 0 4px 20px rgba(201,151,58,.45);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,151,58,.6); }
+ .validation-buttons{
+    display:flex;
+    justify-content:center;
+    gap:16px;
+    flex-wrap:wrap;
+}
+
+.validation-buttons a{
+    min-width:260px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+  .btn-outline {
+    background: transparent; border: 2px solid rgba(255,255,255,.3);
+    color: var(--white); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 600; font-size: .95rem;
+    padding: 12px 26px; border-radius: 10px; text-decoration: none;
+    transition: background .2s, border-color .2s;
+  }
+  .btn-outline:hover { background: rgba(255,255,255,.08); border-color: rgba(255,255,255,.6); }
+
+  /* Hero stats */
+  .hero-stats {
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: var(--radius); padding: 24px;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 20px;
+  }
+  .stat-item { text-align: center; }
+  .stat-num {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 2.2rem; font-weight: 800; color: var(--gold-lt);
+    line-height: 1;
+  }
+  .stat-label { color: rgba(255,255,255,.6); font-size: .82rem; margin-top: 4px; }
+  .stat-divider { grid-column: 1/-1; height: 1px; background: rgba(255,255,255,.1); }
+
+  /* ── HOW IT WORKS ── */
+  .section { padding: 64px 24px; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    color: var(--gold); font-weight: 700; font-size: .78rem;
+    letter-spacing: .12em; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 2.2rem; font-weight: 800; color: var(--navy);
+    line-height: 1.2; letter-spacing: -0.5px;
+  }
+  .section-sub {
+    color: var(--gray-500); font-size: 1rem; margin-top: 12px; max-width: 520px;
+  }
+  .section-header { margin-bottom: 56px; }
+
+  .steps-grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px;
+    background: var(--gray-200); border-radius: 16px; overflow: hidden;
+  }
+  .step-card {
+    background: var(--white); padding: 40px 32px;
+    position: relative;
+  }
+  .step-num {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 3.5rem; font-weight: 800;
+    color: var(--gold-pale); line-height: 1;
+    margin-bottom: 16px;
+  }
+  .step-icon {
+    width: 48px; height: 48px; border-radius: 12px;
+    background: linear-gradient(135deg, var(--navy), var(--navy-lt));
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.4rem; margin-bottom: 20px;
+  }
+  .step-card h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.1rem; font-weight: 700; color: var(--navy); margin-bottom: 10px;
+  }
+  .step-card p { color: var(--gray-500); font-size: .92rem; line-height: 1.65; }
+  .step-arrow {
+    position: absolute; top: 50%; right: -14px;
+    transform: translateY(-50%);
+    width: 28px; height: 28px; border-radius: 50%;
+    background: var(--gold); color: var(--navy);
+    display: flex; align-items: center; justify-content: center;
+    font-size: .9rem; font-weight: 700; z-index: 2;
+  }
+
+  /* ── BROKERS ── */
+  .brokers-bg { background: var(--gray-50); }
+  .broker-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 24px;
+  }
+  .broker-card {
+    position: relative;
+    background: var(--white); border-radius: 16px;
+    border: 1px solid var(--gray-200);
+    padding: 28px; box-shadow: var(--shadow);
+    transition: transform .25s, box-shadow .25s;
+    display: flex; flex-direction: column;
+  }
+  .broker-info-link {
+    position: absolute; top: 16px; right: 16px; z-index: 3;
+    font-size: .68rem; font-weight: 700; letter-spacing: .01em;
+    color: var(--navy); background: var(--gray-50);
+    border: 1px solid var(--gray-200);
+    padding: 5px 10px; border-radius: 20px;
+    text-decoration: none; white-space: nowrap;
+    transition: border-color .2s, background .2s, color .2s;
+  }
+  .broker-info-link:hover {
+    border-color: var(--gold); background: var(--gold-pale); color: var(--navy);
+  }
+  .broker-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+  .broker-head {
+    display: flex; align-items: center; gap: 16px; margin-bottom: 20px;
+    padding-bottom: 20px; border-bottom: 1px solid var(--gray-100);
+  }
+  .broker-logo {
+    width: 96px; height: 96px; border-radius: 12px;
+    object-fit: contain; background: var(--white);
+    border: 1px solid var(--gray-200); padding: 8px;
+    flex-shrink: 0;
+  }
+  .ib-code-box {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 10px; background: var(--gray-50); border: 1px dashed var(--gray-200);
+    border-radius: 10px; padding: 10px 14px; margin-bottom: 18px;
+  }
+  .ib-code-box .ib-code-label {
+    font-size: .72rem; font-weight: 700; letter-spacing: .04em;
+    text-transform: uppercase; color: var(--gray-500); display: block; margin-bottom: 2px;
+  }
+  .ib-code-box .ib-code-val {
+    font-family: 'Courier New', monospace; font-weight: 700;
+    font-size: 1rem; color: var(--navy); word-break: break-all;
+  }
+  .ib-copy-btn {
+    flex-shrink: 0; border: 1px solid var(--gray-200); background: var(--white);
+    color: var(--navy); font-size: .78rem; font-weight: 700;
+    padding: 7px 12px; border-radius: 8px; cursor: pointer;
+    transition: background .2s, color .2s, border-color .2s;
+    white-space: nowrap;
+  }
+  .ib-copy-btn:hover { background: var(--navy); color: var(--white); border-color: var(--navy); }
+  .ib-copy-btn.copied { background: var(--gold); color: var(--white); border-color: var(--gold); }
+  .broker-name {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; font-size: 1.1rem; color: var(--navy);
+  }
+  .broker-badge {
+    display: inline-block; margin-top: 4px;
+    background: var(--gold-pale); color: var(--gold);
+    font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    padding: 3px 8px; border-radius: 6px;
+  }
+  /* Chevron indicator: hidden on desktop, shown on mobile where cards collapse */
+  .broker-toggle-icon {
+    display: none;
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    color: var(--gray-500);
+    transition: transform .25s;
+  }
+  @media (max-width: 640px) {
+    /* Mobile: hanya broker-head (logo + nama + badge) yang tampil di awal.
+       Detail lengkap (kode IB, fitur, catatan, jenis akun, tombol) disembunyikan
+       sampai kartu ditekan. Di layar lebar (desktop) semuanya tetap tampil
+       normal seperti biasa. */
+    .broker-head {
+      cursor: pointer;
+      justify-content: space-between;
+      margin-bottom: 0;
+      padding-bottom: 0;
+      border-bottom: none;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .broker-card:has(.broker-head[aria-expanded="true"]) .broker-head {
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--gray-100);
+    }
+    .broker-toggle-icon { display: block; }
+    .broker-card.open .broker-toggle-icon,
+    .broker-head[aria-expanded="true"] .broker-toggle-icon {
+      transform: rotate(180deg);
+    }
+    .broker-body {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height .3s ease;
+    }
+    .broker-card.open .broker-body {
+      max-height: 2000px;
+    }
+  }
+  .broker-features {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
+    margin-bottom: 20px;
+  }
+  .feat {
+    background: var(--gray-50); border-radius: 8px; padding: 10px 12px;
+  }
+  .feat-label { font-size: .72rem; color: var(--gray-500); text-transform: uppercase; letter-spacing: .06em; }
+  .feat-val { font-weight: 700; font-size: .92rem; color: var(--navy); margin-top: 2px; }
+  .feat-val.highlight { color: var(--gold); }
+  /* ── BROKER NOTES ── */
+  .broker-notes {
+    background: #FFFBEB;
+    border: 1px solid #FDE68A;
+    border-left: 3px solid var(--gold);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+  }
+  .broker-notes-title {
+    display: flex; align-items: center; gap: 6px;
+    font-size: .72rem; font-weight: 700; color: #92400E;
+    text-transform: uppercase; letter-spacing: .07em; margin-bottom: 8px;
+  }
+  .broker-notes-title::before { content: '⚠'; font-size: .85rem; }
+  .broker-notes ul {
+    list-style: none; display: flex; flex-direction: column; gap: 5px;
+    padding: 0; margin: 0;
+  }
+  .broker-notes ul li {
+    font-size: .78rem; color: #78350F; line-height: 1.55;
+    padding-left: 14px; position: relative;
+  }
+  .broker-notes ul li::before {
+    content: '•'; position: absolute; left: 2px;
+    color: var(--gold); font-weight: 700;
+  }
+
+  .broker-types { margin-bottom: 20px; }
+  .broker-types-title { font-size: .78rem; font-weight: 600; color: var(--gray-500); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .06em; }
+  .type-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .type-tag {
+    background: var(--navy); color: rgba(255,255,255,.85);
+    font-size: .72rem; font-weight: 600;
+    padding: 4px 10px; border-radius: 100px;
+  }
+  .broker-btns { display: flex; gap: 10px; margin-top: auto; }
+
+  /* ── ACCOUNT LINKS (broker dengan link daftar per jenis akun, mis. TMGM) ── */
+  .account-links { margin-bottom: 20px; }
+  .account-links-title { font-size: .78rem; font-weight: 600; color: var(--gray-500); margin-bottom: 8px; text-transform: uppercase; letter-spacing: .06em; }
+  .account-links-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+  .account-link-btn {
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 8px;
+    padding: 8px 6px; text-decoration: none; color: var(--navy);
+    font-weight: 700; font-size: .8rem; text-align: center;
+    transition: border-color .2s, background .2s;
+  }
+  .account-link-btn span { display: block; font-weight: 600; font-size: .7rem; color: var(--gray-500); margin-top: 2px; }
+  .account-link-btn:hover { border-color: var(--gold); background: var(--gold-pale); }
+
+  .btn-primary {
+    flex: 1; background: linear-gradient(135deg, var(--navy), var(--navy-lt));
+    color: var(--white); font-weight: 700; font-size: .88rem;
+    padding: 12px; border-radius: 10px; text-decoration: none; text-align: center;
+    transition: opacity .2s;
+  }
+  .btn-primary:hover { opacity: .85; }
+  .btn-secondary {
+    flex: 1; background: var(--white); border: 2px solid var(--gray-200);
+    color: var(--navy); font-weight: 600; font-size: .88rem;
+    padding: 10px; border-radius: 10px; text-decoration: none; text-align: center;
+    transition: border-color .2s, background .2s;
+  }
+  .btn-secondary:hover { border-color: var(--gold); background: var(--gold-pale); }
+
+  /* ── PINDAH IB BANNER ── */
+  .pindah-banner {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-lt) 100%);
+    border-radius: 20px; padding: 48px 56px;
+    display: flex; align-items: center; justify-content: space-between; gap: 32px;
+    position: relative; overflow: hidden;
+  }
+  .pindah-banner::before {
+    content: '';
+    position: absolute; right: -60px; top: -60px;
+    width: 280px; height: 280px;
+    border-radius: 50%; background: rgba(201,151,58,.12);
+    pointer-events: none;
+  }
+  .pindah-text { position: relative; }
+  .pindah-text h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.7rem; font-weight: 800; color: var(--white); margin-bottom: 8px;
+  }
+  .pindah-text p { color: rgba(255,255,255,.7); font-size: .97rem; }
+  .pindah-banner .btn-gold { white-space: nowrap; flex-shrink: 0; }
+
+  /* ── WHY US ── */
+  .why-grid {
+    display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  }
+  .why-card {
+    text-align: center; padding: 36px 24px;
+    background: var(--white); border-radius: 16px;
+    border: 1px solid var(--gray-200); box-shadow: var(--shadow);
+  }
+  .why-icon {
+    width: 56px; height: 56px; border-radius: 14px; margin: 0 auto 20px;
+    background: linear-gradient(135deg, var(--gold-pale), #FFF3CC);
+    display: flex; align-items: center; justify-content: center; font-size: 1.6rem;
+  }
+  .why-card h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; font-size: 1rem; color: var(--navy); margin-bottom: 8px;
+  }
+  .why-card p { color: var(--gray-500); font-size: .88rem; line-height: 1.6; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--navy); color: rgba(255,255,255,.7);
+    padding: 64px 24px 32px;
+  }
+  .footer-inner { max-width: 1200px; margin: 0 auto; }
+  .footer-top {
+    display: grid; grid-template-columns: 2fr 1fr 1fr;
+    gap: 48px; padding-bottom: 48px;
+    border-bottom: 1px solid rgba(255,255,255,.1);
+  }
+  .footer-brand .logo { color: var(--white); display: block; margin-bottom: 12px; font-size: 1.35rem; }
+  .footer-brand p { font-size: .88rem; line-height: 1.7; max-width: 320px; }
+  .footer-contact { margin-top: 24px; display: flex; gap: 12px; }
+  .social-btn {
+    width: 40px; height: 40px; border-radius: 10px;
+    background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.12);
+    display: flex; align-items: center; justify-content: center;
+    text-decoration: none; font-size: 1rem; color: var(--white);
+    transition: background .2s;
+  }
+  .social-btn:hover { background: var(--gold); }
+  .footer-col h4 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; color: var(--white); margin-bottom: 16px; font-size: .9rem;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col ul a {
+    color: rgba(255,255,255,.6); text-decoration: none; font-size: .88rem;
+    transition: color .2s;
+  }
+  .footer-col ul a:hover { color: var(--gold-lt); }
+  .footer-bottom {
+    padding-top: 28px;
+    display: flex; align-items: flex-start; justify-content: space-between;
+    gap: 24px;
+  }
+  .disclaimer {
+    font-size: .78rem; color: rgba(255,255,255,.4); line-height: 1.65;
+    max-width: 680px;
+  }
+  .copyright { font-size: .82rem; color: rgba(255,255,255,.4); white-space: nowrap; }
+
+  /* ── MOBILE ── */
+  @media (max-width: 900px) {
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
+    .steps-grid { grid-template-columns: repeat(3, 1fr); gap: 2px; }
+    .step-arrow { display: none; }
+    .step-card { padding: 16px 8px; text-align: center; }
+    .step-num { font-size: 1.4rem; margin-bottom: 6px; }
+    .step-icon { width: 36px; height: 36px; margin: 0 auto 10px; }
+    .step-card h3 { font-size: .8rem; line-height: 1.3; margin-bottom: 0; }
+    .step-card p { display: none; }
+    .section-header { margin-bottom: 32px; }
+    .section { padding: 40px 20px; }
+    .why-grid { grid-template-columns: 1fr 1fr; }
+    .footer-top { grid-template-columns: 1fr; gap: 32px; }
+    .pindah-banner { flex-direction: column; text-align: center; padding: 36px 28px; }
+    nav .nav-links { display: none; }
+    .hero h1 { font-size: 2.2rem; }
+    .hero-stats { grid-template-columns: 1fr 1fr; }
+    .footer-bottom { flex-direction: column; }
+   .nav-actions{
+    gap:8px;
+}
+
+.nav-cta{
+    padding:12px 26px;
+    font-size:.95rem;
+}
+  }
+  @media (max-width: 480px) {
+    .nav-inner { padding: 0 12px; }
+    .logo { font-size: 1.15rem; }
+    .nav-actions { gap: 8px; }
+    .nav-cta { padding: 11px 20px; font-size: .88rem; }
+  }
+  @media (max-width: 380px) {
+    .nav-inner { padding: 0 10px; }
+    .logo { font-size: 1.02rem; }
+    .nav-actions { gap: 6px; }
+    .nav-cta { padding: 10px 16px; font-size: .8rem; }
+  }
+  @media (max-width: 600px) {
+    .broker-features { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
+    .hero h1 { font-size: 1.8rem; }
+  }
+
+  .lang-switch { display:inline-flex; align-items:center; gap:4px; margin-right:12px; font-family:'Plus Jakarta Sans',sans-serif; font-size:.8rem; font-weight:700; }
+  .lang-switch a { color:var(--gray-500); text-decoration:none; padding:4px 8px; border-radius:6px; }
+  .lang-switch a.current { background:var(--navy); color:#fff; }
+  .lang-switch a:not(.current):hover { background:var(--gray-100); color:var(--navy); }
+</style>
+</head>
+<body>
+
+<!-- PROMO BAR -->
+<a href="/tools-gratis.html" class="promo-bar">
+  <div class="promo-bar-track">
+    <span class="promo-bar-item">🎁 FREE EA Trading Tools for Members — Claim Now →</span>
+    <span class="promo-bar-item">🎁 FREE EA Trading Tools for Members — Claim Now →</span>
+  </div>
+</a>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="logo">INDO<span>REBATE</span></a>
+    <ul class="nav-links">
+      <li><a href="/en/" class="active">Home</a></li>
+      <li><a href="#broker">Brokers</a></li>
+      <li><a href="#cara-kerja">How It Works</a></li>
+      <li><a href="/rebate.html" target="_blank" rel="noopener noreferrer">What Is a Rebate</a></li>
+      <li><a href="/tools-gratis.html">🎁 Free Tools</a></li>
+    </ul>
+    <div class="nav-actions">
+    <div class="lang-switch" role="navigation" aria-label="Language"><a href="/" hreflang="id" lang="id">ID</a><a href="/en/" class="current" aria-current="true" hreflang="en" lang="en">EN</a></div>
+    <a href="/validasi.html"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="nav-cta">
+        Validate
+    </a>
+</div>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="hero-badge">Official Rebate Partner</div>
+      <h1>Get <em>Automatic Rebates</em><br>on Every Trade</h1>
+      <p>Indorebate sends rebate cashback straight to your trading account automatically — no deductions, no extra commissions.</p>
+      <div class="hero-btns">
+        <a href="#broker" class="btn-gold">View Partner Brokers</a>
+        <a href="/rebate.html" target="_blank" rel="noopener noreferrer" class="btn-outline">What Is a Rebate?</a>
+      </div>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">7+</div>
+        <div class="stat-label">Official Partner Brokers</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">80%</div>
+        <div class="stat-label">Rebate Share</div>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat-item">
+        <div class="stat-num">$0</div>
+        <div class="stat-label">Registration Fee</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">Auto</div>
+        <div class="stat-label">Rebate to Trading Account</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CARA KERJA -->
+<section class="section" id="cara-kerja">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Easy & Fast</div>
+      <h2 class="section-title">3 Steps to Start Earning Rebates</h2>
+      <p class="section-sub">A simple sign-up process — rebates go straight into your trading account.</p>
+    </div>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-icon">🏦</div>
+        <h3>Choose a Broker</h3>
+        <p>Pick a trusted partner broker from the list. Each broker has its own strengths and account types.</p>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-icon">🔗</div>
+        <h3>Open an Account via Indorebate</h3>
+        <p>Register a new trading account using Indorebate's dedicated link so your account is registered as our sub-partner.</p>
+        <div class="step-arrow">→</div>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-icon">✅</div>
+        <h3>Validate Your Account</h3>
+        <p>Validate your account to confirm it is part of the Indorebate affiliate network and ready to receive rebates.</p>
+      </div>
+    </div>
+
+    <div style="max-width:640px;margin:48px auto 0;text-align:center;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:16px;padding:32px 24px;">
+      <div style="font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:6px;">🎥 Still Not Sure How It Works?</div>
+      <p style="color:var(--gray-700);margin-bottom:20px;">Existing broker accounts (not newly registered through an Indorebate link) <strong>are not automatically part of our rebate network</strong>. Watch this short video so you don't submit the wrong account during validation (video is in Indonesian):</p>
+      <div style="max-width:300px;margin:0 auto;aspect-ratio:9/16;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);">
+        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/BZYS7zpIcZc" title="How Indorebate Rebates Work (Indonesian)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" style="display:block;"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PINDAH IB -->
+<section class="section" style="padding-top:0">
+  <div class="section-inner">
+    <div class="pindah-banner">
+      <div class="pindah-text">
+        <h2>Already Have a Broker Account?</h2>
+        <p>No need to open a new account. Request a partner switch to Indorebate and start enjoying automatic rebates now.</p>
+      </div>
+      <a href="https://t.me/sintaadmin_bot?start=pindah" rel="noopener noreferrer" target="_blank" class="btn-gold">Request Partner Switch Now →</a>
+    </div>
+  </div>
+</section>
+
+<!-- BROKERS -->
+<section class="section brokers-bg" id="broker">
+  <div class="section-inner">
+    <div class="section-header">
+      <div class="section-label">Partner Brokers</div>
+      <h2 class="section-title">Choose Your Trusted Broker</h2>
+      <p class="section-sub">All Indorebate partner brokers are carefully selected and operate officially with an auto rebate system.</p>
+    </div>
+    <div class="broker-grid">
+
+      <!-- HEADWAY -->
+      <div class="broker-card">
+        <a href="/rebate-headway.html" class="broker-info-link" onclick="event.stopPropagation()">Full Info</a>
+        <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
+          <img src="/images/headway-logo.png" alt="Headway" class="broker-logo">
+          <div>
+            <div class="broker-name">Headway</div>
+            <span class="broker-badge">Auto Rebate</span>
+          </div>
+          <span class="broker-toggle-icon" aria-hidden="true">&#9662;</span>
+        </div>
+        <div class="broker-body">
+        <div class="ib-code-box">
+          <div>
+            <span class="ib-code-label">Indorebate Partner Code</span>
+            <span class="ib-code-val" id="ibcode-headway">20438</span>
+          </div>
+          <button type="button" class="ib-copy-btn" onclick="copyIBCode('ibcode-headway', this)">Copy</button>
+        </div>
+        <div class="broker-features">
+          <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$5</div></div>
+          <div class="feat"><div class="feat-label">Rebate</div><div class="feat-val highlight">80%</div></div>
+          <div class="feat"><div class="feat-label">Payment</div><div class="feat-val">Local Bank</div></div>
+          <div class="feat"><div class="feat-label">Commission</div><div class="feat-val">No Commission</div></div>
+        </div>
+        <div class="broker-notes">
+          <div class="broker-notes-title">Restrictions</div>
+          <ul>
+            <li>Trading with margin bonus does not earn rebates.</li>
+            <li>Rebates are only paid to trading accounts under the INDOREBATE network.</li>
+            <li>For cent accounts, a minimum accumulated volume of 0.2 lots is required to earn rebates.</li>
+          </ul>
+        </div>
+        <div class="broker-types">
+          <div class="broker-types-title">Account Types</div>
+          <div class="type-tags">
+            <span class="type-tag">Cent</span>
+            <span class="type-tag">Standard</span>
+            <span class="type-tag">Pro</span>
+          </div>
+        </div>
+        <div class="broker-btns">
+          <a href="https://headway.partners/user/signup?hwp=fee8fe" rel="noopener noreferrer" target="_blank" class="btn-primary">Open Account</a>
+          <a href="/pindah-ib-headway.html" class="btn-secondary">I Have an Account</a>
+        </div>
+        </div><!-- /broker-body -->
+      </div>
+
+      <!-- EXNESS -->
+      <div class="broker-card">
+        <a href="/rebate-exness.html" class="broker-info-link" onclick="event.stopPropagation()">Full Info</a>
+        <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
+          <img src="https://i0.wp.com/indorebate.com/wp-content/uploads/2024/02/exness-logo.jpeg?resize=150%2C150&ssl=1" alt="Exness" class="broker-logo">
+          <div>
+            <div class="broker-name">Exness</div>
+            <span class="broker-badge">Auto Rebate</span>
+          </div>
+          <span class="broker-toggle-icon" aria-hidden="true">&#9662;</span>
+        </div>
+        <div class="broker-body">
+        <div class="ib-code-box">
+          <div>
+            <span class="ib-code-label">Indorebate Partner Code</span>
+            <span class="ib-code-val" id="ibcode-exness">indorbt80</span>
+          </div>
+          <button type="button" class="ib-copy-btn" onclick="copyIBCode('ibcode-exness', this)">Copy</button>
+        </div>
+        <div class="broker-features">
+          <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$1</div></div>
+          <div class="feat"><div class="feat-label">Rebate</div><div class="feat-val highlight">80%</div></div>
+          <div class="feat"><div class="feat-label">Spread</div><div class="feat-val">From 0 pip</div></div>
+          <div class="feat"><div class="feat-label">Commission</div><div class="feat-val">No Commission</div></div>
+        </div>
+        <div class="broker-notes">
+          <div class="broker-notes-title">Restrictions</div>
+          <ul>
+            <li>Trades with a lot size that is too small on cent accounts earn no rebate because the rebate falls below $0.01.</li>
+            <li>Trading with margin bonus does not earn rebates.</li>
+            <li>For cent accounts, a minimum accumulated volume of 0.2 lots is required to earn rebates.</li>
+          </ul>
+        </div>
+        <div class="broker-types">
+          <div class="broker-types-title">Account Types</div>
+          <div class="type-tags">
+            <span class="type-tag">Cent</span>
+            <span class="type-tag">Standard</span>
+            <span class="type-tag">RAW</span>
+            <span class="type-tag">Zero</span>
+            <span class="type-tag">Pro</span>
+          </div>
+        </div>
+        <div class="broker-btns">
+          <a href="https://one.toexness.com/boarding/sign-up/a/indorbt80?lng=id" rel="noopener noreferrer" target="_blank" class="btn-primary">Open Account</a>
+          <a href="/pindah-ib-exness.html" class="btn-secondary">I Have an Account</a>
+        </div>
+        </div><!-- /broker-body -->
+      </div>
+
+      <!-- HFM -->
+      <div class="broker-card">
+        <a href="/rebate-hfm.html" class="broker-info-link" onclick="event.stopPropagation()">Full Info</a>
+        <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
+          <img src="https://i0.wp.com/indorebate.com/wp-content/uploads/2024/02/hfm-logo.jpg?resize=150%2C150&ssl=1" alt="HFM" class="broker-logo">
+          <div>
+            <div class="broker-name">HFM</div>
+            <span class="broker-badge">Auto Rebate</span>
+          </div>
+          <span class="broker-toggle-icon" aria-hidden="true">&#9662;</span>
+        </div>
+        <div class="broker-body">
+        <div class="ib-code-box">
+          <div>
+            <span class="ib-code-label">Indorebate Partner Code</span>
+            <span class="ib-code-val" id="ibcode-hfm">194327</span>
+          </div>
+          <button type="button" class="ib-copy-btn" onclick="copyIBCode('ibcode-hfm', this)">Copy</button>
+        </div>
+        <div class="broker-features">
+          <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$5</div></div>
+          <div class="feat"><div class="feat-label">Rebate</div><div class="feat-val highlight">80%</div></div>
+          <div class="feat"><div class="feat-label">Payment</div><div class="feat-val">Local Bank</div></div>
+          <div class="feat"><div class="feat-label">Copytrade</div><div class="feat-val">✓ Available</div></div>
+        </div>
+        <div class="broker-notes">
+          <div class="broker-notes-title">Restrictions</div>
+          <ul>
+            <li>Orders closed in under 2 minutes do not earn rebates.</li>
+            <li>Trades with a lot size that is too small on Cent accounts earn no rebate because the rebate value falls below $0.01.</li>
+            <li>For cent accounts, a minimum accumulated volume of 0.2 lots is required to earn rebates.</li>
+            <li>Rebates are paid once the rebate amount reaches $1.</li>
+          </ul>
+        </div>
+        <div class="broker-types">
+          <div class="broker-types-title">Account Types</div>
+          <div class="type-tags">
+            <span class="type-tag">Cent</span>
+            <span class="type-tag">Zero</span>
+            <span class="type-tag">Pro</span>
+            <span class="type-tag">Premium</span>
+            <span class="type-tag">PAMM</span>
+          </div>
+        </div>
+        <div class="broker-btns">
+          <a href="https://register.hfmtrade-ind.com/sv/id/new-live-account/?refid=194327" rel="noopener noreferrer" target="_blank" class="btn-primary">Open Account</a>
+          <a href="/pindah-ib-hfm.html" class="btn-secondary">I Have an Account</a>
+        </div>
+        </div><!-- /broker-body -->
+      </div>
+
+      <!-- TICKMILL -->
+      <div class="broker-card">
+        <a href="/rebate-tickmill.html" class="broker-info-link" onclick="event.stopPropagation()">Full Info</a>
+        <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
+          <img src="https://i0.wp.com/indorebate.com/wp-content/uploads/2025/05/tickmill-logo.png?resize=150%2C150&ssl=1" alt="Tickmill" class="broker-logo">
+          <div>
+            <div class="broker-name">Tickmill</div>
+            <span class="broker-badge">Auto Rebate</span>
+          </div>
+          <span class="broker-toggle-icon" aria-hidden="true">&#9662;</span>
+        </div>
+        <div class="broker-body">
+        <div class="ib-code-box">
+          <div>
+            <span class="ib-code-label">Indorebate Partner Code</span>
+            <span class="ib-code-val" id="ibcode-tickmill">IB64086506</span>
+          </div>
+          <button type="button" class="ib-copy-btn" onclick="copyIBCode('ibcode-tickmill', this)">Copy</button>
+        </div>
+        <div class="broker-features">
+          <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$100</div></div>
+          <div class="feat"><div class="feat-label">Rebate</div><div class="feat-val highlight">80%</div></div>
+          <div class="feat"><div class="feat-label">Partner Code</div><div class="feat-val">IB64086506</div></div>
+          <div class="feat"><div class="feat-label">Commission</div><div class="feat-val">No Commission</div></div>
+        </div>
+        <div class="broker-notes">
+          <div class="broker-notes-title">Restrictions</div>
+          <ul>
+            <li>Trading with margin bonus does not earn rebates.</li>
+            <li>Enter Partner Code <strong>IB64086506</strong> during registration to activate rebates.</li>
+            <li>All trading accounts must be validated for rebates to be active</li>
+          </ul>
+        </div>
+        <div class="broker-types">
+          <div class="broker-types-title">Account Types</div>
+          <div class="type-tags">
+            <span class="type-tag">Classic</span>
+            <span class="type-tag">RAW</span>
+          </div>
+        </div>
+        <div class="broker-btns">
+          <a href="https://my.tickmill.com?utm_campaign=ib_link&utm_content=IB64086506&utm_medium=Open+Account&utm_source=link" rel="noopener noreferrer" target="_blank" class="btn-primary">Open Account</a>
+          <a href="/pindah-ib-tickmill.html" class="btn-secondary">I Have an Account</a>
+        </div>
+        </div><!-- /broker-body -->
+      </div>
+
+      <!-- JUSTMARKETS -->
+      <div class="broker-card">
+        <a href="/rebate-justmarkets.html" class="broker-info-link" onclick="event.stopPropagation()">Full Info</a>
+        <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
+          <img src="https://i0.wp.com/indorebate.com/wp-content/uploads/2024/05/JM_300x300_blue.png?resize=150%2C150&ssl=1" alt="JustMarkets" class="broker-logo">
+          <div>
+            <div class="broker-name">JustMarkets</div>
+            <span class="broker-badge">Auto Rebate</span>
+          </div>
+          <span class="broker-toggle-icon" aria-hidden="true">&#9662;</span>
+        </div>
+        <div class="broker-body">
+        <div class="ib-code-box">
+          <div>
+            <span class="ib-code-label">Indorebate Partner Code</span>
+            <span class="ib-code-val" id="ibcode-justmarkets">p29kw0m7xi</span>
+          </div>
+          <button type="button" class="ib-copy-btn" onclick="copyIBCode('ibcode-justmarkets', this)">Copy</button>
+        </div>
+        <div class="broker-features">
+          <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$0</div></div>
+          <div class="feat"><div class="feat-label">Rebate</div><div class="feat-val highlight">80%</div></div>
+          <div class="feat"><div class="feat-label">Payment</div><div class="feat-val">Local Bank</div></div>
+          <div class="feat"><div class="feat-label">Commission</div><div class="feat-val">No Commission</div></div>
+        </div>
+        <div class="broker-notes">
+          <div class="broker-notes-title">Restrictions</div>
+          <ul>
+            <li>Trading with margin bonus does not earn rebates.</li>
+            <li>Orders closed under 59 points or 5.9 pips (the difference between open and close price) do not earn rebates.</li>
+            <li>Trades with a lot size that is too small on cent accounts earn no rebate because the rebate falls below $0.01.</li>
+           <li>Metal pairs have no 59-point MTP (Minimum Trade Points), but a 2-minute MTM (Minimum Trade Minutes) applies.</li>
+            <li>For cent accounts, a minimum accumulated volume of 0.2 lots is required to earn rebates.</li>
+          </ul>
+        </div>
+        <div class="broker-types">
+          <div class="broker-types-title">Account Types</div>
+          <div class="type-tags">
+            <span class="type-tag">Cent</span>
+            <span class="type-tag">Standard</span>
+            <span class="type-tag">ECN Zero</span>
+          </div>
+        </div>
+        <div class="broker-btns">
+          <a href="https://one.justmarkets.link/a/p29kw0m7xi/id/registration/trader" rel="noopener noreferrer" target="_blank" class="btn-primary">Open Account</a>
+          <a href="/pindah-ib-justmarkets.html" class="btn-secondary">I Have an Account</a>
+        </div>
+        </div><!-- /broker-body -->
+      </div>
+
+      <!-- ROBOFOREX -->
+      <div class="broker-card">
+        <a href="/rebate-roboforex.html" class="broker-info-link" onclick="event.stopPropagation()">Full Info</a>
+        <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
+          <img src="https://i0.wp.com/indorebate.com/wp-content/uploads/2024/05/Roboforex-1-1-2.png?resize=150%2C150&ssl=1" alt="RoboForex" class="broker-logo">
+          <div>
+            <div class="broker-name">RoboForex</div>
+            <span class="broker-badge">Auto Rebate</span>
+          </div>
+          <span class="broker-toggle-icon" aria-hidden="true">&#9662;</span>
+        </div>
+        <div class="broker-body">
+        <div class="ib-code-box">
+          <div>
+            <span class="ib-code-label">Indorebate Partner Code</span>
+            <span class="ib-code-val" id="ibcode-roboforex">ljhu</span>
+          </div>
+          <button type="button" class="ib-copy-btn" onclick="copyIBCode('ibcode-roboforex', this)">Copy</button>
+        </div>
+        <div class="broker-features">
+          <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$10</div></div>
+          <div class="feat"><div class="feat-label">Rebate</div><div class="feat-val highlight">80%</div></div>
+          <div class="feat"><div class="feat-label">Payment</div><div class="feat-val">Local Bank</div></div>
+          <div class="feat"><div class="feat-label">Commission</div><div class="feat-val">No Commission</div></div>
+        </div>
+        <div class="broker-notes">
+          <div class="broker-notes-title">Restrictions</div>
+          <ul>
+            <li>Trading with margin bonus does not earn rebates.</li>
+            <li>Rebates are only paid to trading accounts under the INDOREBATE network.</li>
+            <li>All trading accounts must be validated for rebates to be active</li>
+            <li>For cent accounts, a minimum accumulated volume of 0.2 lots is required to earn rebates.</li>
+          </ul>
+        </div>
+        <div class="broker-types">
+          <div class="broker-types-title">Account Types</div>
+          <div class="type-tags">
+            <span class="type-tag">Prime</span>
+            <span class="type-tag">ECN</span>
+            <span class="type-tag">Pro</span>
+            <span class="type-tag">Cent</span>
+          </div>
+        </div>
+        <div class="broker-btns">
+          <a href="https://my.roboforex.pro/en/?a=ljhu" rel="noopener noreferrer" target="_blank" class="btn-primary">Open Account</a>
+          <a href="/pindah-ib-roboforex.html" class="btn-secondary">I Have an Account</a>
+        </div>
+        </div><!-- /broker-body -->
+      </div>
+
+      <!-- XM -->
+      <div class="broker-card">
+        <a href="/rebate-xm.html" class="broker-info-link" onclick="event.stopPropagation()">Full Info</a>
+        <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
+          <img src="https://i0.wp.com/indorebate.com/wp-content/uploads/2020/04/xm-1-1.png?resize=150%2C150&ssl=1" alt="XM" class="broker-logo">
+          <div>
+            <div class="broker-name">XM Global</div>
+            <span class="broker-badge">Auto Rebate</span>
+          </div>
+          <span class="broker-toggle-icon" aria-hidden="true">&#9662;</span>
+        </div>
+        <div class="broker-body">
+        <div class="ib-code-box">
+          <div>
+            <span class="ib-code-label">Indorebate Partner Code</span>
+            <span class="ib-code-val" id="ibcode-xm">H2G2P</span>
+          </div>
+          <button type="button" class="ib-copy-btn" onclick="copyIBCode('ibcode-xm', this)">Copy</button>
+        </div>
+        <div class="broker-features">
+          <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$5</div></div>
+          <div class="feat"><div class="feat-label">Rebate</div><div class="feat-val highlight">80%</div></div>
+          <div class="feat"><div class="feat-label">Leverage</div><div class="feat-val">1:888</div></div>
+          <div class="feat"><div class="feat-label">Copytrade</div><div class="feat-val">✓ Available</div></div>
+        </div>
+        <div class="broker-notes">
+          <div class="broker-notes-title">Restrictions</div>
+          <ul>
+            <li>Orders closed in under 3 minutes on Standard and Micro accounts do not earn rebates; Ultra Low accounts have no minimum closing time</li>
+            <li>Trading with a bonus account (NDB) or margin bonus does not earn rebates.</li>
+            <li>For micro accounts, daily accumulated rebates below $0.01 are rounded down to $0.00.</li>
+            <li>For Micro accounts, a minimum accumulated volume of 0.2 lots is required to earn rebates.</li>
+          </ul>
+        </div>
+        <div class="broker-types">
+          <div class="broker-types-title">Account Types</div>
+          <div class="type-tags">
+            <span class="type-tag">Micro</span>
+            <span class="type-tag">Standard</span>
+            <span class="type-tag">Ultra Low</span>
+          </div>
+        </div>
+        <div class="broker-btns">
+          <a href="https://affs.click/oiMAL" rel="noopener noreferrer" target="_blank" class="btn-primary">Open Account</a>
+          <a href="/pindah-ib-xm.html" class="btn-secondary">I Have an Account</a>
+        </div>
+        </div><!-- /broker-body -->
+      </div>
+
+      <!-- TMGM -->
+      <div class="broker-card">
+        <a href="/rebate-tmgm.html" class="broker-info-link" onclick="event.stopPropagation()">Full Info</a>
+        <div class="broker-head" onclick="toggleBrokerCard(this)" onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();toggleBrokerCard(this);}" role="button" tabindex="0" aria-expanded="false">
+          <img src="/images/tmgm-logo.png" alt="TMGM" class="broker-logo" style="background:#0B1B42;">
+          <div>
+            <div class="broker-name">TMGM</div>
+            <span class="broker-badge">Auto Rebate</span>
+          </div>
+          <span class="broker-toggle-icon" aria-hidden="true">&#9662;</span>
+        </div>
+        <div class="broker-body">
+        <div class="broker-features">
+          <div class="feat"><div class="feat-label">Min. Deposit</div><div class="feat-val">$15</div></div>
+          <div class="feat"><div class="feat-label">Rebate</div><div class="feat-val highlight">80%</div></div>
+          <div class="feat"><div class="feat-label">Spread</div><div class="feat-val">From 0 pip</div></div>
+          <div class="feat"><div class="feat-label">Features</div><div class="feat-val">Copytrade</div></div>
+        </div>
+        <div class="broker-types">
+          <div class="broker-types-title">Account Types</div>
+          <div class="type-tags">
+            <span class="type-tag">Standard</span>
+            <span class="type-tag">Cent</span>
+          </div>
+        </div>
+        <div class="broker-notes">
+          <div class="broker-notes-title">Restrictions</div>
+          <ul>
+            <li>Want to open an additional account of a different type? Read <a href="/tmgm-tipe-akun-lain.html" style="color:var(--gold);font-weight:700;text-decoration:underline;">the guide to opening a TMGM account of another type</a> (includes an email template for TMGM support; the guide is in Indonesian).</li>
+            <li>For cent accounts, a minimum accumulated volume of 0.2 lots is required to earn rebates.</li>
+          </ul>
+        </div>
+        <div class="account-links">
+          <div class="account-links-title">Choose an Account Type to Register</div>
+          <div class="account-links-grid">
+            <a href="https://portal.tmgm-tmc.com/register?node=MzYxNTEz&language=id" rel="noopener noreferrer" target="_blank" class="account-link-btn">EDGE<span>Cent</span></a>
+            <a href="https://portal.tmgm-tmc.com/register?node=MzYxNTE3&language=id" rel="noopener noreferrer" target="_blank" class="account-link-btn">EDGE<span>USD</span></a>
+            <a href="https://portal.tmgm-tmc.com/register?node=MzYxNTE0&language=id" rel="noopener noreferrer" target="_blank" class="account-link-btn">Classic<span>Cent</span></a>
+            <a href="https://portal.tmgm-tmc.com/register?node=MzYxNTE2&language=id" rel="noopener noreferrer" target="_blank" class="account-link-btn">Classic<span>USD</span></a>
+            <a href="https://portal.tmgm-tmc.com/register?node=MzYxNTE1&language=id" rel="noopener noreferrer" target="_blank" class="account-link-btn">STD<span>Cent</span></a>
+            <a href="https://portal.tmgm-tmc.com/register?node=MzYxNTE4&language=id" rel="noopener noreferrer" target="_blank" class="account-link-btn">STD<span>USD</span></a>
+          </div>
+        </div>
+        <div class="broker-btns">
+          <a href="/pindah-ib-tmgm.html" class="btn-secondary">I Have an Account</a>
+        </div>
+        </div><!-- /broker-body -->
+      </div>
+
+    </div>
+
+    <!-- Validasi CTA -->
+    <div style="text-align:center;margin-top:48px;">
+    <p style="color:var(--gray-500);margin-bottom:20px;font-size:.95rem;">
+        Already opened an account? Make sure it is registered with Indorebate
+    </p>
+
+    <div style="display:flex;justify-content:center;gap:15px;flex-wrap:wrap;">
+        <a href="/validasi.html"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="btn-gold">
+            ✅ Validate Account
+        </a>
+    </div>
+</div>
+</section>
+
+<!-- WHY US -->
+<section class="section">
+  <div class="section-inner">
+    <div class="section-header" style="text-align:center">
+      <div class="section-label" style="text-align:center">Our Advantages</div>
+      <h2 class="section-title" style="text-align:center">Why Choose Indorebate?</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-icon">⚡</div>
+        <h3>Automatic Rebates</h3>
+        <p>Rebates go straight into your trading account automatically, with no manual request needed.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏆</div>
+        <h3>80% Share</h3>
+        <p>We pass 80% of the partner commission directly to the trader — one of the highest in Indonesia.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🔒</div>
+        <h3>Official Broker Partner</h3>
+        <p>Indorebate is an official partner of all of our partner brokers.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-icon">🏦</div>
+        <h3>Local Deposit & Withdrawal</h3>
+        <p>All partner brokers support deposits and withdrawals through local Indonesian banks.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/en/" class="logo">INDO<span style="color:var(--gold)">REBATE</span></a>
+        <p>Trusted Multi-Broker Rebate Partner. Automatic rebates to your trading account through the broker's official Auto Rebate system.</p>
+        <div class="footer-contact">
+          <a href="https://t.me/omahrebate" class="social-btn" title="Telegram">✈️</a>
+          <a href="mailto:omahrebate@gmail.com" class="social-btn" title="Email">✉️</a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="/en/">Home</a></li>
+          <li><a href="/rebate.html" target="_blank" rel="noopener noreferrer">What Is a Rebate</a></li>
+          <li><a href="/tools-gratis.html">Free EA Tools</a></li>
+          <li><a href="https://t.me/sintaadmin_bot?start=pindah" rel="noopener noreferrer" target="_blank">Switch Partner</a></li>          
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Partner Brokers</h4>
+        <ul>
+          <li><a href="https://headway.partners/user/signup?hwp=fee8fe">Headway</a></li>
+          <li><a href="https://one.toexness.com/boarding/sign-up/a/indorbt80?lng=id">Exness</a></li>
+          <li><a href="https://register.hfmtrade-ind.com/sv/id/new-live-account/?refid=194327">HFM</a></li>
+          <li><a href="https://my.tickmill.com?utm_campaign=ib_link&utm_content=IB64086506">Tickmill</a></li>
+          <li><a href="https://one.justmarkets.link/a/p29kw0m7xi">JustMarkets</a></li>
+          <li><a href="https://my.roboforex.pro/en/?a=ljhu">RoboForex</a></li>
+          <li><a href="https://affs.click/oiMAL">XM Global</a></li>
+          <li><a href="/pindah-ib-tmgm.html">TMGM</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p class="disclaimer">
+        <strong style="color:rgba(255,255,255,.5)">Disclaimer:</strong>
+        Indorebate is not part of any forex broker; it is only a partner that provides convenience and additional trading facilities to clients. Indorebate does not take part in holding client funds. Forex trading carries a risk of losing funds. Use your funds wisely.
+      </p>
+      <div class="copyright">© 2026 Indorebate</div>
+    </div>
+  </div>
+</footer>
+ 
+<script>
+function copyIBCode(elId, btn) {
+  var text = document.getElementById(elId).textContent.trim();
+  var done = function () {
+    var original = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(function () {
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 1500);
+  };
+  if (navigator.clipboard && window.isSecureContext) {
+    navigator.clipboard.writeText(text).then(done).catch(function () { fallbackCopy(text, done); });
+  } else {
+    fallbackCopy(text, done);
+  }
+}
+function fallbackCopy(text, done) {
+  var ta = document.createElement('textarea');
+  ta.value = text;
+  ta.style.position = 'fixed';
+  ta.style.opacity = '0';
+  document.body.appendChild(ta);
+  ta.focus();
+  ta.select();
+  try { document.execCommand('copy'); } catch (e) {}
+  document.body.removeChild(ta);
+  done();
+}
+
+// Broker card collapse/expand (efektif hanya di layar mobile lewat CSS;
+// di desktop kartu tetap selalu terbuka apa pun state class-nya).
+function toggleBrokerCard(headEl) {
+  var card = headEl.closest('.broker-card');
+  if (!card) return;
+  var isOpen = card.classList.toggle('open');
+  headEl.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+}
+</script>
+
+<!-- EA GRATIS POPUP MODAL -->
+<style>
+  .ea-popup-overlay {
+    position: fixed; inset: 0; z-index: 999;
+    background: rgba(11,27,58,.65);
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px;
+    opacity: 0; pointer-events: none;
+    transition: opacity .25s ease;
+  }
+  .ea-popup-overlay.show { opacity: 1; pointer-events: auto; }
+  .ea-popup-card {
+    background: var(--white);
+    border-radius: 20px;
+    max-width: 420px; width: 100%;
+    padding: 36px 32px 32px;
+    position: relative;
+    box-shadow: var(--shadow-lg);
+    transform: scale(.92) translateY(10px);
+    transition: transform .25s ease;
+    text-align: center;
+  }
+  .ea-popup-overlay.show .ea-popup-card { transform: scale(1) translateY(0); }
+  .ea-popup-close {
+    position: absolute; top: 14px; right: 14px;
+    width: 32px; height: 32px; border-radius: 50%;
+    background: var(--gray-100); border: none;
+    color: var(--gray-700); font-size: 1.1rem; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: background .2s;
+  }
+  .ea-popup-close:hover { background: var(--gray-200); }
+  .ea-popup-badge {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+    color: var(--navy); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800; font-size: .75rem; letter-spacing: .08em; text-transform: uppercase;
+    padding: 6px 16px; border-radius: 100px; margin-bottom: 16px;
+  }
+  .ea-popup-card h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.4rem; font-weight: 800; color: var(--navy);
+    margin-bottom: 10px; line-height: 1.3;
+  }
+  .ea-popup-card p {
+    color: var(--gray-500); font-size: .92rem; line-height: 1.6;
+    margin-bottom: 24px;
+  }
+  .ea-popup-card .btn-gold { display: inline-block; width: 100%; }
+  @media (max-width: 480px) {
+    .ea-popup-card { padding: 30px 24px 26px; }
+    .ea-popup-card h3 { font-size: 1.2rem; }
+  }
+</style>
+
+<div class="ea-popup-overlay" id="eaPopupOverlay">
+  <div class="ea-popup-card">
+    <button type="button" class="ea-popup-close" id="eaPopupClose" aria-label="Close">✕</button>
+    <div class="ea-popup-badge">🎁 100% Free</div>
+    <h3>Free EA Trading Tools for Members!</h3>
+    <p>Claim now and get automated trading tools at no cost — exclusively for registered Indorebate members.</p>
+    <a href="/tools-gratis.html" class="btn-gold">Claim Free EA Now →</a>
+  </div>
+</div>
+
+<script>
+(function () {
+  var STORAGE_KEY = 'ea_popup_last_dismissed';
+  var ONE_DAY_MS = 24 * 60 * 60 * 1000;
+
+  var lastDismissed = localStorage.getItem(STORAGE_KEY);
+  var shouldShow = !lastDismissed || (Date.now() - parseInt(lastDismissed, 10)) > ONE_DAY_MS;
+
+  if (!shouldShow) return;
+
+  var overlay = document.getElementById('eaPopupOverlay');
+  var closeBtn = document.getElementById('eaPopupClose');
+
+  // Show immediately on page load
+  overlay.classList.add('show');
+
+  function dismiss() {
+    overlay.classList.remove('show');
+    localStorage.setItem(STORAGE_KEY, Date.now().toString());
+  }
+
+  closeBtn.addEventListener('click', dismiss);
+  overlay.addEventListener('click', function (e) {
+    if (e.target === overlay) dismiss(); // clicking the dark area outside the card also closes it
+  });
+})();
+</script>
+</body>
+</html>
