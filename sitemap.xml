@@ -91,17 +91,17 @@
         <changefreq>weekly</changefreq>
         <priority>0.9</priority>
             <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/validasi.html"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/validasi.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/validate.html"/>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/validasi.html"/>
     </url>
 
     <url>
-        <loc>https://indorebate.com/en/validasi.html</loc>
+        <loc>https://indorebate.com/en/validate.html</loc>
         <lastmod>2026-11-06</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
         <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/validasi.html"/>
-        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/validasi.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/validate.html"/>
         <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/validasi.html"/>
     </url>
 
@@ -110,6 +110,19 @@
         <lastmod>2026-10-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-headway.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-headway.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-headway.html"/>
+    </url>
+
+    <url>
+        <loc>https://indorebate.com/en/switch-partner-headway.html</loc>
+        <lastmod>2026-11-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-headway.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-headway.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-headway.html"/>
     </url>
 
     <url>
@@ -117,6 +130,19 @@
         <lastmod>2026-10-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-exness.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-exness.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-exness.html"/>
+    </url>
+
+    <url>
+        <loc>https://indorebate.com/en/switch-partner-exness.html</loc>
+        <lastmod>2026-11-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-exness.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-exness.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-exness.html"/>
     </url>
 
     <url>
@@ -124,6 +150,19 @@
         <lastmod>2026-06-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-hfm.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-hfm.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-hfm.html"/>
+    </url>
+
+    <url>
+        <loc>https://indorebate.com/en/switch-partner-hfm.html</loc>
+        <lastmod>2026-11-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-hfm.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-hfm.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-hfm.html"/>
     </url>
 
     <url>
@@ -131,6 +170,19 @@
         <lastmod>2026-06-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-tickmill.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-tickmill.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-tickmill.html"/>
+    </url>
+
+    <url>
+        <loc>https://indorebate.com/en/switch-partner-tickmill.html</loc>
+        <lastmod>2026-11-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-tickmill.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-tickmill.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-tickmill.html"/>
     </url>
 
     <url>
@@ -138,6 +190,19 @@
         <lastmod>2026-06-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-xm.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-xm.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-xm.html"/>
+    </url>
+
+    <url>
+        <loc>https://indorebate.com/en/switch-partner-xm.html</loc>
+        <lastmod>2026-11-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-xm.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-xm.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-xm.html"/>
     </url>
 
     <url>
@@ -145,6 +210,19 @@
         <lastmod>2026-06-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-justmarkets.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-justmarkets.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-justmarkets.html"/>
+    </url>
+
+    <url>
+        <loc>https://indorebate.com/en/switch-partner-justmarkets.html</loc>
+        <lastmod>2026-11-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-justmarkets.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-justmarkets.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-justmarkets.html"/>
     </url>
 
     <url>
@@ -152,6 +230,19 @@
         <lastmod>2026-06-27</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-roboforex.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-roboforex.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-roboforex.html"/>
+    </url>
+
+    <url>
+        <loc>https://indorebate.com/en/switch-partner-roboforex.html</loc>
+        <lastmod>2026-11-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-roboforex.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-roboforex.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-roboforex.html"/>
     </url>
 
     <url>
@@ -159,6 +250,19 @@
         <lastmod>2026-10-13</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-tmgm.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-tmgm.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-tmgm.html"/>
+    </url>
+
+    <url>
+        <loc>https://indorebate.com/en/switch-partner-tmgm.html</loc>
+        <lastmod>2026-11-06</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+        <xhtml:link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-tmgm.html"/>
+        <xhtml:link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-tmgm.html"/>
+        <xhtml:link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-tmgm.html"/>
     </url>
 
     <url>
