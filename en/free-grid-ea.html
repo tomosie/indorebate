@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grid Pending EA — Free Trading EA for Indorebate Members</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #0B1B3A;
+    --navy-mid:#122249;
+    --navy-lt: #1A3068;
+    --gold:    #C9973A;
+    --gold-lt: #E8B84B;
+    --gold-pale:#FDF3E0;
+    --white:   #FFFFFF;
+    --gray-50: #F8FAFC;
+    --gray-100:#F1F5F9;
+    --gray-200:#E2E8F0;
+    --gray-500:#64748B;
+    --gray-700:#334155;
+    --text:    #1E293B;
+    --red:     #B3261E;
+    --red-pale:#FDEDEC;
+    --radius:  12px;
+    --shadow:  0 4px 24px rgba(11,27,58,.10);
+    --shadow-lg:0 12px 40px rgba(11,27,58,.15);
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+  /* ── NAV (identical to index.html) ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+    box-shadow: 0 2px 16px rgba(11,27,58,.07);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 68px;
+    flex-wrap: nowrap;
+  }
+  .logo {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px;
+    color: var(--navy); text-decoration: none;
+  }
+  .logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 8px; list-style: none; }
+  .nav-links a {
+    font-family: 'Inter', sans-serif; font-weight: 500; font-size: .92rem;
+    color: var(--gray-700); text-decoration: none;
+    padding: 8px 16px; border-radius: 8px; transition: all .2s;
+  }
+  .nav-links a:hover { background: var(--gold-pale); color: var(--navy); }
+  .nav-links a.active { background: var(--navy); color: var(--white); }
+  .nav-actions{ display:flex; align-items:center; gap:10px; }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+    color: var(--navy); font-weight: 700; font-size: .88rem;
+    padding: 10px 20px; border-radius: 8px; text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 2px 8px rgba(201,151,58,.35);
+    white-space: nowrap;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,151,58,.5); }
+
+  /* Screenshot showcase */
+  .showcase {
+    padding: 0 24px 64px;
+    margin-top: -32px;
+    position: relative; z-index: 2;
+  }
+  .showcase-inner { max-width: 1000px; margin: 0 auto; }
+  .showcase-frame {
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 10px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .showcase-frame img {
+    width: 100%; display: block; border-radius: 8px;
+  }
+  .showcase-caption {
+    text-align: center; color: var(--gray-500); font-size: .88rem;
+    margin-top: 14px;
+  }
+
+  /* ── PAGE HERO ── */
+  .page-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #1E3A7A 100%);
+    padding: 72px 24px 64px;
+    position: relative; overflow: hidden;
+    text-align: center;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute; top: -120px; right: -120px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,151,58,.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero-inner { max-width: 780px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,151,58,.15); border: 1px solid rgba(201,151,58,.4);
+    color: var(--gold-lt); font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 100px; margin-bottom: 20px;
+  }
+  .hero-badge::before { content: '🎁'; }
+  .breadcrumb-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: rgba(255,255,255,.6); font-size: .85rem; text-decoration: none;
+    margin-bottom: 18px; transition: color .2s;
+  }
+  .breadcrumb-back:hover { color: var(--gold-lt); }
+  .page-hero h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 2.6rem; font-weight: 800; line-height: 1.2;
+    color: var(--white); margin-bottom: 18px; letter-spacing: -1px;
+  }
+  .page-hero h1 em { font-style: normal; color: var(--gold-lt); }
+  .page-hero p {
+    color: rgba(255,255,255,.75); font-size: 1.05rem;
+    max-width: 600px; margin: 0 auto 32px; line-height: 1.7;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+    color: var(--navy); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; font-size: .95rem;
+    padding: 14px 28px; border-radius: 10px; text-decoration: none;
+    box-shadow: 0 4px 20px rgba(201,151,58,.45);
+    transition: transform .2s, box-shadow .2s; display:inline-block;
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,151,58,.6); }
+  .btn-outline-hero {
+    background: transparent; border: 2px solid rgba(255,255,255,.3); color: var(--white);
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .95rem;
+    padding: 14px 28px; border-radius: 10px; text-decoration: none; display: inline-block;
+    transition: all .2s;
+  }
+  .btn-outline-hero:hover { border-color: var(--gold-lt); color: var(--gold-lt); }
+
+  /* ── SECTIONS ── */
+  .section { padding: 64px 24px; }
+  .section-inner { max-width: 900px; margin: 0 auto; }
+  .section-label {
+    color: var(--gold); font-weight: 700; font-size: .8rem;
+    letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.9rem; font-weight: 800; color: var(--navy);
+    margin-bottom: 20px; letter-spacing: -.5px;
+  }
+  .section p { color: var(--gray-700); margin-bottom: 14px; }
+
+  /* Disclaimer box */
+  .warning-box {
+    background: var(--red-pale);
+    border: 1px solid rgba(179,38,30,.25);
+    border-left: 4px solid var(--red);
+    border-radius: var(--radius);
+    padding: 28px 28px;
+    margin: 24px 0;
+  }
+  .warning-box h3 {
+    color: var(--red); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.1rem; margin-bottom: 14px; display:flex; align-items:center; gap:8px;
+  }
+  .warning-box ul { margin: 0; padding-left: 20px; color: var(--gray-700); }
+  .warning-box li { margin-bottom: 10px; }
+  .warning-box .fine-print {
+    margin-top: 16px; padding-top: 16px; border-top: 1px dashed rgba(179,38,30,.25);
+    font-size: .85rem; color: var(--gray-500); font-style: italic;
+  }
+
+  /* Requirement box (gold) */
+  .require-box {
+    background: var(--gold-pale);
+    border: 1px solid rgba(201,151,58,.35);
+    border-left: 4px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin: 24px 0;
+    display: flex; align-items: flex-start; gap: 16px;
+  }
+  .require-box .icon { font-size: 1.6rem; line-height: 1; flex-shrink: 0; }
+  .require-box h3 {
+    color: var(--navy); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem; margin-bottom: 6px;
+  }
+  .require-box p { color: var(--gray-700); font-size: .92rem; margin: 0; }
+  .require-box a { color: var(--navy); font-weight: 700; text-decoration: underline; }
+
+  /* Feature table */
+  .feature-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+  .feature-table th, .feature-table td {
+    text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--gray-200);
+    font-size: .92rem;
+  }
+  .feature-table th {
+    background: var(--gray-50); color: var(--navy);
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700;
+  }
+  .feature-table td:first-child { font-weight: 600; color: var(--navy); white-space: nowrap; }
+  .feature-table td { color: var(--gray-700); }
+
+  /* Steps */
+  .steps-list { counter-reset: step; list-style: none; margin: 24px 0; }
+  .steps-list li {
+    counter-increment: step;
+    position: relative;
+    padding: 4px 0 28px 52px;
+    color: var(--gray-700);
+  }
+  .steps-list li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: 0;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+    color: var(--navy); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+    display: flex; align-items: center; justify-content: center; font-size: .95rem;
+  }
+  .steps-list li strong { color: var(--navy); display:block; margin-bottom: 4px; font-family:'Plus Jakarta Sans', sans-serif; }
+
+  /* CTA card */
+  .claim-card {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    text-align: center;
+    margin: 40px 0;
+  }
+  .claim-card h3 {
+    color: var(--white); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.4rem; margin-bottom: 10px;
+  }
+  .claim-card p { color: rgba(255,255,255,.7); margin-bottom: 24px; }
+
+  .divider { height: 1px; background: var(--gray-200); margin: 8px 0 40px; }
+
+  @media (max-width: 900px) {
+    nav .nav-links { display: none; }
+    .page-hero h1 { font-size: 2rem; }
+    .feature-table { font-size: .85rem; }
+    .feature-table th, .feature-table td { padding: 10px 10px; }
+    .showcase { margin-top: -20px; }
+    .nav-actions { gap: 8px; }
+    .nav-cta { padding: 12px 26px; font-size: .95rem; }
+  }
+  @media (max-width: 480px) {
+    .nav-inner { padding: 0 12px; }
+    .logo { font-size: 1.15rem; }
+    .nav-actions { gap: 8px; }
+    .nav-cta { padding: 11px 20px; font-size: .88rem; }
+  }
+  @media (max-width: 380px) {
+    .nav-inner { padding: 0 10px; }
+    .logo { font-size: 1.02rem; }
+    .nav-actions { gap: 6px; }
+    .nav-cta { padding: 10px 16px; font-size: .8rem; }
+  }
+</style>
+<meta name="description" content="Grid Pending EA v1.70: a free two-way grid pending order MT5 EA with a full dashboard panel, for registered Indorebate members.">
+<link rel="canonical" href="https://indorebate.com/en/free-grid-ea.html" />
+<link rel="alternate" hreflang="id" href="https://indorebate.com/grid-ea-gratis.html" />
+<link rel="alternate" hreflang="en" href="https://indorebate.com/en/free-grid-ea.html" />
+<link rel="alternate" hreflang="x-default" href="https://indorebate.com/grid-ea-gratis.html" />
+<style>
+.lang-switch{display:inline-flex;align-items:center;gap:4px;margin-right:12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700}
+.lang-switch a{color:#64748B;text-decoration:none;padding:4px 8px;border-radius:6px}
+.lang-switch a.current{background:#0B1B3A;color:#fff}
+.lang-switch a:not(.current):hover{background:#F1F5F9;color:#0B1B3A}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="logo">INDO<span>REBATE</span></a>
+    <ul class="nav-links">
+      <li><a href="/en/">Home</a></li>
+      <li><a href="/en/#broker">Brokers</a></li>
+      <li><a href="/en/#cara-kerja">How It Works</a></li>
+      <li><a href="/en/what-is-rebate.html" target="_blank" rel="noopener noreferrer">What Is a Rebate</a></li>
+      <li><a href="/en/free-tools.html">🎁 Free Tools</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-switch" role="navigation" aria-label="Language"><a href="/grid-ea-gratis.html" hreflang="id" lang="id">ID</a><a href="/en/free-grid-ea.html" class="current" aria-current="true" hreflang="en" lang="en">EN</a></div>
+
+      <a href="/en/validate.html" target="_blank" rel="noopener noreferrer" class="nav-cta">Validate</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <a href="/en/free-tools.html" class="breadcrumb-back">← All Free Tools</a>
+    <div class="hero-badge">Exclusive Bonus for Registered Members</div>
+    <h1>Grid Pending EA <em>Free</em> for Indorebate Members</h1>
+    <p>A two-way grid pending order EA (Buy &amp; Sell) with a full-control dashboard panel right on the chart — Basket TP, trailing, continuous entry, up to automatic target profit/loss. <strong>Exclusively for trading accounts that are registered and active at Indorebate.</strong></p>
+    <div class="hero-btns">
+      <a href="#klaim" class="btn-gold">Claim Free EA</a>
+      <a href="#panduan" class="btn-outline-hero">View Guide</a>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOT SHOWCASE -->
+<section class="showcase">
+  <div class="showcase-inner">
+    <div class="showcase-frame">
+      <img src="/grid-pending-ea-screenshot.png" alt="Grid Pending EA v1.70 panel on an XAUUSD MT5 chart">
+    </div>
+    <p class="showcase-caption">Two Grid Pending EA v1.70 panels right on your MT5 chart — Parameters (grid settings, SL/TP, Basket TP, trailing, continuous entry, target profit/loss) and Status &amp; Monitor (positions, floating/closed/total profit in real time).</p>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="section">
+  <div class="section-inner">
+
+    <div class="require-box">
+      <div class="icon">🔒</div>
+      <div>
+        <h3>Terms of Use: Registered Indorebate Account</h3>
+        <p>This EA <strong>can only be used with trading accounts that are registered and active in the Indorebate network.</strong> Don't have a registered account yet? <a href="/en/#broker">Register here</a> or <a href="/en/validate.html" target="_blank" rel="noopener noreferrer">validate your account</a> first.</p>
+      </div>
+    </div>
+
+    <div class="section-label">Read First</div>
+    <h2 class="section-title">Important: Grid/Hedging EAs Are High Risk</h2>
+    <p>This EA opens many pending orders at once in two directions (grid), then manages open positions automatically. A grid strategy like this can be effective in ranging markets, but it is very risky if price moves strongly in one direction without reversing — make sure you understand how it works before using real capital.</p>
+
+    <div class="warning-box">
+      <h3>⚠️ What You Must Understand</h3>
+      <ul>
+        <li><strong>When the EXECUTE button is pressed, the EA immediately opens a grid of Buy &amp; Sell pending orders at once</strong> from the current market price — the number of layers, the distance between layers, and the lot per layer follow your settings on the panel.</li>
+        <li><strong>Basket TP</strong> closes all positions once price reaches the combined breakeven (BEP) + a set distance. While the basket has not closed, <strong>the closing of any single position (hit by TP/SL/trailing/manual) will trigger the closing of all remaining positions and pending orders</strong> (close all).</li>
+        <li>If <strong>Continuous Entry</strong> is enabled, the EA automatically opens a new grid from the latest market price every time a basket cycle finishes closing — the EA will keep opening new positions nonstop while this feature is ON.</li>
+        <li>The more layers and the smaller the distance between layers, the more pending orders can potentially be triggered at once when the market moves fast — <strong>use a lot size and number of layers that match your capital</strong> to avoid a Margin Call (MC).</li>
+        <li><strong>This EA does not analyze market direction.</strong> The grid is opened in both directions from the current price — not based on predictions of an uptrend or downtrend.</li>
+        <li><strong>The EA does not run 24 hours automatically without supervision.</strong> You still need to monitor your positions, market conditions, and economic news — especially while Continuous Entry is active.</li>
+        <li>Trading results depend entirely on <strong>parameter settings, risk management, and discipline of each user</strong> — not on the EA itself.</li>
+      </ul>
+      <div class="fine-print">
+        These tools are intended for traders who already understand the concepts of grid trading, hedging, and their risks. Indorebate is not responsible for trading losses arising from the use of these tools. Forex trading carries a risk of losing capital.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" style="background:var(--gray-50);">
+  <div class="section-inner">
+    <div class="section-label">Features</div>
+    <h2 class="section-title">What This EA Does</h2>
+    <p>All features are controlled directly from the dashboard panel on the chart — no need to change code or settings through the EA input window.</p>
+    <table class="feature-table">
+      <tr><th>Features</th><th>Description</th></tr>
+      <tr><td>Two-Way Grid Pending</td><td>Opens Buy &amp; Sell pending orders at once from the market price when the EXECUTE button is pressed. The pending type can be Stop (following breakouts) or Limit (mean-reversion).</td></tr>
+      <tr><td>SL/TP Per Position or Global</td><td>Choose "Per Position" mode (fixed SL/TP for each layer) or "Global" (calculated from the outermost layer, applied equally to all positions on the same side).</td></tr>
+      <tr><td>Basket TP (Combined)</td><td>Automatically closes all positions when price reaches the combined breakeven (BEP) + the set distance. In Stop mode, it is active if both sides have positions; in Limit mode, it can be active even when only one side is open.</td></tr>
+      <tr><td>Hard TP/SL (ON/OFF)</td><td>ON (default): the real TP/SL stay placed at the broker as a double safeguard. OFF: all broker TP/SL are removed, and basket closing is controlled purely by the EA through price checks on every tick.</td></tr>
+      <tr><td>Automatic Trailing Stop</td><td>Runs automatically only when positions are open on one side only (full Buy only or full Sell only), locking in profit as price moves in that direction.</td></tr>
+      <tr><td>Continuous Entry</td><td>Once a grid cycle has fully closed, the EA automatically opens a new grid from the latest market price — without needing to press Execute again manually.</td></tr>
+      <tr><td>Target Profit &amp; Target Loss (USD)</td><td>Once the target is reached, the EA closes all positions and turns itself off (press CONNECT again to reactivate).</td></tr>
+      <tr><td>Full Dashboard Panel</td><td>Shows the pair name, number of open Buy/Sell positions, Trailing status, active Basket TP level, and floating/closed/total profit in real time.</td></tr>
+      <tr><td>Draggable &amp; Minimizable Panels</td><td>The parameter panel and info panel can be dragged to any position on the chart (the position is saved automatically) and minimized via the "_" button in the top right corner.</td></tr>
+      <tr><td>Blank Chart Mode</td><td>Hides the default candles, grid, and volume of the chart (plain background) so you can focus on the EA panels — can be restored any time with the same button.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- PANDUAN -->
+<section class="section" id="panduan">
+  <div class="section-inner">
+    <div class="section-label">Usage Guide</div>
+    <h2 class="section-title">How to Use the EA</h2>
+    <ol class="steps-list">
+      <li><strong>Activation with Password</strong>Enter your Trading Account Number and Activation Password (provided by the admin via email/Telegram after your account is approved as a rebate member) into the EA's input parameters. The EA only runs if the combination matches your account data registered in the Indorebate network.</li>
+      <li><strong>Preparation</strong>Attach the EA to the chart of the pair you want to trade. Make sure the trading account is in <em>hedging</em>, not netting, because the EA opens Buy &amp; Sell positions at once on the same pair.</li>
+      <li><strong>Set the Grid According to Your Capital</strong>Set the number of Layers, the Distance between layers (points), and the Lot per layer on the panel — the more layers and the smaller the distance, the greater the potential total open lots.</li>
+      <li><strong>Choose Pending Mode &amp; SL/TP</strong>Choose the pending type STOP (breakout) or LIMIT (mean-reversion), then set the SL/TP mode: Per Position or Global.</li>
+      <li><strong>Set Basket TP &amp; Trailing</strong>Enable Basket TP and set its distance from the BEP according to your target. Turn on Trailing if desired (STOP mode only) — its status runs automatically once positions remain on only one side.</li>
+      <li><strong>Set Additional Protection</strong>Set Target Profit and Target Loss (USD) as automatic safeguards for the whole cycle, and decide whether you want Continuous Entry enabled or not.</li>
+      <li><strong>Press CONNECT, then EXECUTE</strong>Press the CONNECT EA button to activate the EA, then press EXECUTE to open the grid pending orders according to the parameters you have set.</li>
+      <li><strong>Monitor Regularly</strong>Check the info panel regularly, especially when the market is volatile (news releases, trading session overlaps) — the EA is not a substitute for your own supervision.</li>
+      <li><strong>Close All / Reset Any Time</strong>Use the CLOSE ALL button to close all positions &amp; pending orders without resetting the EA state, or RESET to close everything and return the EA to its initial state (CONNECT must be pressed again).</li>
+    </ol>
+  </div>
+</section>
+
+<!-- CLAIM -->
+<section class="section" style="background:var(--gray-50);" id="klaim">
+  <div class="section-inner">
+    <div class="claim-card">
+      <h3>How to Claim the Free EA</h3>
+      <p>Register a trading account via the Indorebate referral link → Activate &amp; validate your rebate member status → Check your email → Check the Password for activating Grid Pending Tools.</p>
+      <div class="hero-btns">
+        <a href="/en/#broker" class="btn-gold">Register a Broker Account</a>
+        <a href="https://drive.google.com/drive/folders/1TiennStFbzi6Pixzh7HseyBdLcIJ7u3W?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-outline-hero">Download the EA here</a>
+      </div>
+      <p style="color:rgba(255,255,255,.55);font-size:.82rem;margin-top:20px;margin-bottom:0;">⚠️ The EA is only given to accounts verified as registered at Indorebate.</p>
+    </div>
+    <p style="text-align:center;color:var(--gray-500);font-size:.9rem;">By using this EA, you understand and agree that trading decisions, results, and risks are entirely your own responsibility as the user.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--navy);padding:48px 24px 24px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;padding-bottom:24px;">
+      <a href="/en/" class="logo" style="color:var(--white)">INDO<span style="color:var(--gold)">REBATE</span></a>
+      <div style="display:flex;gap:20px;">
+        <a href="https://t.me/omahrebate" style="color:rgba(255,255,255,.7);text-decoration:none;">✈️ Telegram</a>
+        <a href="mailto:omahrebate@gmail.com" style="color:rgba(255,255,255,.7);text-decoration:none;">✉️ Email</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.1);padding-top:20px;">
+      <p style="color:rgba(255,255,255,.45);font-size:.8rem;line-height:1.6;">
+        <strong style="color:rgba(255,255,255,.6)">Disclaimer:</strong>
+        Indorebate is not part of any forex broker; it is only a partner that provides convenience and additional trading facilities to clients. The EA shared is a trading aid, not a system that guarantees profit. Forex trading carries a risk of losing funds. Use your funds wisely.
+      </p>
+      <div style="color:rgba(255,255,255,.35);font-size:.8rem;margin-top:12px;">© 2026 Indorebate</div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

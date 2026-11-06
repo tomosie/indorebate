@@ -1,0 +1,258 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>TMGM Rebate — Indorebate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+:root {
+  --navy:    #0B1B3A;
+  --navy-mid:#122249;
+  --gold:    #C9973A;
+  --gold-lt: #E8B84B;
+  --gold-pale:#FDF3E0;
+  --white:   #FFFFFF;
+  --gray-50: #F8FAFC;
+  --gray-100:#F1F5F9;
+  --gray-200:#E2E8F0;
+  --gray-500:#64748B;
+  --gray-700:#334155;
+  --text:    #1E293B;
+  --radius:  12px;
+  --shadow:  0 4px 24px rgba(11,27,58,.10);
+  --shadow-lg:0 12px 40px rgba(11,27,58,.15);
+}
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+h1, h2, h3 { font-family: 'Plus Jakarta Sans', sans-serif; color: var(--navy); }
+a { color: inherit; }
+.top-bar {
+  background: var(--navy); padding: 14px 24px; display: flex; align-items: center; justify-content: space-between;
+}
+.top-bar a { color: var(--white); text-decoration: none; font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .92rem; }
+.top-bar .logo { font-size: 1.15rem; }
+.top-bar .logo span { color: var(--gold-lt); }
+.c { max-width: 1100px; margin: auto; padding: 40px 20px; }
+.hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 30px; align-items: center; padding: 20px 0 10px; }
+.badge {
+  display: inline-block; padding: 7px 16px; border: 1px solid var(--gold); border-radius: 30px;
+  color: var(--gold); font-size: .82rem; font-weight: 700; letter-spacing: .04em; background: var(--gold-pale);
+}
+h1 { font-size: 42px; margin: 16px 0; font-weight: 800; }
+.gold { color: var(--gold); }
+.art { text-align: center; }
+p { line-height: 1.8; color: var(--gray-700); }
+.card {
+  margin: 24px 0; background: var(--white); padding: 28px; border-radius: 16px;
+  border: 1px solid var(--gray-200); box-shadow: var(--shadow);
+}
+.step { display: flex; gap: 18px; margin: 20px 0; }
+.n {
+  width: 44px; height: 44px; min-width: 44px; min-height: 44px; border-radius: 50%;
+  background: var(--gold-pale); color: var(--gold); border: 1.5px solid var(--gold);
+  display: flex; align-items: center; justify-content: center; font-weight: 800;
+  flex-shrink: 0; align-self: flex-start;
+}
+.btn {
+  display: inline-block; margin-top: 15px; padding: 13px 28px; background: linear-gradient(135deg,var(--gold),var(--gold-lt));
+  color: var(--navy); text-decoration: none; border-radius: 10px; font-weight: 700; font-family: 'Plus Jakarta Sans', sans-serif;
+  white-space: nowrap; box-shadow: 0 4px 16px rgba(201,151,58,.3);
+}
+.btn.outline { background: transparent; border: 1.5px solid var(--navy); color: var(--navy); box-shadow: none; }
+.footer { text-align: center; padding: 30px; }
+.note {
+  background: var(--gray-50); border-left: 3px solid var(--gold); padding: 14px 16px; border-radius: 8px;
+  font-size: 14px; color: var(--gray-700); margin-top: 10px;
+}
+.quote {
+  background: var(--gold-pale); border-left: 3px solid var(--gold); padding: 16px 20px; border-radius: 8px;
+  font-style: italic; color: var(--navy); margin: 16px 0;
+}
+.info-table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+.info-table tr { border-bottom: 1px solid var(--gray-100); }
+.info-table td { padding: 10px 6px; font-size: 14.5px; color: var(--gray-700); vertical-align: top; }
+.info-table td:first-child { color: var(--gray-500); width: 38%; font-weight: 600; }
+.acc-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin: 20px 0; }
+.acc-card { background: var(--gray-50); border: 1px solid var(--gray-200); border-radius: 12px; padding: 18px; }
+.acc-card h3 { color: var(--navy); font-size: 17px; margin-bottom: 8px; }
+.acc-card ul { list-style: none; font-size: 13.5px; color: var(--gray-700); }
+.acc-card ul li { margin-bottom: 6px; }
+.tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.tag {
+  background: var(--gold-pale); border: 1px solid var(--gold); color: var(--gold);
+  font-size: 12.5px; font-weight: 700; padding: 5px 12px; border-radius: 20px;
+}
+.reg-table { width: 100%; border-collapse: collapse; margin-top: 14px; }
+.reg-table th { text-align: left; color: var(--navy); font-size: 13px; padding: 10px 8px; border-bottom: 2px solid var(--gray-200); }
+.reg-table td { padding: 10px 8px; font-size: 13.5px; color: var(--gray-700); border-bottom: 1px solid var(--gray-100); }
+.cta-row { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 16px; }
+@media(max-width:900px){ .hero{grid-template-columns:1fr} h1{font-size:30px} .acc-grid{grid-template-columns:1fr} .info-table td:first-child{width:45%;} }
+</style>
+<meta name="description" content="TMGM rebate with Indorebate: broker profile, account types, and how to get automatic rebates for new and existing accounts.">
+<link rel="canonical" href="https://indorebate.com/en/rebate-tmgm.html" />
+<link rel="alternate" hreflang="id" href="https://indorebate.com/rebate-tmgm.html" />
+<link rel="alternate" hreflang="en" href="https://indorebate.com/en/rebate-tmgm.html" />
+<link rel="alternate" hreflang="x-default" href="https://indorebate.com/rebate-tmgm.html" />
+<style>
+.lang-switch{position:fixed;top:12px;right:12px;z-index:1000;display:inline-flex;gap:4px;padding:4px;border-radius:10px;background:rgba(11,27,58,.92);border:1px solid rgba(201,151,58,.6);font-family:'Plus Jakarta Sans',Poppins,sans-serif;font-size:12px;font-weight:700}
+.lang-switch a{color:#E8B84B;text-decoration:none;padding:4px 9px;border-radius:7px}
+.lang-switch a.current{background:#C9973A;color:#0B1B3A}
+.lang-switch a:not(.current):hover{background:rgba(201,151,58,.22)}
+</style>
+</head><body>
+<div class="lang-switch" role="navigation" aria-label="Language"><a href="/rebate-tmgm.html" hreflang="id" lang="id">ID</a><a href="/en/rebate-tmgm.html" class="current" aria-current="true" hreflang="en" lang="en">EN</a></div>
+
+
+<div class="top-bar">
+  <a href="/en/" class="logo">Indo<span>rebate</span></a>
+  <a href="/en/">← Back to Home</a>
+</div>
+
+<div class="c">
+
+<div class="hero">
+  <div>
+    <div class="badge">TMGM BROKER</div>
+    <h1>REBATE <span class="gold">TMGM</span></h1>
+    <p>Trade at TMGM through Indorebate and get part of the commission/spread you pay back as a rebate — paid automatically, without changing the broker's trading conditions.</p>
+    <div class="cta-row">
+      <a href="/en/#broker" target="_blank" rel="noopener noreferrer" class="btn">Open a TMGM Account</a>
+      <a href="/en/validate.html" class="btn outline">Validate Account</a>
+    </div>
+  </div>
+  <div class="art">
+    <img src="/images/tmgm-logo.png" alt="TMGM Logo" style="width:200px;max-width:100%;object-fit:contain;border-radius:20px;background:var(--gray-50);padding:16px;border:1px solid var(--gray-200);">
+  </div>
+</div>
+
+<div class="card">
+  <h2>What Is TMGM Rebate?</h2>
+  <p>TMGM rebate (cashback) is a refund of part of the spread or commission you pay the broker every time an order is closed — whether the order ends in profit or loss. This money comes from the share of commission that partners usually receive, and Indorebate passes it back to traders as a rebate.</p>
+  <div class="quote">"To earn a rebate from Indorebate, there is no spread markup or additional commission, and trading conditions at the broker stay the same as a regular account."</div>
+</div>
+
+<div class="card">
+  <h2>TMGM Profile</h2>
+  <table class="info-table">
+    <tr><td>Company Name</td><td>Trademax Global Ltd.</td></tr>
+    <tr><td>Year Founded</td><td>2013</td></tr>
+    <tr><td>Headquarters</td><td>Australia</td></tr>
+    <tr><td>Regulators</td><td>ASIC, FSC, VFSC</td></tr>
+    <tr><td>Broker Type</td><td>NDD (No Dealing Desk)</td></tr>
+  </table>
+  <p style="margin-top:16px;">TMGM is fully regulated by ASIC (Australia), so client funds and transactions fall under fairly strict regulatory supervision. The broker uses the OneZero pricing engine to aggregate liquidity from many providers, so orders are routed to the best price available in its liquidity pool.</p>
+  <a href="https://tmgm.com" target="_blank" rel="noopener noreferrer" class="btn outline">Visit the Official TMGM Website</a>
+</div>
+
+<div class="card">
+  <h2>TMGM Account Types at Indorebate</h2>
+  <p>Indorebate provides automatic rebates for the following TMGM account types:</p>
+  <div class="acc-grid">
+    <div class="acc-card">
+      <h3>Standard</h3>
+      <ul>
+        <li>$15</li><li>From 0 pip</li><li>Available</li>
+        <li>80% rebate of the partner commission</li>
+      </ul>
+    </div>
+    <div class="acc-card">
+      <h3>Classic</h3>
+      <ul>
+        <li>$15</li><li>From 0 pip</li><li>Available</li>
+        <li>80% rebate of the partner commission</li>
+      </ul>
+    </div>
+    <div class="acc-card">
+      <h3>Edge</h3>
+      <ul>
+        <li>$15</li><li>From 0 pip</li><li>Available</li>
+        <li>80% rebate of the partner commission</li>
+      </ul>
+    </div>
+  </div>
+  <div class="tag-row">
+    <span class="tag">Automatic Rebates</span>
+    <span class="tag">MT4 &amp; MT5</span>
+    <span class="tag">No Spread/Commission Markup</span>
+  </div>
+  <p style="margin-top:14px;font-size:13.5px;color:var(--gray-500);">Rebate details per lot may differ between account types and instruments — for exact figures, please contact the Indorebate admin via Telegram (t.me/tomosie).</p>
+</div>
+
+<div class="card">
+  <h2>How to Get TMGM Rebates for a New Account</h2>
+  <div class="step">
+    <div class="n">1</div>
+    <div>
+      <b>Open a TMGM Live Account</b>
+      <p>Open a TMGM live account through the official Indorebate registration link below. The account must be opened through this link so it is automatically registered under the Indorebate network (Partner Code: lihat link pendaftaran di halaman utama).</p>
+      <a href="/en/#broker" target="_blank" rel="noopener noreferrer" class="btn">Open a TMGM Account Now</a>
+    </div>
+  </div>
+  <div class="step">
+    <div class="n">2</div>
+    <div>
+      <b>Validate Your Trading Account</b>
+      <p>Once your account is created, validate it on the Validate page so it is recorded and your rebates start to be calculated.</p>
+      <a href="/en/validate.html" class="btn">Validate Account Now</a>
+    </div>
+  </div>
+  <div class="step">
+    <div class="n">3</div>
+    <div>
+      <b>Deposit &amp; Trade as Usual</b>
+      <p>Deposit and trade as usual on that account. Rebates are calculated automatically from every closed order, according to the Indorebate rebate payment schedule.</p>
+    </div>
+  </div>
+</div>
+
+<div class="card">
+  <h2>How to Get TMGM Rebates for an Existing Account</h2>
+  <p>If you already have a TMGM account outside the Indorebate network, you can move it under Indorebate to start earning rebates.</p>
+  <div class="cta-row">
+    <a href="/en/switch-partner-tmgm.html" class="btn">View Full Guide</a>
+  </div>
+</div>
+
+<div class="card">
+  <h2>TMGM Rebate Terms &amp; Conditions</h2>
+  <ul style="padding-left:20px;color:var(--gray-700);line-height:2;">
+    <li>Trading with a bonus account or margin bonus does not earn rebates.</li>
+    <li>Rebates only apply to trading accounts registered under the Indorebate network.</li>
+    <li>Rebates only apply to trading accounts registered under the Indorebate network.</li>
+    <li>Opening a live account through Indorebate does not change the broker's trading conditions — there is no spread/commission markup or hidden fees.</li>
+  </ul>
+  <div class="note">
+    ℹ️ If there is any difference between the information on this page and the latest terms on the official TMGM website, TMGM's terms apply. If in doubt, contact TMGM support or the Indorebate admin directly.
+  </div>
+</div>
+
+<div class="card">
+  <h2>Funding and Support Information</h2>
+  <table class="info-table">
+    <tr><td>Deposit &amp; withdrawal methods</td><td>Indonesian local banks, e-wallets, debit/credit cards, FasaPay, cryptocurrencies and more</td></tr>
+    <tr><td>Deposit Currencies</td><td>USD, EUR, GBP, AUD, NZD, CAD</td></tr>
+    <tr><td>24-hour support</td><td>Yes</td></tr>
+    <tr><td>Service Languages</td><td>Indonesian, English, and several other languages</td></tr>
+    <tr><td>Support Options</td><td>Email, Live Chat, Phone</td></tr>
+  </table>
+</div>
+
+<div class="card">
+  <h2>TMGM Regulators</h2>
+  <p>TMGM is a multi-regulated broker operating under the following entities (based on official information on the TMGM website):</p>
+  <table class="reg-table">
+    <tr><th>Company Group</th><th>Regulator</th><th>Country</th></tr>
+    <tr><td>Trademax Australia Limited</td><td>Australian Securities and Investments Commission (ASIC)</td><td>Australia</td></tr>
+    <tr><td>Trademax Global Limited</td><td>Vanuatu Financial Services Commission (VFSC)</td><td>Vanuatu</td></tr>
+    <tr><td>Trademax Global Markets (International) Pty Ltd</td><td>Financial Services Commission (FSC)</td><td>Mauritius</td></tr>
+  </table>
+</div>
+
+<div class="footer">
+  <h2 style="margin-bottom:14px;">Ready to Start Earning TMGM Rebates?</h2>
+  <div class="cta-row" style="justify-content:center;">
+    <a href="/en/#broker" target="_blank" rel="noopener noreferrer" class="btn">Open a TMGM Account</a>
+    <a href="/en/" class="btn outline">← Back to Home</a>
+  </div>
+</div>
+
+</div></body></html>
