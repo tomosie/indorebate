@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Switch Partner to Headway | Indorebate</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:Poppins,sans-serif;background:linear-gradient(135deg,#08152f,#1a3d82);color:#fff}
+.container{max-width:1100px;margin:auto;padding:40px 20px}
+.hero{display:grid;grid-template-columns:1.2fr .8fr;gap:40px;align-items:center;padding:50px 0}
+.badge{display:inline-block;padding:8px 18px;border:1px solid #c89b2d;border-radius:30px;color:#f3c14d;margin-bottom:20px}
+h1{font-size:64px;line-height:1}
+.gold{color:#f3c14d}
+p{color:#d8dbe8;line-height:1.8}
+.art{display:flex;align-items:center;justify-content:center}
+.art img{width:160px;height:160px;object-fit:contain;border-radius:20px;background:rgba(255,255,255,.08);padding:16px;border:1px solid rgba(255,255,255,.15);}
+.card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.08);backdrop-filter:blur(12px);border-radius:20px;padding:30px;margin:30px 0}
+h2{color:#f3c14d;margin-bottom:20px}
+.info{display:grid;grid-template-columns:1fr 2fr;gap:20px}
+.label{background:#0c1b42;padding:15px;border-radius:12px;margin-bottom:15px;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.label > div{word-break:break-all}
+.code{background:#07152f;border:1px solid #2d4479;border-radius:12px;padding:20px;white-space:pre-wrap;font-family:Consolas,monospace;line-height:1.7;position:relative}
+.copy-btn{flex-shrink:0;background:#f3c14d;color:#111;border:none;border-radius:8px;padding:7px 14px;font-weight:700;font-family:inherit;font-size:13px;cursor:pointer;transition:background .2s}
+.copy-btn:hover{background:#dfab3b}
+.copy-btn.copied{background:#3ddc84}
+.code-copy-wrap{display:flex;justify-content:flex-end;margin-bottom:10px}
+.note{margin-top:20px;background:#3d2f0b;padding:15px;border-left:4px solid #f3c14d;border-radius:8px}
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.step{background:#0d1d46;padding:20px;border-radius:16px;text-align:center;display:flex;flex-direction:column;align-items:center}
+.num{width:50px;height:50px;min-width:50px;min-height:50px;border-radius:50%;background:#f3c14d;color:#111;font-weight:700;display:flex;align-items:center;justify-content:center;margin:0 auto 15px;flex-shrink:0}
+.btn{display:inline-block;margin-top:25px;padding:16px 36px;background:#f3c14d;color:#111;text-decoration:none;font-weight:700;border-radius:12px;white-space:nowrap}
+.btn-sm{display:inline-block;margin-top:12px;padding:10px 18px;background:#f3c14d;color:#111;text-decoration:none;font-weight:700;border-radius:10px;font-size:13px;white-space:nowrap}
+.footer{text-align:center;padding:40px 0}
+@media(max-width:900px){.hero,.info,.steps{grid-template-columns:1fr}h1{font-size:46px}.art img{width:120px;height:120px}}
+</style>
+<meta name="description" content="Step-by-step guide to switch your Headway account to the Indorebate Partner ID and earn automatic rebates.">
+<link rel="canonical" href="https://indorebate.com/en/switch-partner-headway.html" />
+<link rel="alternate" hreflang="id" href="https://indorebate.com/pindah-ib-headway.html" />
+<link rel="alternate" hreflang="en" href="https://indorebate.com/en/switch-partner-headway.html" />
+<link rel="alternate" hreflang="x-default" href="https://indorebate.com/pindah-ib-headway.html" />
+<style>
+.lang-switch{position:fixed;top:12px;right:12px;z-index:1000;display:inline-flex;gap:4px;padding:4px;border-radius:10px;background:rgba(8,21,47,.88);border:1px solid rgba(244,197,77,.5);font-family:Poppins,sans-serif;font-size:12px;font-weight:700}
+.lang-switch a{color:#f4c54d;text-decoration:none;padding:4px 9px;border-radius:7px}
+.lang-switch a.current{background:#f4c54d;color:#0b1b42}
+.lang-switch a:not(.current):hover{background:rgba(244,197,77,.18)}
+</style>
+</head>
+<body>
+<div class="lang-switch" role="navigation" aria-label="Language"><a href="/pindah-ib-headway.html" hreflang="id" lang="id">ID</a><a href="/en/switch-partner-headway.html" class="current" aria-current="true" hreflang="en" lang="en">EN</a></div>
+
+<div class="container">
+<section class="hero">
+<div>
+<div class="badge">OFFICIAL REBATE PARTNER</div>
+<h1>SWITCH PARTNER TO <span class="gold">HEADWAY</span></h1>
+<p style="margin-top:25px">Follow this guide to move your Headway account to the Indorebate Partner ID and receive automatic rebates.</p>
+</div>
+<div class="art">
+  <img src="/images/headway-logo.png?resize=150%2C150&ssl=1" alt="Headway Logo">
+</div>
+</section>
+<div class="card">
+<h2>Step 1 - Send an Email to Headway</h2>
+<div class="info">
+<div>
+<div class="label"><div><b>To</b><br><span id="toEmail">care@hw.site</span></div><button class="copy-btn" onclick="copyText('toEmail',this)">Copy</button></div>
+<div class="label"><div><b>CC</b><br><span id="ccEmail">omahrebate@gmail.com</span></div><button class="copy-btn" onclick="copyText('ccEmail',this)">Copy</button></div>
+<div class="label"><div><b>Subject</b><br><span id="subjectText">Please put my account under ID 20438</span></div><button class="copy-btn" onclick="copyText('subjectText',this)">Copy</button></div>
+</div>
+<div>
+<div class="code-copy-wrap"><button class="copy-btn" onclick="copyText('emailBody',this)">Copy Email Body</button></div>
+<div class="code" id="emailBody">Dear Headway Support,
+I am very interested in joining the Indorebate.com rebate project. Please put my account registered with the email address [your email address] under Partner ID 20438, and let me know once it is done.
+Thank you very much for your attention and help.
+Best regards,
+xxxxxxxxxxx</div>
+</div>
+</div>
+<div class="note"><b>Note:</b> Replace <b>[your email address]</b> with the email address you used to register at Headway, and replace <b>xxxxxxxxxxx</b> with your name before sending the email.</div>
+<div class="note"><b>Important:</b> Your existing Headway account <b>stays with your previous partner and earns no rebate</b>. Only a <b>new account</b> created after approval is placed under the Indorebate partner.</div>
+</div>
+<div class="card">
+<h2>Step 2 - After Approval</h2>
+<div class="steps">
+<div class="step"><div class="num">1</div><b>Wait for Approval</b><p>Headway approves the partner switch. Check your email regularly — Headway will send an approval confirmation to the registered email address used to send the request.</p></div>
+<div class="step"><div class="num">2</div><b>Create a New Account</b><p>Create a new trading account and note its account number. Use this new account number, not the old one.</p></div>
+<div class="step"><div class="num">3</div><b>Validate</b><p>Validate the NEW account number at Indorebate, not the old account.</p><a class="btn-sm" href="/en/validate.html">Validate Now →</a></div>
+<div class="step"><div class="num">4</div><b>Rebate Active</b><p>Enjoy automatic rebate cashback.</p></div>
+</div>
+</div>
+<div class="footer">
+<h2>Back to Home Page</h2>
+<p>Click the button below to return to the Indorebate home page.</p>
+<a class="btn" href="/en/">← Back to Home</a>
+</div>
+</div>
+<script>
+function copyText(id, btn){
+  var text = document.getElementById(id).textContent;
+  navigator.clipboard.writeText(text).then(function(){
+    var original = btn.textContent;
+    btn.textContent = 'Copied!';
+    btn.classList.add('copied');
+    setTimeout(function(){
+      btn.textContent = original;
+      btn.classList.remove('copied');
+    }, 2000);
+  });
+}
+</script>
+</body>
+</html>
