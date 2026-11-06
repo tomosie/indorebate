@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Account Validation — Indorebate</title>
+<meta name="description" content="Validate your new trading account with Indorebate to activate automatic forex rebates at Headway, Exness, HFM, Tickmill, JustMarkets, RoboForex, XM and TMGM.">
+<link rel="canonical" href="https://indorebate.com/en/validasi.html" />
+<link rel="alternate" hreflang="id" href="https://indorebate.com/validasi.html" />
+<link rel="alternate" hreflang="en" href="https://indorebate.com/en/validasi.html" />
+<link rel="alternate" hreflang="x-default" href="https://indorebate.com/validasi.html" />
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ── NAV (sama dengan index.html dan halaman lainnya) ── */
+nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid #E2E8F0;
+    box-shadow: 0 2px 16px rgba(11,27,58,.07);
+}
+.nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 68px;
+    flex-wrap: nowrap;
+}
+.logo {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px;
+    color: #0B1B3A; text-decoration: none;
+}
+.logo span { color: #C9973A; }
+.nav-links { display: flex; gap: 8px; list-style: none; margin:0; padding:0; }
+.nav-links a {
+    font-family: 'Inter', sans-serif; font-weight: 500; font-size: .92rem;
+    color: #334155; text-decoration: none;
+    padding: 8px 16px; border-radius: 8px; transition: all .2s;
+}
+.nav-links a:hover { background: #FDF3E0; color: #0B1B3A; }
+.nav-actions{ display:flex; align-items:center; gap:10px; }
+.nav-cta {
+    background: linear-gradient(135deg, #C9973A, #E8B84B);
+    color: #0B1B3A; font-weight: 700; font-size: .88rem;
+    padding: 10px 20px; border-radius: 8px; text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 2px 8px rgba(201,151,58,.35);
+    white-space: nowrap;
+}
+.nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,151,58,.5); }
+@media (max-width: 768px) {
+    nav .nav-links { display: none; }
+}
+@media (max-width: 480px) {
+    .nav-inner { padding: 0 12px; }
+    .logo { font-size: 1.15rem; }
+    .nav-actions { gap: 8px; }
+    .nav-cta { padding: 11px 20px; font-size: .88rem; }
+}
+@media (max-width: 380px) {
+    .nav-inner { padding: 0 10px; }
+    .logo { font-size: 1.02rem; }
+    .nav-actions { gap: 6px; }
+    .nav-cta { padding: 10px 16px; font-size: .8rem; }
+}
+
+body{
+    font-family: Arial, sans-serif;
+    margin:0;
+    padding:0;
+}
+
+.page-container{
+    max-width:600px;
+    margin:40px auto;
+    padding:20px;
+}
+
+.btn-gold{
+    background: linear-gradient(135deg,#d4af37,#f7d774,#d4af37);
+    background-size:200% auto;
+    color:#1a1200;
+    border:none;
+    padding:18px 25px;
+    border-radius:10px;
+    font-weight:800;
+    font-size:18px;
+    letter-spacing:.04em;
+    text-transform:uppercase;
+    cursor:pointer;
+    box-shadow:0 6px 20px rgba(212,175,55,.5), inset 0 1px 0 rgba(255,255,255,.4);
+    transition:transform .15s ease, box-shadow .15s ease, background-position .4s ease;
+}
+.btn-gold:not(:disabled):hover{
+    transform:translateY(-2px);
+    box-shadow:0 10px 28px rgba(212,175,55,.65), inset 0 1px 0 rgba(255,255,255,.5);
+    background-position:right center;
+}
+.btn-gold:not(:disabled):active{
+    transform:translateY(0);
+}
+.btn-gold:not(:disabled){
+    animation:goldPulse 2.2s ease-in-out infinite;
+}
+@keyframes goldPulse{
+    0%, 100%{ box-shadow:0 6px 20px rgba(212,175,55,.5), inset 0 1px 0 rgba(255,255,255,.4); }
+    50%{ box-shadow:0 6px 28px rgba(212,175,55,.85), inset 0 1px 0 rgba(255,255,255,.5); }
+}
+@keyframes fadeSlideIn{
+    from{ opacity:0; transform:translateY(-8px); }
+    to{ opacity:1; transform:translateY(0); }
+}
+    
+h1{
+    text-align:center;
+}
+
+form{
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input, select{
+    padding:12px;
+    font-size:16px;
+    font-family: Arial, sans-serif;
+    border:1px solid #ccc;
+    border-radius:6px;
+    background:#fff;
+    color:#000;
+}
+
+select{
+    appearance:auto;
+}
+
+select:invalid{
+    color:#777;
+}
+
+button{
+    padding:14px;
+    cursor:pointer;
+    font-size:16px;
+}
+
+button:disabled{
+    opacity:.5;
+    cursor:not-allowed;
+}
+
+.form-message{
+    padding:12px 14px;
+    border-radius:6px;
+    font-size:14px;
+    display:none;
+}
+.form-message.success{
+    display:block;
+    background:#e6f7ec;
+    color:#0a7a3c;
+    border:1px solid #b7e6c9;
+}
+.form-message.error{
+    display:block;
+    background:#fdeaea;
+    color:#a3271f;
+    border:1px solid #f3bcb8;
+}
+.form-message.info{
+    display:block;
+    background:#eef4fd;
+    color:#1a4c8b;
+    border:1px solid #bcd6f3;
+}
+.form-message a{
+    color:inherit;
+    font-weight:bold;
+    text-decoration:underline;
+}
+.email-warning{
+    padding:12px 14px;
+    border-radius:6px;
+    font-size:14px;
+    line-height:1.5;
+    background:#fff8e1;
+    color:#7a5b00;
+    border:1px solid #f0d98a;
+}
+
+/* Honeypot field - hidden from real users, only bots that auto-fill every
+   input will touch it. Kept in normal document flow (not display:none /
+   visibility:hidden) because some bots skip fields hidden that way. */
+.hp-field{
+    position:absolute;
+    left:-5000px;
+    width:1px;
+    height:1px;
+    overflow:hidden;
+}
+
+#turnstileWrap{
+    display:flex;
+    justify-content:center;
+}
+
+#turnstileFallback{
+    display:none;
+    text-align:center;
+    font-size:14px;
+    color:#a3271f;
+}
+#turnstileFallback button{
+    margin-top:8px;
+    background:#fff;
+    border:1px solid #a3271f;
+    border-radius:6px;
+    color:#a3271f;
+    padding:8px 14px;
+}
+
+
+.lang-switch { display:inline-flex; align-items:center; gap:4px; margin-right:12px; font-family:'Plus Jakarta Sans',sans-serif; font-size:.8rem; font-weight:700; }
+.lang-switch a { color:#64748B; text-decoration:none; padding:4px 8px; border-radius:6px; }
+.lang-switch a.current { background:#0B1B3A; color:#fff; }
+.lang-switch a:not(.current):hover { background:#F1F5F9; color:#0B1B3A; }
+</style>
+
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="/en/" class="logo" translate="no">INDO<span>REBATE</span></a>
+    <ul class="nav-links">
+      <li><a href="/en/">Home</a></li>
+      <li><a href="/en/#broker">Brokers</a></li>
+      <li><a href="/en/#cara-kerja">How It Works</a></li>
+      <li><a href="/rebate.html" target="_blank" rel="noopener noreferrer">What Is a Rebate</a></li>
+      <li><a href="/tools-gratis.html">🎁 Free Tools</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-switch" role="navigation" aria-label="Language"><a href="/validasi.html" hreflang="id" lang="id">ID</a><a href="/en/validasi.html" class="current" aria-current="true" hreflang="en" lang="en">EN</a></div>
+      <a href="/en/validasi.html" class="nav-cta">Validate</a>
+    </div>
+  </div>
+</nav>
+
+<div class="page-container">
+
+<h1>Indorebate Account Validation</h1>
+
+<div style="background:#FDF3E0;border:1px solid rgba(201,151,58,.4);border-radius:12px;padding:20px;margin-bottom:24px;text-align:center;">
+  <div style="font-weight:700;color:#0B1B3A;margin-bottom:6px;">⚠️ Read/Watch This Before Validating</div>
+  <p style="font-size:14px;color:#334155;margin-bottom:16px;">Trading accounts that <strong>already existed before</strong> at the broker (not newly registered through an Indorebate link) <strong>will not earn rebates</strong> even if validated here. Watch this short video first so you understand the process (video is in Indonesian):</p>
+  <div style="max-width:260px;margin:0 auto;aspect-ratio:9/16;border-radius:12px;overflow:hidden;box-shadow:0 4px 16px rgba(11,27,58,.15);">
+    <iframe width="100%" height="100%" src="https://www.youtube.com/embed/BZYS7zpIcZc" title="How Indorebate Rebates Work (Indonesian)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" style="display:block;"></iframe>
+  </div>
+</div>
+
+<form id="validationForm">
+
+    <input
+        type="text"
+        name="full_name"
+        placeholder="FULL NAME"
+        required>
+
+    <input
+        type="text"
+        name="account_number"
+        placeholder="TRADING ACCOUNT NUMBER"
+        inputmode="numeric"
+        pattern="[0-9]+"
+        required>
+
+    <select name="broker_name" required translate="no">
+        <option value="" disabled selected hidden>SELECT BROKER</option>
+        <option value="Headway">Headway</option>
+        <option value="Exness">Exness</option>
+        <option value="HFM">HFM</option>
+        <option value="Tickmill">Tickmill</option>
+        <option value="JustMarkets">JustMarkets</option>
+        <option value="RoboForex">RoboForex</option>
+        <option value="XM Global">XM Global</option>
+        <option value="TMGM">TMGM</option>
+    </select>
+
+    <select name="account_status" required>
+        <option value="" disabled selected hidden>THE ACCOUNT NUMBER ABOVE IS...</option>
+        <option value="baru_pindah">NEW account, created after switching to Indorebate as partner</option>
+        <option value="baru_link">NEW account, registered through the Indorebate link</option>
+        <option value="lama">OLD account, not yet switched to Indorebate as partner</option>
+    </select>
+
+    <div id="oldAccountWarning" class="form-message" role="alert"></div>
+
+    <input
+        type="email"
+        name="email"
+        placeholder="EMAIL ADDRESS"
+        required>
+
+    <input
+        type="email"
+        name="email_confirm"
+        placeholder="RE-ENTER EMAIL ADDRESS"
+        autocomplete="off"
+        required>
+
+    <div id="emailMismatch" class="form-message" role="alert"></div>
+
+    <div class="email-warning">
+        ⚠️ <strong>Make sure your email is correct and active.</strong> The validation result is sent to this email, so double-check the spelling and make sure your inbox is not full. If the email is wrong or full, we cannot deliver the validation result.
+    </div>
+
+    <!-- Honeypot: real users never see or fill this. Left blank must stay
+         blank; if it has a value, the submission is treated as a bot. -->
+    <div class="hp-field" aria-hidden="true">
+        <label for="website">Website</label>
+        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+    </div>
+
+    <div id="turnstileWrap">
+        <div id="turnstileContainer"></div>
+    </div>
+    <div id="turnstileFallback">
+        Security verification failed to load (slow connection or blocked).<br>
+        <button type="button" id="turnstileRetryBtn">Try Reloading</button>
+    </div>
+
+    <button type="submit" class="btn-gold" id="submitBtn" disabled>
+        VALIDATE MY ACCOUNT
+    </button>
+
+    <div id="formMessage" class="form-message" role="status"></div>
+
+</form>
+
+<!-- Pengingat cek email disembunyikan sementara (kuota Resend habis, jadi
+     email konfirmasi mungkin belum terkirim). Hapus style="display:none;"
+     di bawah ini begitu kuota Resend sudah normal/ditambah lagi. -->
+<div id="emailReminder" class="form-message info" style="display:none; margin-top:15px;">
+    📩 After submitting validation, please <strong>check your email</strong> (including the <strong>Spam/Promotions</strong>) to make sure you received our rebate request confirmation email.
+</div>
+
+</div><!-- /page-container -->
+
+<!--
+  Cloudflare Turnstile. Ganti TURNSTILE_SITE_KEY di bawah dengan site key
+  kamu sendiri dari https://dash.cloudflare.com/?to=/:account/turnstile
+  (site key aman untuk ditaruh di HTML, ini bukan rahasia - secret key-nya
+  yang harus disimpan di server sebagai env var, lihat api/validasi.js).
+  Dimuat async lewat window.onloadTurnstileCallback supaya kita bisa
+  render widget secara eksplisit dan kontrol penuh atas error/timeout.
+-->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback" async defer></script>
+
+<script>
+(function () {
+    // Ganti dengan URL endpoint Vercel kamu setelah deploy, contoh:
+    // "https://indorebate-bot.vercel.app/api/validasi"
+    var ENDPOINT_URL = "https://indorebate-bot.vercel.app/api/validasi";
+
+    // Site key Cloudflare Turnstile (public, aman ditaruh di client)
+    var TURNSTILE_SITE_KEY = "0x4AAAAAAE_fmKXmqXhbBNbM";
+
+    // Berapa lama (ms) kita tunggu script Turnstile sebelum menganggapnya
+    // gagal dimuat dan menampilkan fallback + tombol retry, supaya form
+    // TIDAK diam-diam macet dengan tombol submit disabled selamanya.
+    var TURNSTILE_LOAD_TIMEOUT_MS = 10000;
+
+    // Timeout untuk request ke server kita sendiri. Kalau server/endpoint
+    // benar-benar hang, fetch di sini tetap akan berhenti sendiri dan
+    // kasih pesan jelas ke user, alih-alih tombol "MENGIRIM..." menggantung
+    // tanpa batas waktu.
+    //
+    // Nilainya sengaja dibuat longgar (30 detik): backend memverifikasi
+    // captcha lalu mengirim ke Telegram + 2 email + Google Sheet, dan kalau
+    // ditambah cold start function di Vercel + latensi jaringan ke luar
+    // negeri, total waktunya bisa mendekati 15-20 detik dalam kondisi
+    // normal. Timeout terlalu ketat (mis. 20 detik) bisa membuat client
+    // "menyerah" duluan padahal request sebenarnya tetap berhasil diproses
+    // di server — itu yang bikin muncul pesan error walau datanya sebenarnya
+    // sudah masuk semua.
+    var SUBMIT_TIMEOUT_MS = 30000;
+
+
+    // Backend (api/validasi.js) replies with Indonesian error text. Map the known
+    // messages to English so English visitors see English. Unknown text falls through unchanged.
+    var SERVER_ERRORS_EN = {
+        'Nama tidak valid.': 'Invalid name.',
+        'Nomor akun tidak valid.': 'Invalid account number.',
+        'Broker tidak valid.': 'Invalid broker.',
+        'Email tidak valid.': 'Invalid email.',
+        'Verifikasi keamanan belum dikonfigurasi. Hubungi admin.': 'Security verification is not configured. Please contact the admin.',
+        'Verifikasi keamanan gagal atau kedaluwarsa. Silakan muat ulang halaman dan coba lagi.': 'Security verification failed or expired. Please reload the page and try again.',
+        'Terjadi kesalahan server. Silakan coba lagi.': 'A server error occurred. Please try again.'
+    };
+    function serverError(msg) {
+        if (!msg) return 'Failed to send data. Please try again.';
+        if (SERVER_ERRORS_EN[msg]) return SERVER_ERRORS_EN[msg];
+        if (msg.indexOf('Data validasi belum berhasil terkirim') === 0) {
+            return 'Your validation data could not be sent yet. Please try again in a moment, or contact us on Telegram (@omahrebate).';
+        }
+        return msg;
+    }
+
+    var form = document.getElementById('validationForm');
+    var accountNumber = form.querySelector('input[name="account_number"]');
+    var submitBtn = document.getElementById('submitBtn');
+    var messageBox = document.getElementById('formMessage');
+    var brokerSelect = form.querySelector('select[name="broker_name"]');
+    var statusSelect = form.querySelector('select[name="account_status"]');
+    var oldAccountWarning = document.getElementById('oldAccountWarning');
+    var emailInput = form.querySelector('input[name="email"]');
+    var emailConfirm = form.querySelector('input[name="email_confirm"]');
+    var emailMismatch = document.getElementById('emailMismatch');
+
+    // Halaman panduan pindah IB per broker (dipakai di peringatan akun lama).
+    var PINDAH_IB_PAGES = {
+        'Headway': '/pindah-ib-headway.html',
+        'Exness': '/pindah-ib-exness.html',
+        'HFM': '/pindah-ib-hfm.html',
+        'Tickmill': '/pindah-ib-tickmill.html',
+        'JustMarkets': '/pindah-ib-justmarkets.html',
+        'RoboForex': '/pindah-ib-roboforex.html',
+        'XM Global': '/pindah-ib-xm.html',
+        'TMGM': '/pindah-ib-tmgm.html'
+    };
+    var turnstileContainer = document.getElementById('turnstileContainer');
+    var turnstileFallback = document.getElementById('turnstileFallback');
+    var turnstileRetryBtn = document.getElementById('turnstileRetryBtn');
+
+    var turnstileWidgetId = null;
+    var captchaToken = null;
+    var turnstileLoadTimer = null;
+
+    accountNumber.addEventListener('input', function () {
+        this.value = this.value.replace(/[^0-9]/g, '');
+        updateSubmitState();
+    });
+
+    form.addEventListener('input', updateSubmitState);
+    form.addEventListener('change', updateSubmitState);
+    form.addEventListener('change', updateOldAccountWarning);
+    form.addEventListener('input', updateEmailMismatch);
+
+    // Email dan "ketik ulang email" harus sama (huruf besar/kecil diabaikan).
+    function emailsMatch() {
+        return emailInput.value.trim().toLowerCase() === emailConfirm.value.trim().toLowerCase();
+    }
+
+    function updateEmailMismatch() {
+        if (emailConfirm.value && !emailsMatch()) {
+            emailMismatch.textContent = 'Emails do not match. Please re-enter carefully.';
+            emailMismatch.className = 'form-message error';
+        } else {
+            emailMismatch.textContent = '';
+            emailMismatch.className = 'form-message';
+        }
+    }
+
+    function updateSubmitState() {
+        // Akun lama (belum pindah IB) tidak bisa divalidasi, dan email harus sama di kedua kolom.
+        submitBtn.disabled = !(form.checkValidity() && !!captchaToken && statusSelect.value !== 'lama' && emailsMatch());
+    }
+
+    // Tampilkan peringatan + link panduan pindah IB kalau user memilih "akun lama".
+    function updateOldAccountWarning() {
+        if (statusSelect.value !== 'lama') {
+            oldAccountWarning.className = 'form-message';
+            oldAccountWarning.innerHTML = '';
+            return;
+        }
+        var page = PINDAH_IB_PAGES[brokerSelect.value];
+        var link = page
+            ? '<a href="' + page + '" target="_blank" rel="noopener noreferrer">See the partner switch guide for ' + brokerSelect.value + ' (in Indonesian)</a>'
+            : '<a href="/en/#broker" target="_blank" rel="noopener noreferrer">See the partner switch guide (in Indonesian)</a>';
+        oldAccountWarning.innerHTML = '<strong>Old accounts do not earn rebates.</strong> Follow the partner switch guide, open a new account, then validate the new account number. ' + link;
+        oldAccountWarning.className = 'form-message error';
+    }
+
+    function showMessage(text, type) {
+        messageBox.textContent = text;
+        messageBox.className = text ? 'form-message ' + type : 'form-message';
+    }
+
+    // ---------- Turnstile lifecycle ----------
+
+    // Dipanggil otomatis oleh script Turnstile setelah selesai load.
+    window.onloadTurnstileCallback = function () {
+        clearTimeout(turnstileLoadTimer);
+        turnstileFallback.style.display = 'none';
+        turnstileContainer.style.display = '';
+        renderTurnstile();
+    };
+
+    function renderTurnstile() {
+        if (typeof turnstile === 'undefined') return;
+        // Kalau sebelumnya sudah pernah render (mis. user klik "coba lagi"),
+        // bersihkan dulu supaya tidak dobel.
+        if (turnstileWidgetId !== null) {
+            try { turnstile.remove(turnstileWidgetId); } catch (e) {}
+        }
+        turnstileWidgetId = turnstile.render('#turnstileContainer', {
+            sitekey: TURNSTILE_SITE_KEY,
+            language: 'en',
+            callback: function (token) {
+                captchaToken = token;
+                updateSubmitState();
+            },
+            'expired-callback': function () {
+                // Token kedaluwarsa (±5 menit) sebelum user submit.
+                captchaToken = null;
+                updateSubmitState();
+            },
+            'error-callback': function () {
+                captchaToken = null;
+                updateSubmitState();
+                showMessage('Security verification failed, please try again.', 'error');
+                return true; // beri tahu Turnstile supaya boleh retry otomatis
+            },
+            'timeout-callback': function () {
+                captchaToken = null;
+                updateSubmitState();
+            }
+        });
+    }
+
+    // Kalau script Turnstile gagal dimuat sama sekali (diblokir jaringan,
+    // ad-blocker, dsb), window.onloadTurnstileCallback tidak akan pernah
+    // terpanggil. Timeout ini memastikan user tetap dikasih tahu dan bisa
+    // coba lagi, alih-alih tombol submit disabled diam-diam selamanya.
+    turnstileLoadTimer = setTimeout(function () {
+        if (typeof turnstile === 'undefined') {
+            turnstileContainer.style.display = 'none';
+            turnstileFallback.style.display = 'block';
+        }
+    }, TURNSTILE_LOAD_TIMEOUT_MS);
+
+    turnstileRetryBtn.addEventListener('click', function () {
+        turnstileFallback.style.display = 'none';
+        // Coba reload script Turnstile dari awal.
+        var existing = document.querySelector('script[src*="challenges.cloudflare.com/turnstile"]');
+        if (existing) existing.remove();
+        var s = document.createElement('script');
+        s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onloadTurnstileCallback';
+        s.async = true;
+        s.defer = true;
+        document.body.appendChild(s);
+        turnstileContainer.style.display = '';
+        turnstileLoadTimer = setTimeout(function () {
+            if (typeof turnstile === 'undefined') {
+                turnstileContainer.style.display = 'none';
+                turnstileFallback.style.display = 'block';
+            }
+        }, TURNSTILE_LOAD_TIMEOUT_MS);
+    });
+
+    // ---------- Submit ----------
+
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+
+        // Honeypot: kalau field ini terisi, ini bot. Pura-pura sukses supaya
+        // bot tidak tahu ia terdeteksi, tapi jangan kirim apa-apa ke server.
+        var honeypot = form.website.value;
+        if (honeypot) {
+            showMessage('Thank you! We have received your validation request. Please check your email for confirmation.', 'success');
+            form.reset();
+            resetCaptcha();
+            return;
+        }
+
+        if (statusSelect.value === 'lama') {
+            updateOldAccountWarning();
+            return;
+        }
+
+        if (!emailsMatch()) {
+            updateEmailMismatch();
+            return;
+        }
+
+        if (!captchaToken) {
+            showMessage('Please complete the security verification first.', 'error');
+            return;
+        }
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'SENDING...';
+        showMessage('', '');
+
+        var payload = {
+            full_name: form.full_name.value.trim(),
+            account_number: form.account_number.value.trim(),
+            broker_name: form.broker_name.value,
+            email: form.email.value.trim(),
+            cf_turnstile_response: captchaToken,
+        };
+
+        var controller = new AbortController();
+        var timeoutId = setTimeout(function () { controller.abort(); }, SUBMIT_TIMEOUT_MS);
+
+        try {
+            var res = await fetch(ENDPOINT_URL, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+                signal: controller.signal,
+            });
+            clearTimeout(timeoutId);
+            var data = await res.json();
+
+            if (res.ok && data.success) {
+                showMessage('Thank you! We have received your validation request. Please check your email for confirmation.', 'success');
+                form.reset();
+            } else {
+                showMessage(serverError(data.error), 'error');
+            }
+        } catch (err) {
+            clearTimeout(timeoutId);
+            if (err.name === 'AbortError') {
+                showMessage('The server is not responding. Please try again in a moment.', 'error');
+            } else {
+                showMessage('Unable to connect to the server. Check your internet connection and try again.', 'error');
+            }
+        } finally {
+            // Token Turnstile sekali pakai — baik submit berhasil maupun
+            // gagal, token yang sudah dipakai tidak valid lagi untuk
+            // percobaan berikutnya. Reset widget di sini supaya user bisa
+            // langsung coba lagi tanpa form terasa "macet".
+            resetCaptcha();
+            submitBtn.textContent = 'VALIDATE MY ACCOUNT';
+            updateOldAccountWarning();
+            updateEmailMismatch();
+            updateSubmitState();
+        }
+    });
+
+    function resetCaptcha() {
+        captchaToken = null;
+        if (turnstileWidgetId !== null && typeof turnstile !== 'undefined') {
+            try { turnstile.reset(turnstileWidgetId); } catch (e) {}
+        }
+    }
+
+    updateOldAccountWarning();
+    updateSubmitState();
+})();
+</script>
+
+</body>
+</html>
