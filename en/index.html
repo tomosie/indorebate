@@ -692,11 +692,8 @@
     </div>
 
     <div style="max-width:640px;margin:48px auto 0;text-align:center;background:var(--gray-50);border:1px solid var(--gray-200);border-radius:16px;padding:32px 24px;">
-      <div style="font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:6px;">🎥 Still Not Sure How It Works?</div>
-      <p style="color:var(--gray-700);margin-bottom:20px;">Existing broker accounts (not newly registered through an Indorebate link) <strong>are not automatically part of our rebate network</strong>. Watch this short video so you don't submit the wrong account during validation (video is in Indonesian):</p>
-      <div style="max-width:300px;margin:0 auto;aspect-ratio:9/16;border-radius:14px;overflow:hidden;box-shadow:var(--shadow-lg);">
-        <iframe width="100%" height="100%" src="https://www.youtube.com/embed/BZYS7zpIcZc" title="How Indorebate Rebates Work (Indonesian)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen loading="lazy" style="display:block;"></iframe>
-      </div>
+      <div style="font-size:1.1rem;font-weight:700;color:var(--navy);margin-bottom:6px;">⚠️ Important to Know</div>
+      <p style="color:var(--gray-700);margin-bottom:0;">Existing broker accounts (not newly registered through an Indorebate link) <strong>are not automatically part of our rebate network</strong>. Make sure you don't submit the wrong account during validation.</p>
     </div>
   </div>
 </section>
@@ -1097,7 +1094,7 @@
         <div class="broker-notes">
           <div class="broker-notes-title">Restrictions</div>
           <ul>
-            <li>Want to open an additional account of a different type? Read <a href="/en/tmgm-other-account-type.html" style="color:var(--gold);font-weight:700;text-decoration:underline;">the guide to opening a TMGM account of another type</a> (includes an email template for TMGM support; the guide is in Indonesian).</li>
+            <li>Want to open an additional account of a different type? Read <a href="/en/tmgm-other-account-type.html" style="color:var(--gold);font-weight:700;text-decoration:underline;">the guide to opening a TMGM account of another type</a> (includes an email template for TMGM support).</li>
             <li>For cent accounts, a minimum accumulated volume of 0.2 lots is required to earn rebates.</li>
           </ul>
         </div>
@@ -1322,10 +1319,11 @@ function toggleBrokerCard(headEl) {
 
 <script>
 (function () {
-  var STORAGE_KEY = 'ea_popup_last_dismissed';
+  var STORAGE_KEY = 'ea_popup_last_dismissed_en'; // separate from the Indonesian site's key
   var ONE_DAY_MS = 24 * 60 * 60 * 1000;
 
-  var lastDismissed = localStorage.getItem(STORAGE_KEY);
+  var lastDismissed = null;
+  try { lastDismissed = localStorage.getItem(STORAGE_KEY); } catch (e) {}
   var shouldShow = !lastDismissed || (Date.now() - parseInt(lastDismissed, 10)) > ONE_DAY_MS;
 
   if (!shouldShow) return;
@@ -1338,7 +1336,7 @@ function toggleBrokerCard(headEl) {
 
   function dismiss() {
     overlay.classList.remove('show');
-    localStorage.setItem(STORAGE_KEY, Date.now().toString());
+    try { localStorage.setItem(STORAGE_KEY, Date.now().toString()); } catch (e) {}
   }
 
   closeBtn.addEventListener('click', dismiss);
