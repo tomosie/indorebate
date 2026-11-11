@@ -78,13 +78,6 @@
     white-space: nowrap;
   }
   .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,151,58,.5); }
-  .nav-telegram{
-    background:#229ED9; color:#fff; font-weight:700; font-size:.88rem;
-    padding:10px 20px; border-radius:8px; text-decoration:none;
-    transition:all .2s; box-shadow:0 2px 8px rgba(34,158,217,.35);
-    white-space: nowrap;
-  }
-  .nav-telegram:hover{ transform:translateY(-1px); box-shadow:0 4px 16px rgba(34,158,217,.5); }
 
   /* ── PAGE HERO ── */
   .page-hero {
@@ -269,18 +262,20 @@
     .feature-table { font-size: .85rem; }
     .feature-table th, .feature-table td { padding: 10px 10px; }
     .showcase { margin-top: -20px; }
+    .nav-actions { gap: 8px; }
+    .nav-cta { padding: 12px 26px; font-size: .95rem; }
   }
   @media (max-width: 480px) {
     .nav-inner { padding: 0 12px; }
-    .logo { font-size: 1.35rem; }
+    .logo { font-size: 1.15rem; }
     .nav-actions { gap: 8px; }
-    .nav-cta, .nav-telegram { padding: 8px 13px; font-size: .76rem; }
+    .nav-cta { padding: 11px 20px; font-size: .88rem; }
   }
   @media (max-width: 380px) {
     .nav-inner { padding: 0 10px; }
-    .logo { font-size: 1.2rem; }
+    .logo { font-size: 1.02rem; }
     .nav-actions { gap: 6px; }
-    .nav-cta, .nav-telegram { padding: 7px 10px; font-size: .68rem; }
+    .nav-cta { padding: 10px 16px; font-size: .8rem; }
   }
 </style>
 <meta name="description" content="Signal Strength Dashboard: a free multi-timeframe technical summary indicator for MT5, for registered Indorebate members.">
@@ -312,7 +307,6 @@
       <div class="lang-switch" role="navigation" aria-label="Language"><a href="/indikator-gratis.html" hreflang="id" lang="id">ID</a><a href="/en/free-indicator.html" class="current" aria-current="true" hreflang="en" lang="en">EN</a></div>
 
       <a href="/en/validate.html" target="_blank" rel="noopener noreferrer" class="nav-cta">Validate</a>
-      <a href="https://t.me/indovalidator_bot?start=validasi" target="_blank" rel="noopener noreferrer" class="nav-telegram"><span class="full-text">Via Telegram</span></a>
     </div>
   </div>
 </nav>
