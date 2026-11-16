@@ -3,13 +3,17 @@
 
    symbols (spec, used by spread-based accounts):
      contractSize  units per 1 lot
-     pointSize     price value of 1 point as shown in the MT5 spread column (Exness gold = 0.001, so 250 points = $0.25)
+     pointSize     price value of 1 point as shown in the MT5 spread column (Exness gold = 0.001 -> 250 points = $0.25; Headway gold = 0.01 -> 25 points = $0.25)
      usdBaseRate   ONLY for USD-base pairs (USDJPY/USDCAD/USDCHF): approximate reference rate, converts the quote currency to USD
      example / maxPoints  sample spread for the hint / value above which the page warns about a possible typo
    accounts:
      model 'spread_pct': rebate per lot = pct% x (spread points x pointSize x contractSize [/ usdBaseRate])
-     model 'fixed'     : rebate per lot = fixed[symbol].rebate (USD, already the client's rebate)
-     unit 'USC' (cent accounts): same numbers, shown in cents. */
+     model 'fixed'     : rebate per lot = fixed[symbol] (USD, already the client's rebate)
+     unit 'USC' (cent accounts): same numbers, shown in cents.
+     centMin (cent accounts only):
+        { mode: 'threshold', usc: 1 }  minimum lots so the daily rebate is at least 1 cent (computed from the rebate per lot)
+        { mode: 'lots', lots: 0.2 }    fixed minimum accumulated lots stated by the broker rule
+   ui (per language): rules shown under the calculator, signup link, info page. */
 window.REBATE_RATES = {
   updated: '2026-11-16',
   brokers: {
@@ -31,7 +35,7 @@ window.REBATE_RATES = {
       accounts: [
         { id: 'standard', label: 'Standard', unit: 'USD', model: 'spread_pct', pct: 32,
           pairs: ['XAUUSD','XAGUSD','EURUSD','GBPUSD','AUDUSD','NZDUSD','USDJPY','USDCAD','USDCHF','BTCUSD'] },
-        { id: 'cent',     label: 'Cent',     unit: 'USC', model: 'spread_pct', pct: 32,
+        { id: 'cent',     label: 'Cent',     unit: 'USC', model: 'spread_pct', pct: 32, centMin: { mode: 'threshold', usc: 1 },
           pairs: ['XAUUSD','XAGUSD','EURUSD','GBPUSD','AUDUSD','NZDUSD','USDJPY','USDCAD','USDCHF','BTCUSD'] },
         { id: 'pro',      label: 'Pro',      unit: 'USD', model: 'spread_pct', pct: 20,
           pairs: ['XAUUSD','XAGUSD','EURUSD','GBPUSD','AUDUSD','NZDUSD','USDJPY','USDCAD','USDCHF','BTCUSD'] },
@@ -41,7 +45,39 @@ window.REBATE_RATES = {
         { id: 'raw',      label: 'Raw',      unit: 'USD', model: 'fixed',
           fixed: { XAUUSD: 2.4, XAUUSD247: 2.4, XAGUSD: 14.8, EURUSD: 0.696, GBPUSD: 0.896, AUDUSD: 0.896, NZDUSD: 1.4,
                    USDJPY: 0.6, USDCAD: 1.0, USDCHF: 1.6, BTCUSD: 1.4, BTCUSDT: 1.4 } }
-      ]
+      ],
+      ui: {
+        id: { openUrl: 'https://one.toexness.com/boarding/sign-up/a/indorbt80?lng=id', infoUrl: '/rebate-exness.html',
+              rules: ['Untuk akun Cent, akumulasi lot minimal 0.2 untuk mendapatkan rebate.',
+                      'Trade dengan jumlah lot yang terlalu kecil pada akun Cent tidak mendapatkan rebate karena rebate di bawah $0.01.',
+                      'Trading dengan margin bonus tidak mendapatkan rebate.',
+                      'Rebate hanya diberikan ke akun trading di bawah jaringan INDOREBATE.'] },
+        en: { openUrl: 'https://one.toexness.com/boarding/sign-up/a/indorbt80', infoUrl: '/en/rebate-exness.html',
+              rules: ['For cent accounts, a minimum accumulated volume of 0.2 lots is required to earn rebates.',
+                      'Trades with a lot size that is too small on Cent accounts earn no rebate because the rebate falls below $0.01.',
+                      'Trading with margin bonus does not earn rebates.',
+                      'Rebates only apply to trading accounts registered under the INDOREBATE network.'] }
+      }
+    },
+    headway: {
+      name: 'Headway',
+      symbols: {
+        XAUUSD: { label: 'XAUUSD (Gold)', contractSize: 100, pointSize: 0.01, example: 25, maxPoints: 500 }
+      },
+      accounts: [
+        { id: 'standard', label: 'Standard', unit: 'USD', model: 'spread_pct', pct: 33.6, pairs: ['XAUUSD'] },
+        { id: 'cent',     label: 'Cent',     unit: 'USC', model: 'spread_pct', pct: 33.6, centMin: { mode: 'lots', lots: 0.2 }, pairs: ['XAUUSD'] }
+      ],
+      ui: {
+        id: { openUrl: 'https://headway.partners/user/signup?hwp=fee8fe', infoUrl: '/rebate-headway.html',
+              rules: ['Trading dengan margin bonus tidak mendapatkan rebate.',
+                      'Rebate hanya diberikan ke akun trading di bawah jaringan INDOREBATE.',
+                      'Untuk akun Cent, akumulasi lot minimal 0.2 untuk mendapatkan rebate.'] },
+        en: { openUrl: 'https://headway.partners/user/signup?hwp=fee8fe', infoUrl: '/en/rebate-headway.html',
+              rules: ['Trading with margin bonus does not earn rebates.',
+                      'Rebates are only paid to trading accounts under the INDOREBATE network.',
+                      'For Cent accounts, a minimum accumulated volume of 0.2 lots is required to earn rebates.'] }
+      }
     }
   }
 };
