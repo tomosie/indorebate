@@ -16,6 +16,7 @@
 <link rel="manifest" href="/site.webmanifest">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/rebate-calc.css">
 <style>
 
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -134,34 +135,7 @@
   .btn-telegram:hover{ transform:translateY(-2px); box-shadow:0 8px 28px rgba(34,158,217,.5); }
 
   
-
-  .section { padding: 56px 24px; }
-  .section-inner { max-width: 760px; margin: 0 auto; }
-  .calc-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: 16px; box-shadow: var(--shadow-lg); padding: 28px; margin-top: -48px; position: relative; z-index: 2; }
-  .calc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px 18px; }
-  .field { display: flex; flex-direction: column; gap: 6px; }
-  .field.full { grid-column: 1 / -1; }
-  .field label { font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .85rem; color: var(--navy); }
-  .field select, .field input { font-family: 'Inter', sans-serif; font-size: 1rem; padding: 12px 14px; border: 1.5px solid var(--gray-200); border-radius: 10px; background: var(--white); color: var(--text); width: 100%; }
-  .field select:focus, .field input:focus { outline: none; border-color: var(--gold); box-shadow: 0 0 0 3px rgba(201,151,58,.18); }
-  .field .hint { font-size: .78rem; color: var(--gray-500); line-height: 1.45; }
-  .field .warn { font-size: .8rem; color: var(--red); font-weight: 600; display: none; }
-  .result { margin-top: 24px; background: linear-gradient(135deg, var(--navy), var(--navy-lt)); border-radius: 14px; padding: 24px; color: var(--white); text-align: center; }
-  .result .r-label { font-size: .85rem; color: rgba(255,255,255,.7); font-weight: 500; }
-  .result .r-main { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 2.4rem; font-weight: 800; color: var(--gold-lt); line-height: 1.2; margin: 6px 0 4px; word-break: break-word; }
-  .result .r-sub { font-size: .95rem; color: rgba(255,255,255,.85); }
-  .result .r-sub strong { color: var(--white); }
-  .result .r-detail { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.15); font-size: .82rem; color: rgba(255,255,255,.65); line-height: 1.6; }
-  .r-min { display:none; margin-top:12px; padding:10px 12px; background:rgba(255,255,255,.1); border-radius:10px; font-size:.85rem; color:var(--gold-lt); line-height:1.5; }
-  .r-min.bad { color:#ffb4a8; }
-  .note { font-size: .82rem; color: var(--gray-500); margin-top: 16px; line-height: 1.6; }
-  .info-box { background: var(--gold-pale); border: 1px solid rgba(201,151,58,.4); border-radius: var(--radius); padding: 20px 22px; margin-top: 28px; }
-  .info-box h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; color: var(--navy); margin-bottom: 10px; }
-  .info-box ul { padding-left: 20px; color: var(--gray-700); font-size: .9rem; line-height: 1.7; }
-  .cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; margin-top: 28px; }
-  .btn-outline { border: 2px solid var(--navy); color: var(--navy); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .95rem; padding: 12px 26px; border-radius: 10px; text-decoration: none; display: inline-block; transition: all .2s; }
-  .btn-outline:hover { background: var(--navy); color: var(--white); }
-  @media (max-width: 640px) { .calc-grid { grid-template-columns: 1fr; } .calc-card { padding: 20px; margin-top: -36px; } .result .r-main { font-size: 2rem; } }
+.section{padding:56px 24px}.section-inner{max-width:760px;margin:0 auto}
 
 
 .lang-switch{display:inline-flex;align-items:center;gap:4px;margin-right:12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700}
@@ -199,6 +173,7 @@
       <li><a href="index.html#cara-kerja">Cara Kerja</a></li>
       <li><a href="rebate.html">Apa itu Rebate</a></li>
       <li><a href="tools-gratis.html">🎁 Tools Gratis</a></li>
+      <li><a href="kalkulator-rebate.html" class="active">🧮 Kalkulator</a></li>
     </ul>
     <div class="nav-actions">
       <div class="lang-switch" role="navigation" aria-label="Bahasa"><a href="/kalkulator-rebate.html" class="current" aria-current="true" hreflang="id" lang="id">ID</a><a href="/en/rebate-calculator.html" hreflang="en" lang="en">EN</a></div>
@@ -217,34 +192,31 @@
 
 <section class="section" style="padding-top:0;">
   <div class="section-inner">
-    <div class="calc-card">
-      <div class="calc-grid">
-        <div class="field"><label for="broker">Broker</label><select id="broker"></select></div>
-        <div class="field"><label for="account">Jenis Akun</label><select id="account"></select></div>
-        <div class="field"><label for="pair">Pair (Simbol)</label><select id="pair"></select></div>
-        <div class="field"><label for="lot">Total Lot</label><input id="lot" type="number" inputmode="decimal" min="0" step="0.01" value="1"><span class="hint">Isi lot seperti yang tertera di MT5 (untuk akun Cent, lot cent).</span></div>
-        <div class="field full" id="spreadField"><label for="spread">Spread (poin)</label><input id="spread" type="number" inputmode="decimal" min="0" step="any" placeholder="25"><span class="hint" id="spreadHint"></span><span class="warn" id="spreadWarn">Spread terlihat sangat besar. Periksa kembali nilainya di MT5 Anda.</span></div>
-      </div>
-      <div class="result" aria-live="polite">
-        <div class="r-label">Perkiraan Rebate</div>
-        <div class="r-main" id="rMain">—</div>
-        <div class="r-sub">Rebate per lot: <strong id="rPer">—</strong></div>
-        <div class="r-detail" id="rDetail"></div>
-        <div class="r-min" id="rMin"></div>
-      </div>
-      <p class="note">Hasil hanya perkiraan. Rebate aktual dihitung otomatis oleh sistem dan bisa berbeda, tergantung spread saat order dieksekusi. Tarif dapat berubah sewaktu-waktu.</p>
+    <div class="rc rc-overlap" data-rc-root data-lang="id" data-deeplink>
+  <div class="rc-card">
+    <div class="rc-grid">
+      <label class="rc-field"><span class="rc-lbl">Broker</span><select data-rc="broker"></select></label>
+      <label class="rc-field"><span class="rc-lbl">Jenis Akun</span><select data-rc="account"></select></label>
+      <label class="rc-field"><span class="rc-lbl">Pair (Simbol)</span><select data-rc="pair"></select></label>
+      <label class="rc-field"><span class="rc-lbl">Total Lot</span><input data-rc="lot" type="number" inputmode="decimal" min="0" step="0.01" value="1"><span class="rc-hint">Isi lot seperti yang tertera di MT5 (untuk akun Cent, lot cent).</span></label>
+      <label class="rc-field rc-full" data-rc="spreadField"><span class="rc-lbl">Spread (poin)</span><input data-rc="spread" type="number" inputmode="decimal" min="0" step="any" placeholder="25"><span class="rc-hint" data-rc="spreadHint"></span><span class="rc-warn" data-rc="spreadWarn">Spread terlihat sangat besar. Periksa kembali nilainya di MT5 Anda.</span></label>
     </div>
-
-    <div class="info-box">
-      <h3 id="rulesTitle"></h3>
-      <ul id="rulesList"></ul>
+    <div class="rc-result" aria-live="polite">
+      <div class="rc-r-label">Perkiraan Rebate</div>
+      <div class="rc-r-main" data-rc="rMain">—</div>
+      <div class="rc-r-sub">Rebate per lot: <strong data-rc="rPer">—</strong></div>
+      <div class="rc-r-detail" data-rc="rDetail"></div>
+      <div class="rc-r-min" data-rc="rMin"></div>
     </div>
-
-    <div class="cta-row">
-      <a class="btn-gold" id="ctaOpen" href="#" target="_blank" rel="noopener noreferrer"></a>
-      <a class="btn-outline" href="validasi.html" target="_blank" rel="noopener noreferrer">Validasi Akun</a>
-      <a class="btn-outline" id="ctaInfo" href="#"></a>
-    </div>
+    <p class="rc-note">Hasil hanya perkiraan. Rebate aktual dihitung otomatis oleh sistem dan bisa berbeda, tergantung spread saat order dieksekusi. Tarif dapat berubah sewaktu-waktu.</p>
+  </div>
+  <div class="rc-info"><h3 data-rc="rulesTitle"></h3><ul data-rc="rulesList"></ul></div>
+  <div class="rc-cta">
+    <a class="rc-btn-gold" data-rc="ctaOpen" href="#" target="_blank" rel="noopener noreferrer"></a>
+    <a class="rc-btn-outline" href="validasi.html" target="_blank" rel="noopener noreferrer">Validasi Akun</a>
+    <a class="rc-btn-outline" data-rc="ctaInfo" href="#"></a>
+  </div>
+</div>
   </div>
 </section>
 
@@ -268,86 +240,6 @@
 </footer>
 
 <script src="/rebate-rates.js"></script>
-<script>
-(function(){
-  var R = window.REBATE_RATES, T = {"lang": "id", "hint_spread": "Isi spread dalam poin, seperti di kolom Spread MT5 Anda (Market Watch). Contoh: {ex} poin = selisih harga {price}. Rebate akun ini dihitung dari persentase spread.", "warn_spread": "Spread terlihat sangat besar. Periksa kembali nilainya di MT5 Anda.", "r_empty": "Isi spread untuk melihat estimasi", "d_pct": "Spread {sp} poin × ${pv} per poin = ${cost} biaya spread per lot → {pct}% = {unit} {per} per lot", "d_ref": " · kurs acuan {pair} {rate} (perkiraan)", "d_fixed": "Rebate tetap {unit} {per} per lot", "d_cent": "Akun Cent: hasil ditampilkan dalam cent (USC).", "loc": "id-ID", "rules_h": "Ketentuan rebate {broker}", "cta_open": "Buka Akun {broker}", "cta_info": "Info Lengkap Rebate {broker}", "min_thr": "Perkiraan lot minimum per hari agar rebate terbayar: ~{lots} lot (rebate di bawah 1 sen tidak dibayarkan)", "min_lots": "Akumulasi lot minimum untuk mendapat rebate: {lots} lot (ketentuan {broker})", "min_warn": "Lot Anda di bawah minimum — rebate mungkin tidak terbayar."};
-  var $ = function(id){ return document.getElementById(id); };
-  var brokerEl=$('broker'), acctEl=$('account'), pairEl=$('pair'), spreadEl=$('spread'), lotEl=$('lot');
-  function num(v){ var s=String(v); return T.loc==='id-ID' ? s.replace('.',',') : s; }
-  function nf(n,min,max){ return n.toLocaleString(T.loc,{minimumFractionDigits:min,maximumFractionDigits:max}); }
-  function clean(x){ return parseFloat(x.toFixed(8)).toString(); }
-  // USD value of 1 point per 1 lot
-  function pointValue(spec){ return spec.contractSize * spec.pointSize / (spec.usdBaseRate || 1); }
-  // Pure calculation (also unit-tested): returns {perLot,total,cost}
-  function computeRebate(acct, spec, pairKey, spreadPts, lots){
-    if (acct.model === 'fixed') { var f = acct.fixed[pairKey]; return { perLot: f, total: f * lots, cost: null }; }
-    var cost = spreadPts * pointValue(spec);
-    var per = cost * acct.pct / 100;
-    return { perLot: per, total: per * lots, cost: cost };
-  }
-  function broker(){ return R.brokers[brokerEl.value]; }
-  function account(){ var b=broker(); for (var i=0;i<b.accounts.length;i++) if (b.accounts[i].id===acctEl.value) return b.accounts[i]; return b.accounts[0]; }
-  function pairKeys(a){ return a.model==='fixed' ? Object.keys(a.fixed) : a.pairs; }
-  function pairLabel(k){ var b=broker(); return (b.symbols[k] && b.symbols[k].label) || (b.labels && b.labels[k]) || k; }
-  function fillBrokers(){ Object.keys(R.brokers).forEach(function(k){ var o=document.createElement('option'); o.value=k; o.textContent=R.brokers[k].name; brokerEl.appendChild(o); }); }
-  function fillAccounts(){ acctEl.innerHTML=''; broker().accounts.forEach(function(a){ var o=document.createElement('option'); o.value=a.id; o.textContent=a.label; acctEl.appendChild(o); }); }
-  function fillPairs(){ var keep=pairEl.value; pairEl.innerHTML=''; pairKeys(account()).forEach(function(k){ var o=document.createElement('option'); o.value=k; o.textContent=pairLabel(k); pairEl.appendChild(o); }); if (keep) { for (var i=0;i<pairEl.options.length;i++) if (pairEl.options[i].value===keep) pairEl.value=keep; } }
-  function renderBrokerUi(){
-    var b=broker(), u=b.ui[T.lang];
-    $('rulesTitle').textContent = T.rules_h.replace('{broker}', b.name);
-    var ul=$('rulesList'); ul.innerHTML='';
-    u.rules.forEach(function(r){ var li=document.createElement('li'); li.textContent=r; ul.appendChild(li); });
-    $('ctaOpen').href=u.openUrl; $('ctaOpen').textContent=T.cta_open.replace('{broker}', b.name);
-    $('ctaInfo').href=u.infoUrl; $('ctaInfo').textContent=T.cta_info.replace('{broker}', b.name);
-  }
-  // Cent accounts: minimum lots so the rebate is paid (perLot in USC, null if unknown yet)
-  function renderMin(a, perLot, lots){
-    var el=$('rMin'); el.style.display='none'; el.className='r-min';
-    if (!a.centMin) return;
-    var minLots=null, txt='';
-    if (a.centMin.mode==='lots') { minLots=a.centMin.lots; txt=T.min_lots.replace('{lots}',nf(minLots,1,2)).replace('{broker}',broker().name); }
-    else if (a.centMin.mode==='threshold' && perLot>0) { minLots=Math.ceil(a.centMin.usc/perLot*100-1e-9)/100; txt=T.min_thr.replace('{lots}',nf(minLots,2,2)); }
-    if (minLots===null) return;
-    if (lots>0 && lots<minLots) { txt += ' · ' + T.min_warn; el.className='r-min bad'; }
-    el.textContent=txt; el.style.display='block';
-  }
-  function hint(spec){ $('spreadHint').textContent = T.hint_spread.replace('{ex}', num(spec.example)).replace('{price}', num(clean(spec.example*spec.pointSize))); }
-  function render(){
-    var a=account(), key=pairEl.value, isPct=a.model==='spread_pct', spec=isPct?broker().symbols[key]:null;
-    $('spreadField').style.display = isPct ? '' : 'none';
-    if (isPct) hint(spec);
-    var lots = parseFloat(lotEl.value); if (!(lots>=0)) lots = 0;
-    var sp = parseFloat(spreadEl.value);
-    $('spreadWarn').style.display = (isPct && sp>spec.maxPoints) ? 'block' : 'none';
-    var main=$('rMain'), per=$('rPer'), det=$('rDetail');
-    if (isPct && !(sp>=0)) { main.textContent='—'; per.textContent='—'; det.textContent=T.r_empty; renderMin(a, null, lots); return; }
-    var r = computeRebate(a, spec, key, isPct?sp:0, lots);
-    var tot = function(v){ return (v>0 && v<0.01) ? '< 0.01' : nf(v,2,2); };
-    main.textContent = (isPct?'~ ':'') + a.unit + ' ' + tot(r.total);
-    per.textContent  = (isPct?'~ ':'') + a.unit + ' ' + nf(r.perLot,2,3);
-    var text;
-    if (isPct) {
-      text = T.d_pct.replace('{sp}',num(sp)).replace('{pv}',num(parseFloat(pointValue(spec).toFixed(4)).toString())).replace('{cost}',nf(r.cost,2,2)).replace('{pct}',num(a.pct)).replace('{unit}',a.unit).replace('{per}',nf(r.perLot,2,3));
-      if (spec.usdBaseRate) text += T.d_ref.replace('{pair}',key).replace('{rate}',num(spec.usdBaseRate));
-    } else { text = T.d_fixed.replace('{unit}',a.unit).replace('{per}',nf(r.perLot,2,3)); }
-    if (a.unit==='USC') text += ' · ' + T.d_cent;
-    det.textContent = text;
-    renderMin(a, r.perLot, lots);
-  }
-  fillBrokers();
-  var q = new URLSearchParams(location.search);
-  if (q.get('broker') && R.brokers[q.get('broker')]) brokerEl.value = q.get('broker');
-  fillAccounts();
-  if (q.get('account')) { for (var i=0;i<acctEl.options.length;i++) if (acctEl.options[i].value===q.get('account')) acctEl.value=q.get('account'); }
-  fillPairs(); renderBrokerUi();
-  if (q.get('pair')) { for (var k=0;k<pairEl.options.length;k++) if (pairEl.options[k].value===q.get('pair')) pairEl.value=q.get('pair'); }
-  render();
-  brokerEl.addEventListener('change', function(){ pairEl.innerHTML=''; fillAccounts(); fillPairs(); renderBrokerUi(); render(); });
-  acctEl.addEventListener('change', function(){ fillPairs(); render(); });
-  pairEl.addEventListener('change', render);
-  spreadEl.addEventListener('input', render); lotEl.addEventListener('input', render);
-  window.__computeRebate = computeRebate;
-})();
-</script>
+<script src="/rebate-calc.js"></script>
 </body>
 </html>

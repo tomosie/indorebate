@@ -1,0 +1,32 @@
+/* Indorebate rebate calculator - shared by kalkulator-rebate.html, en/rebate-calculator.html and the homepage embeds. */
+.rc{font-family:'Inter',sans-serif;color:var(--text,#1E293B);text-align:left}
+.rc *,.rc *::before,.rc *::after{box-sizing:border-box}
+.rc-card{background:var(--white,#fff);border:1px solid var(--gray-200,#E2E8F0);border-radius:16px;box-shadow:var(--shadow-lg,0 12px 40px rgba(11,27,58,.15));padding:28px}
+.rc-overlap .rc-card{margin-top:-48px;position:relative;z-index:2}
+.rc-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px 18px}
+.rc-field{display:flex;flex-direction:column;gap:6px;min-width:0}
+.rc-field.rc-full{grid-column:1/-1}
+.rc-lbl{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.85rem;color:var(--navy,#0B1B3A)}
+.rc select,.rc input{font-family:'Inter',sans-serif;font-size:1rem;padding:12px 14px;border:1.5px solid var(--gray-200,#E2E8F0);border-radius:10px;background:var(--white,#fff);color:var(--text,#1E293B);width:100%;margin:0}
+.rc select:focus,.rc input:focus{outline:none;border-color:var(--gold,#C9973A);box-shadow:0 0 0 3px rgba(201,151,58,.18)}
+.rc-hint{font-size:.78rem;color:var(--gray-500,#64748B);line-height:1.45}
+.rc-warn{font-size:.8rem;color:#DC2626;font-weight:600;display:none}
+.rc-result{margin-top:24px;background:linear-gradient(135deg,var(--navy,#0B1B3A),var(--navy-lt,#1A3068));border-radius:14px;padding:24px;color:#fff;text-align:center}
+.rc-r-label{font-size:.85rem;color:rgba(255,255,255,.7);font-weight:500}
+.rc-r-main{font-family:'Plus Jakarta Sans',sans-serif;font-size:2.4rem;font-weight:800;color:var(--gold-lt,#E8B84B);line-height:1.2;margin:6px 0 4px;word-break:break-word}
+.rc-r-sub{font-size:.95rem;color:rgba(255,255,255,.85)}
+.rc-r-sub strong{color:#fff}
+.rc-r-detail{margin-top:14px;padding-top:14px;border-top:1px solid rgba(255,255,255,.15);font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.6}
+.rc-r-min{display:none;margin-top:12px;padding:10px 12px;background:rgba(255,255,255,.1);border-radius:10px;font-size:.85rem;color:var(--gold-lt,#E8B84B);line-height:1.5}
+.rc-r-min.bad{color:#ffb4a8}
+.rc-note{font-size:.82rem;color:var(--gray-500,#64748B);margin:16px 0 0;line-height:1.6}
+.rc-info{background:var(--gold-pale,#FDF3E0);border:1px solid rgba(201,151,58,.4);border-radius:var(--radius,12px);padding:20px 22px;margin-top:28px}
+.rc-info h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:1rem;color:var(--navy,#0B1B3A);margin:0 0 10px}
+.rc-info ul{padding-left:20px;margin:0;color:var(--gray-700,#334155);font-size:.9rem;line-height:1.7}
+.rc-cta{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px}
+.rc-btn-gold,.rc-btn-outline{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:.95rem;padding:12px 26px;border-radius:10px;text-decoration:none;display:inline-block;transition:all .2s}
+.rc-btn-gold{background:linear-gradient(135deg,var(--gold,#C9973A),var(--gold-lt,#E8B84B));color:var(--navy,#0B1B3A);box-shadow:0 4px 16px rgba(201,151,58,.35)}
+.rc-btn-gold:hover{transform:translateY(-2px)}
+.rc-btn-outline{border:2px solid var(--navy,#0B1B3A);color:var(--navy,#0B1B3A);background:transparent}
+.rc-btn-outline:hover{background:var(--navy,#0B1B3A);color:#fff}
+@media (max-width:640px){.rc-grid{grid-template-columns:1fr}.rc-card{padding:20px}.rc-overlap .rc-card{margin-top:-36px}.rc-r-main{font-size:2rem}}

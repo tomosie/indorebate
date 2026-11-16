@@ -592,6 +592,7 @@
   .lang-switch a.current { background:var(--navy); color:#fff; }
   .lang-switch a:not(.current):hover { background:var(--gray-100); color:var(--navy); }
 </style>
+<link rel="stylesheet" href="/rebate-calc.css">
 </head>
 <body>
 
@@ -613,6 +614,7 @@
       <li><a href="#cara-kerja">Cara Kerja</a></li>
       <li><a href="rebate.html" target="_blank" rel="noopener noreferrer">Apa itu Rebate</a></li>
       <li><a href="tools-gratis.html">🎁 Tools Gratis</a></li>
+      <li><a href="kalkulator-rebate.html">🧮 Kalkulator</a></li>
     </ul>
     <div class="nav-actions">
     <div class="lang-switch" role="navigation" aria-label="Bahasa"><a href="/" class="current" aria-current="true" hreflang="id" lang="id">ID</a><a href="/en/" hreflang="en" lang="en">EN</a></div>
@@ -1169,6 +1171,44 @@
   </div>
 </section>
 
+<!-- KALKULATOR REBATE -->
+<section class="section" id="kalkulator" style="background:var(--gray-50);">
+  <div class="section-inner" style="max-width:760px;">
+    <div class="section-header" style="text-align:center">
+      <div class="section-label" style="text-align:center">Kalkulator</div>
+      <h2 class="section-title" style="text-align:center">Hitung Estimasi Rebate Anda</h2>
+      <p class="section-sub" style="margin:12px auto 0;text-align:center">Pilih broker dan jenis akun, isi spread dan total lot — hasilnya langsung terhitung.</p>
+    </div>
+    <div style="margin-top:32px;">
+      <div class="rc" data-rc-root data-lang="id">
+  <div class="rc-card">
+    <div class="rc-grid">
+      <label class="rc-field"><span class="rc-lbl">Broker</span><select data-rc="broker"></select></label>
+      <label class="rc-field"><span class="rc-lbl">Jenis Akun</span><select data-rc="account"></select></label>
+      <label class="rc-field"><span class="rc-lbl">Pair (Simbol)</span><select data-rc="pair"></select></label>
+      <label class="rc-field"><span class="rc-lbl">Total Lot</span><input data-rc="lot" type="number" inputmode="decimal" min="0" step="0.01" value="1"><span class="rc-hint">Isi lot seperti yang tertera di MT5 (untuk akun Cent, lot cent).</span></label>
+      <label class="rc-field rc-full" data-rc="spreadField"><span class="rc-lbl">Spread (poin)</span><input data-rc="spread" type="number" inputmode="decimal" min="0" step="any" placeholder="25"><span class="rc-hint" data-rc="spreadHint"></span><span class="rc-warn" data-rc="spreadWarn">Spread terlihat sangat besar. Periksa kembali nilainya di MT5 Anda.</span></label>
+    </div>
+    <div class="rc-result" aria-live="polite">
+      <div class="rc-r-label">Perkiraan Rebate</div>
+      <div class="rc-r-main" data-rc="rMain">—</div>
+      <div class="rc-r-sub">Rebate per lot: <strong data-rc="rPer">—</strong></div>
+      <div class="rc-r-detail" data-rc="rDetail"></div>
+      <div class="rc-r-min" data-rc="rMin"></div>
+    </div>
+    <p class="rc-note">Hasil hanya perkiraan. Rebate aktual dihitung otomatis oleh sistem dan bisa berbeda, tergantung spread saat order dieksekusi. Tarif dapat berubah sewaktu-waktu.</p>
+  </div>
+  <div class="rc-info"><h3 data-rc="rulesTitle"></h3><ul data-rc="rulesList"></ul></div>
+  <div class="rc-cta">
+    <a class="rc-btn-gold" data-rc="ctaOpen" href="#" target="_blank" rel="noopener noreferrer"></a>
+    <a class="rc-btn-outline" href="validasi.html" target="_blank" rel="noopener noreferrer">Validasi Akun</a>
+    <a class="rc-btn-outline" data-rc="ctaInfo" href="#"></a>
+  </div>
+</div>
+    </div>
+  </div>
+</section>
+
 <!-- FOOTER -->
 <footer>
   <div class="footer-inner">
@@ -1347,5 +1387,7 @@ function toggleBrokerCard(headEl) {
   });
 })();
 </script>
+<script src="/rebate-rates.js"></script>
+<script src="/rebate-calc.js"></script>
 </body>
 </html>
