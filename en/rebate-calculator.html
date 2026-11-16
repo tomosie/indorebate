@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Exness Rebate Calculator — Indorebate</title>
-<meta name="description" content="Estimate your Exness rebate per lot for Standard, Cent, Pro, Zero and Raw accounts with Indorebate.">
+<title>Rebate Calculator — Indorebate</title>
+<meta name="description" content="Estimate your rebate per lot for Indorebate partner brokers: Exness and Headway.">
 <link rel="canonical" href="https://indorebate.com/en/rebate-calculator.html" />
 <link rel="alternate" hreflang="id" href="https://indorebate.com/kalkulator-rebate.html" />
 <link rel="alternate" hreflang="en" href="https://indorebate.com/en/rebate-calculator.html" />
@@ -152,6 +152,8 @@
   .result .r-sub { font-size: .95rem; color: rgba(255,255,255,.85); }
   .result .r-sub strong { color: var(--white); }
   .result .r-detail { margin-top: 14px; padding-top: 14px; border-top: 1px solid rgba(255,255,255,.15); font-size: .82rem; color: rgba(255,255,255,.65); line-height: 1.6; }
+  .r-min { display:none; margin-top:12px; padding:10px 12px; background:rgba(255,255,255,.1); border-radius:10px; font-size:.85rem; color:var(--gold-lt); line-height:1.5; }
+  .r-min.bad { color:#ffb4a8; }
   .note { font-size: .82rem; color: var(--gray-500); margin-top: 16px; line-height: 1.6; }
   .info-box { background: var(--gold-pale); border: 1px solid rgba(201,151,58,.4); border-radius: var(--radius); padding: 20px 22px; margin-top: 28px; }
   .info-box h3 { font-family: 'Plus Jakarta Sans', sans-serif; font-size: 1rem; color: var(--navy); margin-bottom: 10px; }
@@ -208,8 +210,8 @@
 <section class="page-hero" style="padding-bottom:96px;">
   <div class="page-hero-inner">
     <div class="hero-badge">Rebate Calculator</div>
-    <h1><em>Exness Rebate</em> Calculator</h1>
-    <p>Estimate the rebate you can earn from trading at Exness through Indorebate. Choose your account type, enter the spread and total lots — the result is calculated instantly.</p>
+    <h1><em>Rebate</em> Calculator</h1>
+    <p>Estimate the rebate you can earn from trading at Indorebate partner brokers. Choose your broker and account type, enter the spread and total lots — the result is calculated instantly.</p>
   </div>
 </section>
 
@@ -228,19 +230,20 @@
         <div class="r-main" id="rMain">—</div>
         <div class="r-sub">Rebate per lot: <strong id="rPer">—</strong></div>
         <div class="r-detail" id="rDetail"></div>
+        <div class="r-min" id="rMin"></div>
       </div>
       <p class="note">Results are estimates only. The actual rebate is calculated automatically by the system and may differ, depending on the spread when the order is executed. Rates may change at any time.</p>
     </div>
 
     <div class="info-box">
-      <h3>Exness rebate terms</h3>
-      <ul><li>For cent accounts, a minimum accumulated volume of 0.2 lots is required to earn rebates.</li><li>Trades with a lot size that is too small on Cent accounts earn no rebate because the rebate falls below $0.01.</li><li>Trading with margin bonus does not earn rebates.</li><li>Rebates only apply to trading accounts registered under the INDOREBATE network.</li></ul>
+      <h3 id="rulesTitle"></h3>
+      <ul id="rulesList"></ul>
     </div>
 
     <div class="cta-row">
-      <a class="btn-gold" href="https://one.toexness.com/boarding/sign-up/a/indorbt80" target="_blank" rel="noopener noreferrer">Open an Exness Account</a>
+      <a class="btn-gold" id="ctaOpen" href="#" target="_blank" rel="noopener noreferrer"></a>
       <a class="btn-outline" href="/en/validate.html" target="_blank" rel="noopener noreferrer">Validate Account</a>
-      <a class="btn-outline" href="/en/rebate-exness.html">Full Exness Rebate Info</a>
+      <a class="btn-outline" id="ctaInfo" href="#"></a>
     </div>
   </div>
 </section>
@@ -267,7 +270,7 @@
 <script src="/rebate-rates.js"></script>
 <script>
 (function(){
-  var R = window.REBATE_RATES, T = {"hint_spread": "Enter the spread in points, as shown in the Spread column of your MT5 (Market Watch). Example: {ex} points = price difference of {price}. This account type's rebate is calculated as a percentage of the spread.", "warn_spread": "This spread looks very large. Please double-check the value in your MT5.", "r_empty": "Enter the spread to see an estimate", "d_pct": "Spread {sp} points × ${pv} per point = ${cost} spread cost per lot → {pct}% = {unit} {per} per lot", "d_ref": " · reference rate {pair} {rate} (approximate)", "d_fixed": "Fixed rebate of {unit} {per} per lot", "d_cent": "Cent account: the result is shown in cents (USC).", "loc": "en-US"};
+  var R = window.REBATE_RATES, T = {"lang": "en", "hint_spread": "Enter the spread in points, as shown in the Spread column of your MT5 (Market Watch). Example: {ex} points = price difference of {price}. This account type's rebate is calculated as a percentage of the spread.", "warn_spread": "This spread looks very large. Please double-check the value in your MT5.", "r_empty": "Enter the spread to see an estimate", "d_pct": "Spread {sp} points × ${pv} per point = ${cost} spread cost per lot → {pct}% = {unit} {per} per lot", "d_ref": " · reference rate {pair} {rate} (approximate)", "d_fixed": "Fixed rebate of {unit} {per} per lot", "d_cent": "Cent account: the result is shown in cents (USC).", "loc": "en-US", "rules_h": "{broker} rebate terms", "cta_open": "Open Account at {broker}", "cta_info": "Full {broker} Rebate Info", "min_thr": "Estimated minimum lots per day for the rebate to be paid: ~{lots} lots (rebates under 1 cent are not paid)", "min_lots": "Minimum accumulated lots to earn a rebate: {lots} lots ({broker} rule)", "min_warn": "Your lots are below the minimum — the rebate may not be paid."};
   var $ = function(id){ return document.getElementById(id); };
   var brokerEl=$('broker'), acctEl=$('account'), pairEl=$('pair'), spreadEl=$('spread'), lotEl=$('lot');
   function num(v){ var s=String(v); return T.loc==='id-ID' ? s.replace('.',',') : s; }
@@ -289,6 +292,25 @@
   function fillBrokers(){ Object.keys(R.brokers).forEach(function(k){ var o=document.createElement('option'); o.value=k; o.textContent=R.brokers[k].name; brokerEl.appendChild(o); }); }
   function fillAccounts(){ acctEl.innerHTML=''; broker().accounts.forEach(function(a){ var o=document.createElement('option'); o.value=a.id; o.textContent=a.label; acctEl.appendChild(o); }); }
   function fillPairs(){ var keep=pairEl.value; pairEl.innerHTML=''; pairKeys(account()).forEach(function(k){ var o=document.createElement('option'); o.value=k; o.textContent=pairLabel(k); pairEl.appendChild(o); }); if (keep) { for (var i=0;i<pairEl.options.length;i++) if (pairEl.options[i].value===keep) pairEl.value=keep; } }
+  function renderBrokerUi(){
+    var b=broker(), u=b.ui[T.lang];
+    $('rulesTitle').textContent = T.rules_h.replace('{broker}', b.name);
+    var ul=$('rulesList'); ul.innerHTML='';
+    u.rules.forEach(function(r){ var li=document.createElement('li'); li.textContent=r; ul.appendChild(li); });
+    $('ctaOpen').href=u.openUrl; $('ctaOpen').textContent=T.cta_open.replace('{broker}', b.name);
+    $('ctaInfo').href=u.infoUrl; $('ctaInfo').textContent=T.cta_info.replace('{broker}', b.name);
+  }
+  // Cent accounts: minimum lots so the rebate is paid (perLot in USC, null if unknown yet)
+  function renderMin(a, perLot, lots){
+    var el=$('rMin'); el.style.display='none'; el.className='r-min';
+    if (!a.centMin) return;
+    var minLots=null, txt='';
+    if (a.centMin.mode==='lots') { minLots=a.centMin.lots; txt=T.min_lots.replace('{lots}',nf(minLots,1,2)).replace('{broker}',broker().name); }
+    else if (a.centMin.mode==='threshold' && perLot>0) { minLots=Math.ceil(a.centMin.usc/perLot*100-1e-9)/100; txt=T.min_thr.replace('{lots}',nf(minLots,2,2)); }
+    if (minLots===null) return;
+    if (lots>0 && lots<minLots) { txt += ' · ' + T.min_warn; el.className='r-min bad'; }
+    el.textContent=txt; el.style.display='block';
+  }
   function hint(spec){ $('spreadHint').textContent = T.hint_spread.replace('{ex}', num(spec.example)).replace('{price}', num(clean(spec.example*spec.pointSize))); }
   function render(){
     var a=account(), key=pairEl.value, isPct=a.model==='spread_pct', spec=isPct?broker().symbols[key]:null;
@@ -298,7 +320,7 @@
     var sp = parseFloat(spreadEl.value);
     $('spreadWarn').style.display = (isPct && sp>spec.maxPoints) ? 'block' : 'none';
     var main=$('rMain'), per=$('rPer'), det=$('rDetail');
-    if (isPct && !(sp>=0)) { main.textContent='—'; per.textContent='—'; det.textContent=T.r_empty; return; }
+    if (isPct && !(sp>=0)) { main.textContent='—'; per.textContent='—'; det.textContent=T.r_empty; renderMin(a, null, lots); return; }
     var r = computeRebate(a, spec, key, isPct?sp:0, lots);
     var tot = function(v){ return (v>0 && v<0.01) ? '< 0.01' : nf(v,2,2); };
     main.textContent = (isPct?'~ ':'') + a.unit + ' ' + tot(r.total);
@@ -310,16 +332,17 @@
     } else { text = T.d_fixed.replace('{unit}',a.unit).replace('{per}',nf(r.perLot,2,3)); }
     if (a.unit==='USC') text += ' · ' + T.d_cent;
     det.textContent = text;
+    renderMin(a, r.perLot, lots);
   }
   fillBrokers();
   var q = new URLSearchParams(location.search);
   if (q.get('broker') && R.brokers[q.get('broker')]) brokerEl.value = q.get('broker');
   fillAccounts();
   if (q.get('account')) { for (var i=0;i<acctEl.options.length;i++) if (acctEl.options[i].value===q.get('account')) acctEl.value=q.get('account'); }
-  fillPairs();
+  fillPairs(); renderBrokerUi();
   if (q.get('pair')) { for (var k=0;k<pairEl.options.length;k++) if (pairEl.options[k].value===q.get('pair')) pairEl.value=q.get('pair'); }
   render();
-  brokerEl.addEventListener('change', function(){ pairEl.innerHTML=''; fillAccounts(); fillPairs(); render(); });
+  brokerEl.addEventListener('change', function(){ pairEl.innerHTML=''; fillAccounts(); fillPairs(); renderBrokerUi(); render(); });
   acctEl.addEventListener('change', function(){ fillPairs(); render(); });
   pairEl.addEventListener('change', render);
   spreadEl.addEventListener('input', render); lotEl.addEventListener('input', render);
