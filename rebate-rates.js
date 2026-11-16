@@ -62,11 +62,20 @@ window.REBATE_RATES = {
     headway: {
       name: 'Headway',
       symbols: {
-        XAUUSD: { label: 'XAUUSD (Gold)', contractSize: 100, pointSize: 0.01, example: 25, maxPoints: 500 }
+        XAUUSD: { label: 'XAUUSD (Gold)',   contractSize: 100,    pointSize: 0.01,    example: 25,  maxPoints: 500 },
+        XAGUSD: { label: 'XAGUSD (Silver)', contractSize: 5000,   pointSize: 0.001,   example: 30,  maxPoints: 500 },
+        EURUSD: { label: 'EURUSD',          contractSize: 100000, pointSize: 0.00001, example: 12,  maxPoints: 200 },
+        GBPUSD: { label: 'GBPUSD',          contractSize: 100000, pointSize: 0.00001, example: 14,  maxPoints: 200 },
+        AUDUSD: { label: 'AUDUSD',          contractSize: 100000, pointSize: 0.00001, example: 14,  maxPoints: 200 },
+        NZDUSD: { label: 'NZDUSD',          contractSize: 100000, pointSize: 0.00001, example: 16,  maxPoints: 200 },
+        USDJPY: { label: 'USDJPY',          contractSize: 100000, pointSize: 0.001,   example: 15,  maxPoints: 200, usdBaseRate: 158.7 },
+        USDCAD: { label: 'USDCAD',          contractSize: 100000, pointSize: 0.00001, example: 15,  maxPoints: 200, usdBaseRate: 1.42 },
+        USDCHF: { label: 'USDCHF',          contractSize: 100000, pointSize: 0.00001, example: 15,  maxPoints: 200, usdBaseRate: 0.826 },
+        BTCUSD: { label: 'BTCUSD',          contractSize: 1,      pointSize: 0.01,    example: 640, maxPoints: 10000 }
       },
       accounts: [
-        { id: 'standard', label: 'Standard', unit: 'USD', model: 'spread_pct', pct: 33.6, pairs: ['XAUUSD'] },
-        { id: 'cent',     label: 'Cent',     unit: 'USC', model: 'spread_pct', pct: 33.6, centMin: { mode: 'lots', lots: 0.2 }, pairs: ['XAUUSD'] }
+        { id: 'standard', label: 'Standard', unit: 'USD', model: 'spread_pct', pct: 33.6, pairs: ['XAUUSD','XAGUSD','EURUSD','GBPUSD','AUDUSD','NZDUSD','USDJPY','USDCAD','USDCHF','BTCUSD'] },
+        { id: 'cent',     label: 'Cent',     unit: 'USC', model: 'spread_pct', pct: 33.6, centMin: { mode: 'threshold', usc: 1 }, pairs: ['XAUUSD','XAGUSD','EURUSD','GBPUSD','AUDUSD','NZDUSD','USDJPY','USDCAD','USDCHF','BTCUSD'] }
       ],
       ui: {
         id: { openUrl: 'https://headway.partners/user/signup?hwp=fee8fe', infoUrl: '/rebate-headway.html',
