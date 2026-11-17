@@ -87,6 +87,34 @@ window.REBATE_RATES = {
                       'Rebates are only paid to trading accounts under the INDOREBATE network.',
                       'For Cent accounts, a minimum accumulated volume of 0.2 lots is required to earn rebates.'] }
       }
+    },
+    tmgm: {
+      name: 'TMGM',
+      labels: { XAUUSD: 'XAUUSD (Gold)', EURUSD: 'EURUSD', GBPUSD: 'GBPUSD', AUDUSD: 'AUDUSD', NZDUSD: 'NZDUSD', USDJPY: 'USDJPY', USDCAD: 'USDCAD', USDCHF: 'USDCHF', BTCUSD: 'BTCUSD (Crypto)' },
+      accounts: [
+        { id: 'standard', label: 'Standard', unit: 'USD', model: 'fixed',
+          fixed: { XAUUSD: 14.4, EURUSD: 6.4, GBPUSD: 6.4, AUDUSD: 6.4, NZDUSD: 6.4, USDJPY: 6.4, USDCAD: 6.4, USDCHF: 6.4, BTCUSD: 1.2 } },
+        { id: 'classic', label: 'Classic', unit: 'USD', model: 'fixed',
+          fixed: { XAUUSD: 3.2, EURUSD: 3.2, GBPUSD: 3.2, AUDUSD: 3.2, NZDUSD: 3.2, USDJPY: 3.2, USDCAD: 3.2, USDCHF: 3.2, BTCUSD: 1.2 } },
+        { id: 'edge', label: 'Edge', unit: 'USD', model: 'fixed',
+          fixed: { XAUUSD: 1.6, EURUSD: 1.6, GBPUSD: 1.6, AUDUSD: 1.6, NZDUSD: 1.6, USDJPY: 1.6, USDCAD: 1.6, USDCHF: 1.6, BTCUSD: 1.2 } },
+        { id: 'standard-cent', label: 'Standard Cent', unit: 'USC', model: 'fixed', centMin: { mode: 'threshold', usc: 1 },
+          fixed: { XAUUSD: 14.4, EURUSD: 6.4, GBPUSD: 6.4, AUDUSD: 6.4, NZDUSD: 6.4, USDJPY: 6.4, USDCAD: 6.4, USDCHF: 6.4, BTCUSD: 1.2 } },
+        { id: 'classic-cent', label: 'Classic Cent', unit: 'USC', model: 'fixed', centMin: { mode: 'threshold', usc: 1 },
+          fixed: { XAUUSD: 3.2, EURUSD: 3.2, GBPUSD: 3.2, AUDUSD: 3.2, NZDUSD: 3.2, USDJPY: 3.2, USDCAD: 3.2, USDCHF: 3.2, BTCUSD: 1.2 } },
+        { id: 'edge-cent', label: 'Edge Cent', unit: 'USC', model: 'fixed', centMin: { mode: 'threshold', usc: 1 },
+          fixed: { XAUUSD: 1.6, EURUSD: 1.6, GBPUSD: 1.6, AUDUSD: 1.6, NZDUSD: 1.6, USDJPY: 1.6, USDCAD: 1.6, USDCHF: 1.6, BTCUSD: 1.2 } }
+      ],
+      ui: {
+        id: { openUrl: '/pindah-ib-tmgm.html', infoUrl: '/rebate-tmgm.html',
+              rules: ['Untuk akun Cent, akumulasi lot minimal 0.2 untuk mendapatkan rebate.',
+                      'Trading dengan akun bonus atau margin bonus tidak mendapatkan rebate.',
+                      'Rebate hanya diberikan ke akun trading di bawah jaringan INDOREBATE.'] },
+        en: { openUrl: '/en/switch-partner-tmgm.html', infoUrl: '/en/rebate-tmgm.html',
+              rules: ['For cent accounts, a minimum accumulated volume of 0.2 lots is required to earn rebates.',
+                      'Trading with a bonus account or margin bonus does not earn rebates.',
+                      'Rebates are only paid to trading accounts under the INDOREBATE network.'] }
+      }
     }
   }
 };

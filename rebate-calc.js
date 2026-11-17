@@ -18,7 +18,7 @@
     function broker(){ return R.brokers[brokerEl.value]; }
     function account(){ var b=broker(); for (var i=0;i<b.accounts.length;i++) if (b.accounts[i].id===acctEl.value) return b.accounts[i]; return b.accounts[0]; }
     function pairKeys(a){ return a.model==='fixed' ? Object.keys(a.fixed) : a.pairs; }
-    function pairLabel(k){ var b=broker(); return (b.symbols[k] && b.symbols[k].label) || (b.labels && b.labels[k]) || k; }
+    function pairLabel(k){ var b=broker(); return (b.symbols && b.symbols[k] && b.symbols[k].label) || (b.labels && b.labels[k]) || k; }
     function fillBrokers(){ Object.keys(R.brokers).forEach(function(k){ var o=document.createElement('option'); o.value=k; o.textContent=R.brokers[k].name; brokerEl.appendChild(o); }); }
     function fillAccounts(){ acctEl.innerHTML=''; broker().accounts.forEach(function(a){ var o=document.createElement('option'); o.value=a.id; o.textContent=a.label; acctEl.appendChild(o); }); }
     function fillPairs(){ var keep=pairEl.value; pairEl.innerHTML=''; pairKeys(account()).forEach(function(k){ var o=document.createElement('option'); o.value=k; o.textContent=pairLabel(k); pairEl.appendChild(o); }); if (keep) { for (var i=0;i<pairEl.options.length;i++) if (pairEl.options[i].value===keep) pairEl.value=keep; } }
