@@ -47,12 +47,12 @@ window.REBATE_RATES = {
                    USDJPY: 0.6, USDCAD: 1.0, USDCHF: 1.6, BTCUSD: 1.4, BTCUSDT: 1.4 } }
       ],
       ui: {
-        id: { openUrl: 'https://one.toexness.com/boarding/sign-up/a/indorbt80?lng=id', infoUrl: '/rebate-exness.html',
+        id: { openUrl: 'https://one.toexness.com/boarding/sign-up/a/indorbt80?lng=id', infoUrl: '/id/rebate-exness.html',
               rules: ['Untuk akun Cent, akumulasi lot minimal 0.2 untuk mendapatkan rebate.',
                       'Trade dengan jumlah lot yang terlalu kecil pada akun Cent tidak mendapatkan rebate karena rebate di bawah $0.01.',
                       'Trading dengan margin bonus tidak mendapatkan rebate.',
                       'Rebate hanya diberikan ke akun trading di bawah jaringan INDOREBATE.'] },
-        en: { openUrl: 'https://one.toexness.com/boarding/sign-up/a/indorbt80', infoUrl: '/en/rebate-exness.html',
+        en: { openUrl: 'https://one.toexness.com/boarding/sign-up/a/indorbt80', infoUrl: '/rebate-exness.html',
               rules: ['For cent accounts, a minimum accumulated volume of 0.2 lots is required to earn rebates.',
                       'Trades with a lot size that is too small on Cent accounts earn no rebate because the rebate falls below $0.01.',
                       'Trading with margin bonus does not earn rebates.',
@@ -78,11 +78,11 @@ window.REBATE_RATES = {
         { id: 'cent',     label: 'Cent',     unit: 'USC', model: 'spread_pct', pct: 33.6, centMin: { mode: 'threshold', usc: 1 }, pairs: ['XAUUSD','XAGUSD','EURUSD','GBPUSD','AUDUSD','NZDUSD','USDJPY','USDCAD','USDCHF','BTCUSD'] }
       ],
       ui: {
-        id: { openUrl: 'https://headway.partners/user/signup?hwp=fee8fe', infoUrl: '/rebate-headway.html',
+        id: { openUrl: 'https://headway.partners/user/signup?hwp=fee8fe', infoUrl: '/id/rebate-headway.html',
               rules: ['Trading dengan margin bonus tidak mendapatkan rebate.',
                       'Rebate hanya diberikan ke akun trading di bawah jaringan INDOREBATE.',
                       'Untuk akun Cent, akumulasi lot minimal 0.2 untuk mendapatkan rebate.'] },
-        en: { openUrl: 'https://headway.partners/user/signup?hwp=fee8fe', infoUrl: '/en/rebate-headway.html',
+        en: { openUrl: 'https://headway.partners/user/signup?hwp=fee8fe', infoUrl: '/rebate-headway.html',
               rules: ['Trading with margin bonus does not earn rebates.',
                       'Rebates are only paid to trading accounts under the INDOREBATE network.',
                       'For Cent accounts, a minimum accumulated volume of 0.2 lots is required to earn rebates.'] }
@@ -106,11 +106,11 @@ window.REBATE_RATES = {
           fixed: { XAUUSD: 1.6, EURUSD: 1.6, GBPUSD: 1.6, AUDUSD: 1.6, NZDUSD: 1.6, USDJPY: 1.6, USDCAD: 1.6, USDCHF: 1.6, BTCUSD: 1.2 } }
       ],
       ui: {
-        id: { openUrl: '/pindah-ib-tmgm.html', infoUrl: '/rebate-tmgm.html',
+        id: { openUrl: '/id/pindah-ib-tmgm.html', infoUrl: '/id/rebate-tmgm.html',
               rules: ['Untuk akun Cent, akumulasi lot minimal 0.2 untuk mendapatkan rebate.',
                       'Trading dengan akun bonus atau margin bonus tidak mendapatkan rebate.',
                       'Rebate hanya diberikan ke akun trading di bawah jaringan INDOREBATE.'] },
-        en: { openUrl: '/en/switch-partner-tmgm.html', infoUrl: '/en/rebate-tmgm.html',
+        en: { openUrl: '/switch-partner-tmgm.html', infoUrl: '/rebate-tmgm.html',
               rules: ['For cent accounts, a minimum accumulated volume of 0.2 lots is required to earn rebates.',
                       'Trading with a bonus account or margin bonus does not earn rebates.',
                       'Rebates are only paid to trading accounts under the INDOREBATE network.'] }

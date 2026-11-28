@@ -1,12 +1,13 @@
-// Tombol "Chat CS" mengambang: membuka bot CS Indorebate di Telegram.
+// Tombol "Chat CS" mengambang: membuka Customer Service Indorebate (bot CS).
 // Pasang di tiap halaman dengan: <script src="/cs-widget.js?v=1" defer></script> sebelum </body>
 (function () {
   if (window.__csWidget) return;
   window.__csWidget = true;
-  var en = /^\/en(\/|$)/.test(location.pathname) || document.documentElement.lang === "en";
+  var id = /^\/id(\/|$)/.test(location.pathname) || document.documentElement.lang === "id";
+  var en = !id;
   var url = "https://t.me/cs_indorebate_bot?start=" + (en ? "web_en" : "web_id");
   var label = en ? "Chat with CS" : "Chat CS";
-  var title = en ? "Chat with Indorebate support on Telegram" : "Chat dengan CS Indorebate di Telegram";
+  var title = en ? "Chat with Indorebate Customer Service" : "Chat dengan Customer Service Indorebate";
 
   var css =
     ".csw{position:fixed;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:40;display:inline-flex;align-items:center;gap:8px;" +
