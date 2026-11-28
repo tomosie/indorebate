@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<link rel="icon" href="/favicon.ico" type="image/x-icon">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grid Pending EA — EA Trading Gratis untuk Member Indorebate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --navy:    #0B1B3A;
+    --navy-mid:#122249;
+    --navy-lt: #1A3068;
+    --gold:    #C9973A;
+    --gold-lt: #E8B84B;
+    --gold-pale:#FDF3E0;
+    --white:   #FFFFFF;
+    --gray-50: #F8FAFC;
+    --gray-100:#F1F5F9;
+    --gray-200:#E2E8F0;
+    --gray-500:#64748B;
+    --gray-700:#334155;
+    --text:    #1E293B;
+    --red:     #B3261E;
+    --red-pale:#FDEDEC;
+    --radius:  12px;
+    --shadow:  0 4px 24px rgba(11,27,58,.10);
+    --shadow-lg:0 12px 40px rgba(11,27,58,.15);
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--text); background: var(--white); line-height: 1.6; }
+
+  /* ── NAV (identical to index.html) ── */
+  nav {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,.95);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+    box-shadow: 0 2px 16px rgba(11,27,58,.07);
+  }
+  .nav-inner {
+    max-width: 1200px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; height: 68px;
+    flex-wrap: nowrap;
+  }
+  .logo {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 800; font-size: 1.5rem; letter-spacing: -0.5px;
+    color: var(--navy); text-decoration: none;
+  }
+  .logo span { color: var(--gold); }
+  .nav-links { display: flex; gap: 8px; list-style: none; }
+  .nav-links a {
+    font-family: 'Inter', sans-serif; font-weight: 500; font-size: .92rem;
+    color: var(--gray-700); text-decoration: none;
+    padding: 8px 16px; border-radius: 8px; transition: all .2s;
+  }
+  .nav-links a:hover { background: var(--gold-pale); color: var(--navy); }
+  .nav-links a.active { background: var(--navy); color: var(--white); }
+  .nav-actions{ display:flex; align-items:center; gap:10px; }
+  .nav-cta {
+    background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+    color: var(--navy); font-weight: 700; font-size: .88rem;
+    padding: 10px 20px; border-radius: 8px; text-decoration: none;
+    transition: transform .2s, box-shadow .2s;
+    box-shadow: 0 2px 8px rgba(201,151,58,.35);
+    white-space: nowrap;
+  }
+  .nav-cta:hover { transform: translateY(-1px); box-shadow: 0 4px 16px rgba(201,151,58,.5); }
+
+  /* Screenshot showcase */
+  .showcase {
+    padding: 0 24px 64px;
+    margin-top: -32px;
+    position: relative; z-index: 2;
+  }
+  .showcase-inner { max-width: 1000px; margin: 0 auto; }
+  .showcase-frame {
+    background: var(--navy);
+    border-radius: var(--radius);
+    padding: 10px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid rgba(255,255,255,.08);
+  }
+  .showcase-frame img {
+    width: 100%; display: block; border-radius: 8px;
+  }
+  .showcase-caption {
+    text-align: center; color: var(--gray-500); font-size: .88rem;
+    margin-top: 14px;
+  }
+
+  /* ── PAGE HERO ── */
+  .page-hero {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 55%, #1E3A7A 100%);
+    padding: 72px 24px 64px;
+    position: relative; overflow: hidden;
+    text-align: center;
+  }
+  .page-hero::before {
+    content: '';
+    position: absolute; top: -120px; right: -120px;
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(201,151,58,.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .page-hero-inner { max-width: 780px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero-badge {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: rgba(201,151,58,.15); border: 1px solid rgba(201,151,58,.4);
+    color: var(--gold-lt); font-size: .8rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
+    padding: 6px 14px; border-radius: 100px; margin-bottom: 20px;
+  }
+  .hero-badge::before { content: '🎁'; }
+  .breadcrumb-back {
+    display: inline-flex; align-items: center; gap: 6px;
+    color: rgba(255,255,255,.6); font-size: .85rem; text-decoration: none;
+    margin-bottom: 18px; transition: color .2s;
+  }
+  .breadcrumb-back:hover { color: var(--gold-lt); }
+  .page-hero h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 2.6rem; font-weight: 800; line-height: 1.2;
+    color: var(--white); margin-bottom: 18px; letter-spacing: -1px;
+  }
+  .page-hero h1 em { font-style: normal; color: var(--gold-lt); }
+  .page-hero p {
+    color: rgba(255,255,255,.75); font-size: 1.05rem;
+    max-width: 600px; margin: 0 auto 32px; line-height: 1.7;
+  }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+  .btn-gold {
+    background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+    color: var(--navy); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700; font-size: .95rem;
+    padding: 14px 28px; border-radius: 10px; text-decoration: none;
+    box-shadow: 0 4px 20px rgba(201,151,58,.45);
+    transition: transform .2s, box-shadow .2s; display:inline-block;
+  }
+  .btn-gold:hover { transform: translateY(-2px); box-shadow: 0 8px 28px rgba(201,151,58,.6); }
+  .btn-outline-hero {
+    background: transparent; border: 2px solid rgba(255,255,255,.3); color: var(--white);
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700; font-size: .95rem;
+    padding: 14px 28px; border-radius: 10px; text-decoration: none; display: inline-block;
+    transition: all .2s;
+  }
+  .btn-outline-hero:hover { border-color: var(--gold-lt); color: var(--gold-lt); }
+
+  /* ── SECTIONS ── */
+  .section { padding: 64px 24px; }
+  .section-inner { max-width: 900px; margin: 0 auto; }
+  .section-label {
+    color: var(--gold); font-weight: 700; font-size: .8rem;
+    letter-spacing: .1em; text-transform: uppercase; margin-bottom: 10px;
+  }
+  .section-title {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.9rem; font-weight: 800; color: var(--navy);
+    margin-bottom: 20px; letter-spacing: -.5px;
+  }
+  .section p { color: var(--gray-700); margin-bottom: 14px; }
+
+  /* Disclaimer box */
+  .warning-box {
+    background: var(--red-pale);
+    border: 1px solid rgba(179,38,30,.25);
+    border-left: 4px solid var(--red);
+    border-radius: var(--radius);
+    padding: 28px 28px;
+    margin: 24px 0;
+  }
+  .warning-box h3 {
+    color: var(--red); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.1rem; margin-bottom: 14px; display:flex; align-items:center; gap:8px;
+  }
+  .warning-box ul { margin: 0; padding-left: 20px; color: var(--gray-700); }
+  .warning-box li { margin-bottom: 10px; }
+  .warning-box .fine-print {
+    margin-top: 16px; padding-top: 16px; border-top: 1px dashed rgba(179,38,30,.25);
+    font-size: .85rem; color: var(--gray-500); font-style: italic;
+  }
+
+  /* Requirement box (gold) */
+  .require-box {
+    background: var(--gold-pale);
+    border: 1px solid rgba(201,151,58,.35);
+    border-left: 4px solid var(--gold);
+    border-radius: var(--radius);
+    padding: 24px 28px;
+    margin: 24px 0;
+    display: flex; align-items: flex-start; gap: 16px;
+  }
+  .require-box .icon { font-size: 1.6rem; line-height: 1; flex-shrink: 0; }
+  .require-box h3 {
+    color: var(--navy); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1rem; margin-bottom: 6px;
+  }
+  .require-box p { color: var(--gray-700); font-size: .92rem; margin: 0; }
+  .require-box a { color: var(--navy); font-weight: 700; text-decoration: underline; }
+
+  /* Feature table */
+  .feature-table { width: 100%; border-collapse: collapse; margin: 24px 0; }
+  .feature-table th, .feature-table td {
+    text-align: left; padding: 14px 16px; border-bottom: 1px solid var(--gray-200);
+    font-size: .92rem;
+  }
+  .feature-table th {
+    background: var(--gray-50); color: var(--navy);
+    font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 700;
+  }
+  .feature-table td:first-child { font-weight: 600; color: var(--navy); white-space: nowrap; }
+  .feature-table td { color: var(--gray-700); }
+
+  /* Steps */
+  .steps-list { counter-reset: step; list-style: none; margin: 24px 0; }
+  .steps-list li {
+    counter-increment: step;
+    position: relative;
+    padding: 4px 0 28px 52px;
+    color: var(--gray-700);
+  }
+  .steps-list li::before {
+    content: counter(step);
+    position: absolute; left: 0; top: 0;
+    width: 34px; height: 34px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold), var(--gold-lt));
+    color: var(--navy); font-family: 'Plus Jakarta Sans', sans-serif; font-weight: 800;
+    display: flex; align-items: center; justify-content: center; font-size: .95rem;
+  }
+  .steps-list li strong { color: var(--navy); display:block; margin-bottom: 4px; font-family:'Plus Jakarta Sans', sans-serif; }
+
+  /* CTA card */
+  .claim-card {
+    background: linear-gradient(135deg, var(--navy) 0%, var(--navy-mid) 100%);
+    border-radius: var(--radius);
+    padding: 40px 32px;
+    text-align: center;
+    margin: 40px 0;
+  }
+  .claim-card h3 {
+    color: var(--white); font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 1.4rem; margin-bottom: 10px;
+  }
+  .claim-card p { color: rgba(255,255,255,.7); margin-bottom: 24px; }
+
+  .divider { height: 1px; background: var(--gray-200); margin: 8px 0 40px; }
+
+  @media (max-width: 900px) {
+    nav .nav-links { display: none; }
+    .page-hero h1 { font-size: 2rem; }
+    .feature-table { font-size: .85rem; }
+    .feature-table th, .feature-table td { padding: 10px 10px; }
+    .showcase { margin-top: -20px; }
+    .nav-actions { gap: 8px; }
+    .nav-cta { padding: 12px 26px; font-size: .95rem; }
+  }
+  @media (max-width: 480px) {
+    .nav-inner { padding: 0 12px; }
+    .logo { font-size: 1.15rem; }
+    .nav-actions { gap: 8px; }
+    .nav-cta { padding: 11px 20px; font-size: .88rem; }
+  }
+  @media (max-width: 380px) {
+    .nav-inner { padding: 0 10px; }
+    .logo { font-size: 1.02rem; }
+    .nav-actions { gap: 6px; }
+    .nav-cta { padding: 10px 16px; font-size: .8rem; }
+  }
+</style>
+<meta name="description" content="Grid Pending EA v1.70: EA MT5 grid pending order dua arah gratis dengan panel dashboard lengkap untuk member terdaftar Indorebate.">
+<link rel="canonical" href="https://indorebate.com/id/grid-ea-gratis.html" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Indorebate" />
+<meta property="og:locale" content="id_ID" />
+<meta property="og:locale:alternate" content="en_US" />
+<meta property="og:title" content="Grid Pending EA — EA Trading Gratis untuk Member Indorebate" />
+<meta property="og:description" content="Grid Pending EA v1.70: EA MT5 grid pending order dua arah gratis dengan panel dashboard lengkap untuk member terdaftar Indorebate." />
+<meta property="og:url" content="https://indorebate.com/id/grid-ea-gratis.html" />
+<meta property="og:image" content="https://indorebate.com/images/og-image-id.png" />
+<meta property="og:image:type" content="image/png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Indorebate: Dapatkan Rebate Otomatis dari Setiap Trading, rebate forex di 8 broker mitra" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Grid Pending EA — EA Trading Gratis untuk Member Indorebate" />
+<meta name="twitter:description" content="Grid Pending EA v1.70: EA MT5 grid pending order dua arah gratis dengan panel dashboard lengkap untuk member terdaftar Indorebate." />
+<meta name="twitter:image" content="https://indorebate.com/images/og-image-id.png" />
+<link rel="alternate" hreflang="id" href="https://indorebate.com/id/grid-ea-gratis.html" />
+<link rel="alternate" hreflang="en" href="https://indorebate.com/free-grid-ea.html" />
+<link rel="alternate" hreflang="x-default" href="https://indorebate.com/free-grid-ea.html" />
+<style>
+.lang-switch{display:inline-flex;align-items:center;gap:4px;margin-right:12px;font-family:'Plus Jakarta Sans',sans-serif;font-size:.8rem;font-weight:700}
+.lang-switch a{color:#64748B;text-decoration:none;padding:4px 8px;border-radius:6px}
+.lang-switch a.current{background:#0B1B3A;color:#fff}
+.lang-switch a:not(.current):hover{background:#F1F5F9;color:#0B1B3A}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <a href="/id/" class="logo">INDO<span>REBATE</span></a>
+    <ul class="nav-links">
+      <li><a href="/id/">Beranda</a></li>
+      <li><a href="/id/#broker">Broker</a></li>
+      <li><a href="/id/#cara-kerja">Cara Kerja</a></li>
+      <li><a href="/id/rebate.html" target="_blank" rel="noopener noreferrer">Apa itu Rebate</a></li>
+      <li><a href="/id/tools-gratis.html">🎁 Tools Gratis</a></li>
+      <li><a href="/id/kalkulator-rebate.html">🧮 Kalkulator</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="lang-switch" role="navigation" aria-label="Bahasa"><a href="/id/grid-ea-gratis.html" class="current" aria-current="true" hreflang="id" lang="id">ID</a><a href="/free-grid-ea.html" hreflang="en" lang="en">EN</a></div>
+
+      <a href="/id/validasi.html" target="_blank" rel="noopener noreferrer" class="nav-cta">Validasi</a>
+    </div>
+  </div>
+</nav>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="page-hero-inner">
+    <a href="/id/tools-gratis.html" class="breadcrumb-back">← Semua Tools Gratis</a>
+    <div class="hero-badge">Bonus Eksklusif Member Terdaftar</div>
+    <h1>Grid Pending EA <em>Gratis</em> untuk Member Indorebate</h1>
+    <p>EA grid pending order dua arah (Buy &amp; Sell) dengan dashboard panel kontrol penuh langsung di chart — Basket TP, trailing, continuous entry, hingga target profit/loss otomatis. <strong>Khusus untuk akun trading yang terdaftar aktif di Indorebate.</strong></p>
+    <div class="hero-btns">
+      <a href="#klaim" class="btn-gold">Klaim EA Gratis</a>
+      <a href="#panduan" class="btn-outline-hero">Lihat Panduan</a>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOT SHOWCASE -->
+<section class="showcase">
+  <div class="showcase-inner">
+    <div class="showcase-frame">
+      <img src="/grid-pending-ea-screenshot.png" alt="Tampilan panel Grid Pending EA v1.70 di chart XAUUSD MT5">
+    </div>
+    <p class="showcase-caption">Dua panel Grid Pending EA v1.70 langsung di chart MT5 — Parameter (pengaturan grid, SL/TP, Basket TP, trailing, continuous entry, target profit/loss) dan Status & Monitor (posisi, profit floating/closed/total secara real-time).</p>
+  </div>
+</section>
+
+<!-- DISCLAIMER -->
+<section class="section">
+  <div class="section-inner">
+
+    <div class="require-box">
+      <div class="icon">🔒</div>
+      <div>
+        <h3>Syarat Penggunaan: Akun Terdaftar di Indorebate</h3>
+        <p>EA ini <strong>hanya dapat digunakan dengan akun trading yang terdaftar dan aktif di jaringan Indorebate.</strong> Belum punya akun terdaftar? <a href="/id/#broker">Daftar di sini</a> atau <a href="/id/validasi.html" target="_blank" rel="noopener noreferrer">validasi akun Anda</a> terlebih dahulu.</p>
+      </div>
+    </div>
+
+    <div class="section-label">Baca Dulu</div>
+    <h2 class="section-title">Penting: EA Grid/Hedging Berisiko Tinggi</h2>
+    <p>EA ini membuka banyak pending order sekaligus di dua arah (grid), lalu mengelola posisi yang terbuka secara otomatis. Strategi grid seperti ini bisa efektif di market ranging, tapi berisiko besar kalau harga bergerak searah dan kuat tanpa pembalikan — pastikan Anda memahami cara kerjanya sebelum menggunakan modal riil.</p>
+
+    <div class="warning-box">
+      <h3>⚠️ Hal yang Wajib Anda Pahami</h3>
+      <ul>
+        <li><strong>Saat tombol EXECUTE ditekan, EA langsung membuka grid pending order Buy &amp; Sell sekaligus</strong> dari harga market saat itu — jumlah layer, jarak antar layer, dan lot per layer mengikuti pengaturan Anda di panel.</li>
+        <li><strong>Basket TP</strong> menutup semua posisi begitu harga mencapai titik breakeven gabungan (BEP) + jarak tertentu. Selama basket belum tertutup, <strong>penutupan satu posisi mana pun (kena TP/SL/trailing/manual) akan memicu penutupan seluruh sisa posisi dan pending order</strong> (close all).</li>
+        <li>Kalau <strong>Continuous Entry</strong> diaktifkan, EA otomatis membuka grid baru dari harga pasar terkini setiap kali satu siklus basket selesai tertutup — EA akan terus membuka posisi baru tanpa henti selama fitur ini ON.</li>
+        <li>Semakin banyak jumlah layer dan semakin kecil jarak antar layer, semakin banyak pula pending order yang berpotensi tersentuh sekaligus saat market bergerak cepat — <strong>gunakan lot dan jumlah layer yang sesuai dengan modal Anda</strong> untuk menghindari Margin Call (MC).</li>
+        <li><strong>EA ini tidak menganalisa arah market.</strong> Grid dibuka dua arah dari harga saat itu juga — bukan berdasarkan prediksi tren naik atau turun.</li>
+        <li><strong>EA tidak berjalan otomatis 24 jam tanpa pengawasan.</strong> Anda tetap perlu memantau posisi, kondisi market, dan berita ekonomi — terutama saat Continuous Entry aktif.</li>
+        <li>Hasil trading sepenuhnya bergantung pada <strong>pengaturan parameter, manajemen risiko, dan disiplin masing-masing pengguna</strong> — bukan pada EA itu sendiri.</li>
+      </ul>
+      <div class="fine-print">
+        Tools ini ditujukan untuk trader yang sudah memahami konsep grid trading, hedging, dan risikonya. Indorebate tidak bertanggung jawab atas kerugian trading yang timbul dari penggunaan tools ini. Forex trading mengandung risiko kehilangan modal.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="section" style="background:var(--gray-50);">
+  <div class="section-inner">
+    <div class="section-label">Fitur</div>
+    <h2 class="section-title">Apa yang Dilakukan EA Ini</h2>
+    <p>Semua fitur dikontrol langsung dari dashboard panel di chart — tanpa perlu mengubah kode atau pengaturan lewat jendela input EA.</p>
+    <table class="feature-table">
+      <tr><th>Fitur</th><th>Penjelasan</th></tr>
+      <tr><td>Grid Pending 2 Arah</td><td>Membuka pending order Buy &amp; Sell sekaligus dari harga market saat tombol EXECUTE ditekan. Tipe pending bisa Stop (mengikuti breakout) atau Limit (mean-reversion).</td></tr>
+      <tr><td>SL/TP Per Posisi atau Global</td><td>Pilih mode "Per Posisi" (SL/TP tetap untuk tiap layer) atau "Global" (dihitung dari layer terluar, berlaku sama ke semua posisi di sisi yang sama).</td></tr>
+      <tr><td>Basket TP (Gabungan)</td><td>Menutup semua posisi otomatis saat harga mencapai breakeven gabungan (BEP) + jarak yang ditentukan. Di mode Stop, aktif kalau kedua sisi sama-sama punya posisi; di mode Limit, bisa aktif walau baru satu sisi terbuka.</td></tr>
+      <tr><td>Hard TP/SL (ON/OFF)</td><td>ON (default): TP/SL asli tetap dipasang di broker sebagai pengaman ganda. OFF: TP/SL broker dilepas semua, penutupan basket murni dikendalikan EA lewat pengecekan harga setiap tick.</td></tr>
+      <tr><td>Trailing Stop Otomatis</td><td>Berjalan otomatis hanya saat posisi terbuka cuma satu sisi (full Buy saja atau full Sell saja), mengunci profit seiring harga bergerak searah.</td></tr>
+      <tr><td>Continuous Entry</td><td>Setelah satu siklus grid selesai tertutup penuh, EA otomatis membuka grid baru dari harga market terkini — tanpa perlu menekan Execute ulang secara manual.</td></tr>
+      <tr><td>Target Profit &amp; Target Loss (USD)</td><td>Begitu target tercapai, EA menutup seluruh posisi dan mematikan dirinya sendiri (perlu ditekan CONNECT lagi untuk mengaktifkan ulang).</td></tr>
+      <tr><td>Panel Dashboard Lengkap</td><td>Menampilkan nama pair, jumlah posisi Buy/Sell terbuka, status Trailing, level Basket TP aktif, serta profit floating/closed/total secara real-time.</td></tr>
+      <tr><td>Panel Bisa Digeser &amp; Diminimize</td><td>Panel parameter dan panel info bisa diseret ke posisi mana pun di chart (posisi tersimpan otomatis) dan diminimize lewat tombol "_" di pojok kanan atas.</td></tr>
+      <tr><td>Blank Chart Mode</td><td>Menyembunyikan candle, grid, dan volume bawaan chart (latar polos) agar fokus ke panel EA — bisa dikembalikan kapan saja lewat tombol yang sama.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- PANDUAN -->
+<section class="section" id="panduan">
+  <div class="section-inner">
+    <div class="section-label">Petunjuk Penggunaan</div>
+    <h2 class="section-title">Cara Menggunakan EA</h2>
+    <ol class="steps-list">
+      <li><strong>Aktivasi dengan Password</strong>Masukkan Nomor Akun Trading dan Password Aktivasi Anda (diberikan admin lewat email/Customer Service setelah akun disetujui sebagai member rebate) ke parameter input EA. EA hanya akan berjalan jika kombinasi keduanya cocok dengan data akun Anda yang terdaftar di jaringan Indorebate.</li>
+      <li><strong>Persiapan</strong>Pasang EA di chart pair yang ingin ditradingkan. Pastikan akun trading dalam mode <em>hedging</em>, bukan netting, karena EA membuka posisi Buy &amp; Sell sekaligus di pair yang sama.</li>
+      <li><strong>Atur Grid Sesuai Modal</strong>Tentukan jumlah Layer, Jarak antar layer (poin), dan Lot per layer di panel — semakin besar jumlah layer dan semakin kecil jaraknya, semakin besar pula potensi total lot yang terbuka.</li>
+      <li><strong>Pilih Mode Pending &amp; SL/TP</strong>Pilih tipe pending STOP (breakout) atau LIMIT (mean-reversion), lalu tentukan mode SL/TP: Per Posisi atau Global.</li>
+      <li><strong>Atur Basket TP &amp; Trailing</strong>Aktifkan Basket TP dan tentukan jaraknya dari BEP sesuai target Anda. Nyalakan Trailing bila diinginkan (khusus mode STOP) — statusnya otomatis berjalan begitu posisi hanya tersisa di satu sisi.</li>
+      <li><strong>Atur Proteksi Tambahan</strong>Set Target Profit dan Target Loss (USD) sebagai pengaman otomatis untuk seluruh siklus, serta tentukan apakah Continuous Entry ingin diaktifkan atau tidak.</li>
+      <li><strong>Tekan CONNECT lalu EXECUTE</strong>Tekan tombol CONNECT EA untuk mengaktifkan EA, lalu tekan EXECUTE untuk membuka grid pending order sesuai parameter yang sudah diatur.</li>
+      <li><strong>Pantau Secara Berkala</strong>Cek panel info secara rutin, terutama saat market volatile (rilis berita, overlap sesi trading) — EA bukan pengganti pengawasan Anda.</li>
+      <li><strong>Close All / Reset Kapan Saja</strong>Gunakan tombol CLOSE ALL untuk menutup seluruh posisi & pending order tanpa mereset status EA, atau RESET untuk menutup semuanya sekaligus mengembalikan EA ke kondisi awal (perlu CONNECT ulang).</li>
+    </ol>
+  </div>
+</section>
+
+<!-- CLAIM -->
+<section class="section" style="background:var(--gray-50);" id="klaim">
+  <div class="section-inner">
+    <div class="claim-card">
+      <h3>Cara Klaim EA Gratis</h3>
+      <p>Daftar akun trading via link referral Indorebate → Aktifkan &amp; validasi status member rebate → Cek email → Cek Password untuk aktivasi Grid Pending Tools.</p>
+      <div class="hero-btns">
+        <a href="/id/#broker" class="btn-gold">Daftar Akun Broker</a>
+        <a href="https://drive.google.com/drive/folders/1TiennStFbzi6Pixzh7HseyBdLcIJ7u3W?usp=sharing" target="_blank" rel="noopener noreferrer" class="btn-outline-hero">Download EA di sini</a>
+      </div>
+      <p style="color:rgba(255,255,255,.55);font-size:.82rem;margin-top:20px;margin-bottom:0;">⚠️ EA hanya diberikan untuk akun yang sudah terverifikasi terdaftar di Indorebate.</p>
+    </div>
+    <p style="text-align:center;color:var(--gray-500);font-size:.9rem;">Dengan menggunakan EA ini, Anda memahami dan menyetujui bahwa keputusan trading, hasil, dan risiko sepenuhnya menjadi tanggung jawab Anda pribadi sebagai pengguna.</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer style="background:var(--navy);padding:48px 24px 24px;">
+  <div style="max-width:1200px;margin:0 auto;">
+    <div style="display:flex;justify-content:space-between;flex-wrap:wrap;gap:24px;padding-bottom:24px;">
+      <a href="/id/" class="logo" style="color:var(--white)">INDO<span style="color:var(--gold)">REBATE</span></a>
+      <div style="display:flex;gap:20px;">
+        <a href="https://t.me/cs_indorebate_bot?start=web_id" style="color:rgba(255,255,255,.7);text-decoration:none;">💬 Customer Service</a>
+        <a href="mailto:support@indorebate.com" style="color:rgba(255,255,255,.7);text-decoration:none;">✉️ Email</a>
+      </div>
+    </div>
+    <div style="border-top:1px solid rgba(255,255,255,.1);padding-top:20px;">
+      <p style="color:rgba(255,255,255,.45);font-size:.8rem;line-height:1.6;">
+        <strong style="color:rgba(255,255,255,.6)">Disclaimer:</strong>
+        Indorebate bukan merupakan bagian dari Broker Forex manapun, hanya sebagai mitra yang bertugas untuk memberi kemudahan dan fasilitas tambahan trading kepada klien. EA yang dibagikan adalah tools bantuan trading, bukan sistem yang menjamin profit. Forex trading mempunyai risiko kehilangan dana. Gunakan dana secara bijak. Indorebate tidak mengajak, mempromosikan, ataupun merekomendasikan broker tertentu. Indorebate hanya memfasilitasi pengembalian sebagian komisi (rebate) kepada trader yang telah memilih sendiri brokernya. Keputusan untuk memilih broker dan bertransaksi sepenuhnya menjadi tanggung jawab masing-masing trader.
+      </p>
+      <div style="color:rgba(255,255,255,.35);font-size:.8rem;margin-top:12px;">© 2026 Indorebate</div>
+    </div>
+  </div>
+</footer>
+
+<script src="/cs-widget.js?v=1" defer></script>
+</body>
+</html>
